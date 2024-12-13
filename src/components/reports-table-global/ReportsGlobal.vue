@@ -24,20 +24,7 @@
           </div>
         </div>
         <!-- pagination -->
-        <div class="flex items-center">
-          <button class="bg-gray-200 hover:bg-gray-300 rounded p-2">
-            <i class="fas fa-angle-double-left"></i>
-          </button>
-          <button class="bg-gray-200 hover:bg-gray-300 rounded p-2 mx-1">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="bg-gray-200 hover:bg-gray-300 rounded p-2 mx-1">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <button class="bg-gray-200 hover:bg-gray-300 rounded p-2">
-            <i class="fas fa-angle-double-right"></i>
-          </button>
-        </div>
+        <Pagination />
       </div>
 
       <button
@@ -70,15 +57,16 @@
       </table>
     </div>
   </div>
-  <ReportsFilterModal
+  <!-- <ReportsFilterModal
     :isVisible="isModalVisible"
     @close="closeModal"
     @apply-filters="handleFilters"
-  />
+  /> -->
 </template>
 
 <script>
-import ReportsFilterModal from "../reports-filter-modal/ReportsFilterModal.vue";
+// import ReportsFilterModal from "../reports-filter-modal/ReportsFilterModal.vue";
+import Pagination from "../Pagination/Pagination.vue";
 export default {
   name: "ReportsGlobal",
   props: {
@@ -87,24 +75,8 @@ export default {
       default: "Table Title",
     },
   },
-  data() {
-    return {
-      isModalVisible: false,
-    };
-  },
-  component: {
-    ReportsFilterModal,
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    closeModal() {
-      this.isModalVisible = false;
-    },
-    handleFilters(filters) {
-      console.log("Applied Filters:", filters);
-    },
+  components: {
+    Pagination,
   },
 };
 </script>

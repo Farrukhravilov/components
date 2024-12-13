@@ -6,16 +6,24 @@
     <!-- <TaminotDetail /> -->
     <!-- <TaminotDetail /> -->
     <!-- <TableCollabse /> -->
-     <!-- <TableCollapseUse/> -->
+    <!-- <TableCollapseUse/> -->
     <!-- <DavomatTable/> -->
-     <!-- <KassaCard/> -->
+    <!-- <KassaCard/> -->
     <!-- <Expence/> -->
     <!-- <ExpenceModalUse/> -->
-    <Reports/>
+    <!-- <Reports /> -->
+    <!-- <ReportsFilterModal /> -->
+     <!-- <Company/> -->
+    <!-- <KpiSection/> -->
+     <Packaging/>
   </div>
 </template>
 
 <script setup>
+import Packaging from "./components/Packaging/Packaging.vue";
+import KpiSection from "./components/Kpi-section/KpiSection.vue";
+import Company from "./components/Company/Company.vue";
+import ReportsFilterModal from "./components/reports-filter-modal/ReportsFilterModal.vue";
 import Reports from "./components/reports/Reports.vue";
 import ExpenceModalUse from "./components/expence-modal/ExpenceModalUse.vue";
 import Expence from "./components/expense/Expence.vue";

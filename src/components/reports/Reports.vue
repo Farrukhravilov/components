@@ -29,10 +29,13 @@
       </button>
     </div>
     <ReportsGlobal title="Bir Martalik Chiqimlar"/>
+    <ReportsMainTable/>
+    <ReportsGlobal title="Berilgan maoshlar"/>
   </div>
 </template>
 
 <script setup>
+import ReportsMainTable from "../reports-main-table/ReportsMainTable.vue";
 import ReportsDataItem from "../reports-data-item/ReportsDataItem.vue";
 import ReportsGlobal from "../reports-table-global/ReportsGlobal.vue";
 </script>
