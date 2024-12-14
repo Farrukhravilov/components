@@ -15,11 +15,15 @@
     <!-- <ReportsFilterModal /> -->
      <!-- <Company/> -->
     <!-- <KpiSection/> -->
-     <Packaging/>
+     <!-- <Packaging/> -->
+      <!-- <Payment/> -->
+    <Transport/>
   </div>
 </template>
 
 <script setup>
+import Transport from "./components/Transport/Transport.vue";
+import Payment from "./components/Payment/Payment.vue";
 import Packaging from "./components/Packaging/Packaging.vue";
 import KpiSection from "./components/Kpi-section/KpiSection.vue";
 import Company from "./components/Company/Company.vue";

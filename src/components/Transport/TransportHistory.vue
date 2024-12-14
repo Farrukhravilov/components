@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <h1 class="text-2xl font-bold">Kpi - Operator tarixi</h1>
+    <h1 class="text-2xl font-bold">Transport tarixi</h1>
     <p class="text-gray-600">
       2024-12-01 -> 2024-12-31 || oralig'da kpi yozilg'anlar.
     </p>
@@ -37,9 +37,8 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "KpiOperator",
+  name: "TransportHistory",
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

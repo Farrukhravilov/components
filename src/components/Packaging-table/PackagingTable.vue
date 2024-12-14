@@ -1,13 +1,19 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">Yuvish xodimlari uchun</h1>
-    <div class="flex justify-between items-center mb-4">
-      <div class="flex-grow">
-        <span class="mr-2 font-semibold">Dan</span>
-        <span class="mr-2 font-semibold">Gacha</span>
-        <span class="mr-2 font-semibold">Summa</span>
-      </div>
-      <button class="btn btn-primary">+</button>
+    <div class="flex items-center mb-4 border border-gray-200">
+      <input
+        type="number"
+        placeholder="Dan"
+        class="input w-1/4 border-r border-gray-200"
+      />
+      <input type="number" placeholder="Gacha" class="input w-1/4" />
+      <input
+        type="number"
+        placeholder="Summa"
+        class="input w-1/4 border-l border-gray-200"
+      />
+      <button class="btn bg-indigo-600 text-white rounded px-4 py-2">+</button>
     </div>
 
     <table class="table w-full">
@@ -27,29 +33,11 @@
           <td>{{ task.to }}</td>
           <td>{{ task.total }}</td>
           <td>
-            <button class="btn btn-secondary mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 8.5V15h-2v-4.5H6v-2h3V7h2v2.5h3v2h-3z"
-                />
-              </svg>
+            <button class="btn btn-warning btn-sm mr-2 hover:bg-yellow-400">
+              <i class="fas fa-edit"></i> Edit
             </button>
-            <button class="btn btn-error">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  d="M10 2a8 8 0 100 16 8 8 0 000-16zM7 8h6v2H7zm0 3h6v2H7z"
-                />
-              </svg>
+            <button class="btn btn-error btn-sm hover:bg-red-600">
+              <i class="fas fa-trash-alt"></i> Delete
             </button>
           </td>
         </tr>
