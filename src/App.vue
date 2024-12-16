@@ -17,11 +17,13 @@
     <!-- <KpiSection/> -->
      <!-- <Packaging/> -->
       <!-- <Payment/> -->
-    <Transport/>
+    <!-- <Transport/> -->
+     <Operator/>
   </div>
 </template>
 
 <script setup>
+import Operator from "./components/Operator/Operator.vue";
 import Transport from "./components/Transport/Transport.vue";
 import Payment from "./components/Payment/Payment.vue";
 import Packaging from "./components/Packaging/Packaging.vue";
