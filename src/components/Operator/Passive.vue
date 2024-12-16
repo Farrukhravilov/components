@@ -39,7 +39,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination/>
+    <Pagination />
   </div>
 </template>
 
@@ -151,5 +151,5 @@ export default defineComponent({
 </script>
 
 <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"); */
 </style>
