@@ -18,11 +18,13 @@
      <!-- <Packaging/> -->
       <!-- <Payment/> -->
     <!-- <Transport/> -->
-     <Operator/>
+     <!-- <Operator/> -->
+      <Customers/>
   </div>
 </template>
 
 <script setup>
+import Customers from "./components/Customers/Customers.vue";
 import Operator from "./components/Operator/Operator.vue";
 import Transport from "./components/Transport/Transport.vue";
 import Payment from "./components/Payment/Payment.vue";
