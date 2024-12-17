@@ -13,18 +13,22 @@
     <!-- <ExpenceModalUse/> -->
     <!-- <Reports /> -->
     <!-- <ReportsFilterModal /> -->
-     <!-- <Company/> -->
+    <!-- <Company/> -->
     <!-- <KpiSection/> -->
-     <!-- <Packaging/> -->
-      <!-- <Payment/> -->
+    <!-- <Packaging/> -->
+    <!-- <Payment/> -->
     <!-- <Transport/> -->
-     <!-- <Operator/> -->
-      <!-- <Customers/> -->
-       <AllCustomersTable/>
+    <!-- <Operator/> -->
+    <!-- <Customers/> -->
+    <!-- <AllCustomersTable/> -->
+    <!-- <sendSms /> -->
+     <DebtorsSection/>
   </div>
 </template>
 
 <script setup>
+import DebtorsSection from "./components/Customers/DebtorsSection.vue";
+import sendSms from "./components/Customers/SendSms.vue";
 import AllCustomersTable from "./components/Customers/AllCustomers.vue";
 import Customers from "./components/Customers/Customers.vue";
 import Operator from "./components/Operator/Operator.vue";
