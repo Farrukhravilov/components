@@ -19,11 +19,13 @@
       <!-- <Payment/> -->
     <!-- <Transport/> -->
      <!-- <Operator/> -->
-      <Customers/>
+      <!-- <Customers/> -->
+       <AllCustomersTable/>
   </div>
 </template>
 
 <script setup>
+import AllCustomersTable from "./components/Customers/AllCustomers.vue";
 import Customers from "./components/Customers/Customers.vue";
 import Operator from "./components/Operator/Operator.vue";
 import Transport from "./components/Transport/Transport.vue";

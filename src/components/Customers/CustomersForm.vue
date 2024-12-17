@@ -187,6 +187,48 @@
           />
         </div>
       </div>
+      <!--  -->
+
+      <div class="grid grid-cols-2  mt-[20px] mb-[20px] gap-6">
+        <!-- Карточка товара -->
+        <div
+          class="p-4 rounded"
+        >
+          <!-- Название товара и цена -->
+          <div class="text-sm font-semibold mb-2">
+            <!-- {{ item.name }} -->
+            Buyurtma chegirma(foizda)
+          </div>
+          <!-- Поле для скидки -->
+          <div class="flex items-center">
+            <input
+              type="number"
+              placeholder="Chegirma"
+              class="flex-1 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <span class="text-[#fff] text-sm bg-gray-300 p-2">%</span>
+          </div>
+        </div>
+        <div
+          class="p-4 rounded "
+        >
+          <!-- Название товара и цена -->
+          <div class="text-sm font-semibold mb-2">
+            <!-- {{ item.name }} -->
+            Buyurtma chegirma(pulda)
+          </div>
+          <!-- Поле для скидки -->
+          <div class="flex items-center">
+            <input
+              type="number"
+              placeholder="Chegirma"
+              class="flex-1 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <span class="text-[#fff] text-sm bg-gray-300 p-2">so'm</span>
+          </div>
+        </div>
+      </div>
+      <!--  -->
       <transition name="fade">
         <div v-if="orderPlacement" class="flex items-center space-x-4">
           <button @click="refresh" class="p-2 bg-blue-600 text-white rounded">
