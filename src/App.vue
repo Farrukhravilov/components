@@ -22,11 +22,17 @@
     <!-- <Customers/> -->
     <!-- <AllCustomersTable/> -->
     <!-- <sendSms /> -->
-     <DebtorsSection/>
+     <!-- <DebtorsSection/> -->
+    <!-- <Delivery/> -->
+     <!-- delivery FOYIZ/BOLISH BUTTONDI COMPONENTASI !!!! -->
+    <!-- <Receipt/> -->
+     <!-- TEPADGI DELIVERY NIKI -->
   </div>
 </template>
 
 <script setup>
+import Receipt from "./components/Delivery/Receipt.vue";
+import Delivery from "./components/Delivery/Delivery.vue";
 import DebtorsSection from "./components/Customers/DebtorsSection.vue";
 import sendSms from "./components/Customers/SendSms.vue";
 import AllCustomersTable from "./components/Customers/AllCustomers.vue";
