@@ -43,12 +43,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-interface Discount {
-  serviceType: string;
-  price: string;
-  discountAmount: number;
-}
-
 </script>
 
 <style scoped>

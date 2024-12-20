@@ -6,7 +6,11 @@ export default {
     "node_modules/daisyui/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        '3fr-auto': '3fr auto', // Добавление кастомного значения
+      },
+    },
   },
   plugins: [require("daisyui")],  
 }

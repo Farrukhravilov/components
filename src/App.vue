@@ -22,15 +22,29 @@
     <!-- <Customers/> -->
     <!-- <AllCustomersTable/> -->
     <!-- <sendSms /> -->
-     <!-- <DebtorsSection/> -->
+    <!-- <DebtorsSection/> -->
     <!-- <Delivery/> -->
-     <!-- delivery FOYIZ/BOLISH BUTTONDI COMPONENTASI !!!! -->
+    <!-- delivery FOYIZ/BOLISH BUTTONDI COMPONENTASI !!!! -->
     <!-- <Receipt/> -->
-     <!-- TEPADGI DELIVERY NIKI -->
+    <!-- TEPADGI DELIVERY NIKI -->
+    <Orders />
+    <!-- <PutTable/> -->
+    <!-- <OnDelivery/> -->
+    <!-- <TransportSection /> -->
+    <!-- <OrderReceivingDepartment/> -->
+    <!-- <TransportAcceptanceDepartment/> -->
+    <!-- <TransportReadyOrders/> -->
   </div>
 </template>
 
 <script setup>
+import TransportReadyOrders from "./components/TransportSection/TransportReadyOrders.vue";
+import TransportAcceptanceDepartment from "./components/TransportSection/TransportAcceptanceDepartment.vue";
+import OrderReceivingDepartment from "./components/TransportSection/OrderReceivingDepartment.vue";
+import TransportSection from "./components/TransportSection/TransportSection.vue";
+import OnDelivery from "./components/OnDelivery/OnDelivery.vue";
+import PutTable from "./components/OrdersStatus/PutTable.vue";
+import Orders from "./components/OrdersStatus/Orders.vue";
 import Receipt from "./components/Delivery/Receipt.vue";
 import Delivery from "./components/Delivery/Delivery.vue";
 import DebtorsSection from "./components/Customers/DebtorsSection.vue";
