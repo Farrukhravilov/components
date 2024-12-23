@@ -27,17 +27,23 @@
     <!-- delivery FOYIZ/BOLISH BUTTONDI COMPONENTASI !!!! -->
     <!-- <Receipt/> -->
     <!-- TEPADGI DELIVERY NIKI -->
-    <Orders />
+    <!-- <Orders /> -->
     <!-- <PutTable/> -->
     <!-- <OnDelivery/> -->
     <!-- <TransportSection /> -->
     <!-- <OrderReceivingDepartment/> -->
     <!-- <TransportAcceptanceDepartment/> -->
+    <!-- <RetryOrders/> -->
     <!-- <TransportReadyOrders/> -->
+     <!-- <Washing/> -->
+    <WashingSection/>
   </div>
 </template>
 
 <script setup>
+import WashingSection from "./components/Washing/WashingSection.vue";
+import Washing from "./components/Washing/Washing.vue";
+import RetryOrders from "./components/TransportSection/RetryOrders.vue";
 import TransportReadyOrders from "./components/TransportSection/TransportReadyOrders.vue";
 import TransportAcceptanceDepartment from "./components/TransportSection/TransportAcceptanceDepartment.vue";
 import OrderReceivingDepartment from "./components/TransportSection/OrderReceivingDepartment.vue";
