@@ -35,12 +35,16 @@
     <!-- <TransportAcceptanceDepartment/> -->
     <!-- <RetryOrders/> -->
     <!-- <TransportReadyOrders/> -->
-     <!-- <Washing/> -->
-    <WashingSection/>
+    <!-- <Washing/> -->
+    <!-- <WashingSection/> -->
+    <!-- <PackagingSection /> -->
+    <!-- <Shelves /> -->
   </div>
 </template>
 
 <script setup>
+import Shelves from "./components/Shelves/Shelves.vue";
+import PackagingSection from "./components/Packaging-Section/PackagingSection.vue";
 import WashingSection from "./components/Washing/WashingSection.vue";
 import Washing from "./components/Washing/Washing.vue";
 import RetryOrders from "./components/TransportSection/RetryOrders.vue";

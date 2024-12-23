@@ -33,23 +33,6 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      employees: [
-        { name: "TEST FILIAL ADMIN", salary: "0 so'm" },
-        { name: "Sarvar Sodiqov", salary: "0 so'm" },
-        { name: "Tayorlov", salary: "0 so'm" },
-        { name: "Yuvuvchi Hodimn", salary: "0 so'm" },
-        { name: "Kogon filial", salary: "0 so'm" },
-        { name: "Yusufjon", salary: "0 so'm" },
-        { name: "Operator", salary: "24 000 so'm" },
-        { name: "Yuvish test", salary: "0 so'm" },
-        { name: "Filial opeeator", salary: "0 so'm" },
-      ],
-    };
-  },
-};
 </script>
 
 <style>
