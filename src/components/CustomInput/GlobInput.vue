@@ -1,18 +1,17 @@
 <template>
   <div class="flex flex-col p-2">
     <div :class="['relative', containerClass, 'max-w-[243px]']">
-      <!-- Поле ввода -->
       <input
-        :type="type"
+        v-mask="mask"
+        type="text"
         v-model="phoneValue"
         :placeholder="isPlaceholderVisible ? placeholder : ''"
         :class="[inputClasses, textAlignClass]"
         @focus="handleFocus"
         @blur="handleBlur"
         @input="handleInput"
-        id="floatingInput" class="peer block w-full rounded border border-gray-300
-        bg-transparent px-3 pt-5 pb-2 text-gray-900 focus:border-blue-500
-        focus:outline-none focus:ring-1 focus:ring-blue-500"
+        id="floatingInput"
+        class="peer block w-full rounded border border-gray-300 bg-transparent px-3 pt-5 pb-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
       />
       <label
         for="floatingInput"
@@ -20,7 +19,6 @@
       >
         Phone number
       </label>
-      <!-- Картинка/Иконка -->
       <i
         v-if="iconClass"
         :class="['absolute', iconClass, iconPositionClass]"
@@ -29,40 +27,39 @@
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref, watch, defineProps, defineEmits } from "vue";
 
 const props = defineProps<{
-  type?: string; // Убедитесь, что тип передается сюда
+  type?: string;
   modelValue: string;
   placeholder?: string;
-  containerClass?: string; // Класс для контейнера
-  iconClass?: string; // Класс для иконки
-  textAlignClass?: string; // Класс для выравнивания текста
-  iconPositionClass?: string; // Позиция иконки (left-0 или right-0)
+  containerClass?: string;
+  iconClass?: string;
+  textAlignClass?: string;
+  iconPositionClass?: string;
 }>();
-
+const mask = ref("+998 (##) ### ## ##")
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
-const phoneValue = ref(props.modelValue || ""); // Инициализируем значение
+const phoneValue = ref(props.modelValue || "");
 const isFocused = ref(false);
-const isPlaceholderVisible = ref(!phoneValue.value); // Логика видимости плейсхолдера
+const isPlaceholderVisible = ref(!phoneValue.value);
 
-// Следим за обновлением внешнего значения
+// Watch for external modelValue updates
 watch(
   () => props.modelValue,
   (newValue) => {
     phoneValue.value = newValue;
-    isPlaceholderVisible.value = !newValue; // Плейсхолдер виден, если поле пустое
+    isPlaceholderVisible.value = !newValue;
   }
 );
 
-// Следим за внутренним значением
+// Watch for internal phoneValue changes
 watch(phoneValue, (newValue) => {
-  emit("update:modelValue", newValue); // Обновляем родительский компонент
+  emit("update:modelValue", newValue);
 });
 
 const handleFocus = () => {
@@ -73,45 +70,13 @@ const handleBlur = () => {
   isFocused.value = false;
 };
 
-// Общая функция для обработки ввода
+// Handle input changes
 const handleInput = (event: InputEvent) => {
   const target = event.target as HTMLInputElement;
-
-  // Применяем маску только если тип - number
-  if (props.type === "number") {
-    mask(event);
-  } else {
-    phoneValue.value = target.value; // Просто обновляем значение без маски
-  }
-};
-
-// Маска для номера телефона
-const mask = (event: InputEvent) => {
-  const target = event.target as HTMLInputElement;
-  const inputValue = target.value.replace(/\D/g, "");
-  const template = "+998 (__) ___-__-__";
-  let maskedValue = "";
-
-  let index = 0;
-
-  for (const char of template) {
-    if (char === "_") {
-      if (index < inputValue.length) {
-        maskedValue += inputValue[index];
-        index++;
-      } else {
-        maskedValue += "_";
-      }
-    } else {
-      maskedValue += char;
-    }
-  }
-
-  phoneValue.value = maskedValue; // обновляем значение с маской
-  emit("update:modelValue", maskedValue); // отправляем в родительский компонент
+  phoneValue.value = target.value; // Just update the value
 };
 </script>
 
 <style scoped>
-/* Добавьте ваши стили здесь */
+/* Add your styles here */
 </style>
