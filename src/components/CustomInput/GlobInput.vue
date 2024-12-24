@@ -2,49 +2,39 @@
   <div class="flex flex-col p-2">
     <div :class="['relative', containerClass, 'max-w-[243px]']">
       <!-- Поле ввода -->
-      <!-- <input
-        :type="type"
-        v-model="inputValue"
-        :placeholder="isPlaceholderVisible ? placeholder : ''"
-        :class="[inputClasses, textAlignClass]"
-        @focus="handleFocus"
-        @blur="handleBlur"
-        @input="handleInput"
-        class="p-2 input-field peer"
-      /> -->
       <input
         :type="type"
-        v-model="inputValue"
+        v-model="phoneValue"
         :placeholder="isPlaceholderVisible ? placeholder : ''"
         :class="[inputClasses, textAlignClass]"
         @focus="handleFocus"
         @blur="handleBlur"
         @input="handleInput"
-        id="floatingInput"
-        class="peer block w-full rounded border border-gray-300 bg-transparent px-3 pt-5 pb-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        id="floatingInput" class="peer block w-full rounded border border-gray-300
+        bg-transparent px-3 pt-5 pb-2 text-gray-900 focus:border-blue-500
+        focus:outline-none focus:ring-1 focus:ring-blue-500"
       />
       <label
         for="floatingInput"
         class="absolute left-3 top-2.5 text-gray-500 transition-all duration-200 peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
       >
-        Email address
+        Phone number
       </label>
       <!-- Картинка/Иконка -->
       <i
         v-if="iconClass"
         :class="['absolute', iconClass, iconPositionClass]"
         style="transform: none"
-      >
-      </i>
+      ></i>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, defineProps, defineEmits } from "vue";
+import { ref, watch, defineProps, defineEmits } from "vue";
 
 const props = defineProps<{
-  type?: string;
+  type?: string; // Убедитесь, что тип передается сюда
   modelValue: string;
   placeholder?: string;
   containerClass?: string; // Класс для контейнера
@@ -57,24 +47,23 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
-const inputValue = ref(props.modelValue);
+const phoneValue = ref(props.modelValue || ""); // Инициализируем значение
 const isFocused = ref(false);
-const showError = ref(false);
-const isPlaceholderVisible = ref(true);
+const isPlaceholderVisible = ref(!phoneValue.value); // Логика видимости плейсхолдера
 
+// Следим за обновлением внешнего значения
 watch(
   () => props.modelValue,
   (newValue) => {
-    inputValue.value = newValue;
-    isPlaceholderVisible.value = !newValue; // Плейсхолдер видим, если поле пустое
+    phoneValue.value = newValue;
+    isPlaceholderVisible.value = !newValue; // Плейсхолдер виден, если поле пустое
   }
 );
 
-const handleInput = () => {
-  emit("update:modelValue", inputValue.value);
-  isPlaceholderVisible.value = inputValue.value.trim() === "";
-  showError.value = false; // Убираем сообщение об ошибке сразу при вводе текста
-};
+// Следим за внутренним значением
+watch(phoneValue, (newValue) => {
+  emit("update:modelValue", newValue); // Обновляем родительский компонент
+});
 
 const handleFocus = () => {
   isFocused.value = true;
@@ -82,47 +71,47 @@ const handleFocus = () => {
 
 const handleBlur = () => {
   isFocused.value = false;
-  showError.value = inputValue.value.trim() === ""; // Показываем ошибку, если поле пустое
 };
 
-const inputClasses = `border border-gray-300 rounded-md pl-10 pr-10 transition duration-300`;
+// Общая функция для обработки ввода
+const handleInput = (event: InputEvent) => {
+  const target = event.target as HTMLInputElement;
+
+  // Применяем маску только если тип - number
+  if (props.type === "number") {
+    mask(event);
+  } else {
+    phoneValue.value = target.value; // Просто обновляем значение без маски
+  }
+};
+
+// Маска для номера телефона
+const mask = (event: InputEvent) => {
+  const target = event.target as HTMLInputElement;
+  const inputValue = target.value.replace(/\D/g, "");
+  const template = "+998 (__) ___-__-__";
+  let maskedValue = "";
+
+  let index = 0;
+
+  for (const char of template) {
+    if (char === "_") {
+      if (index < inputValue.length) {
+        maskedValue += inputValue[index];
+        index++;
+      } else {
+        maskedValue += "_";
+      }
+    } else {
+      maskedValue += char;
+    }
+  }
+
+  phoneValue.value = maskedValue; // обновляем значение с маской
+  emit("update:modelValue", maskedValue); // отправляем в родительский компонент
+};
 </script>
 
-<style>
-/* input::placeholder {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  color: #aaa;
-}
-
-input:focus::placeholder {
-  top: -10px;
-  font-size: 0.75rem;
-  color: #3b82f6;
-  
-} */
-/* input::placeholder {
-  position: absolute;
-  left: 10px;
-  top: 16px;
-  font-size: 1rem;
-  color: #aaa;
-  transition: all 0.3s ease;
-}
-
-input:focus::placeholder {
-  top: -15px; /* Плейсхолдер поднимется */
-/* font-size: 20px; Уменьшается в размере */
-/* color: #3b82f6; Синий цвет при фокусе */
-/* background: white; */
-/* } */
-/* input:focus { */
-/* outline: none; */
-/* box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); */
-/* padding-top: 1rem; Уменьшаем отступ сверху при фокусе */
-/* } */
+<style scoped>
+/* Добавьте ваши стили здесь */
 </style>

@@ -40,7 +40,7 @@
     <!-- <PackagingSection /> -->
     <!-- <Shelves /> -->
     <GlobInput
-      type="text"
+      type="number"
       v-model="inputValue"
       placeholder=""
       containerClass="py-2"
