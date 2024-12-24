@@ -39,10 +39,21 @@
     <!-- <WashingSection/> -->
     <!-- <PackagingSection /> -->
     <!-- <Shelves /> -->
+    <GlobInput
+      type="text"
+      v-model="inputValue"
+      placeholder=""
+      containerClass="py-2"
+      iconClass="fas fa-user"
+      textAlignClass="text-left"
+      iconPositionClass="right-[10px] top-[25px]"
+    />
+    <p class="mt-2">Текущее значение: {{ inputValue }}</p>
   </div>
 </template>
 
 <script setup>
+import GlobInput from "./components/CustomInput/GlobInput.vue";
 import Shelves from "./components/Shelves/Shelves.vue";
 import PackagingSection from "./components/Packaging-Section/PackagingSection.vue";
 import WashingSection from "./components/Washing/WashingSection.vue";
@@ -78,6 +89,8 @@ import TaminotDetail from "./components/taminot-detail/TaminotDetail.vue";
 // import TaminotTableHeader from "./components/taminot-table-header/TaminotTableHeader.vue";
 import TableCollapseUse from "./components/table-collapse/TableCollapseUse.vue";
 import TaminotItem from "./components/taminot/TaminotItem.vue";
+import { ref } from "vue";
+const inputValue = ref("");
 </script>
 
 <style lang="scss" scoped></style>
