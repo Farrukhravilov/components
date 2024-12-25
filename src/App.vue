@@ -49,11 +49,15 @@
       iconPositionClass="right-[10px] top-[25px]"
     />
     <p class="mt-2">Текущее значение: {{ inputValue }}</p>
+    <TableToDo/>
+    <Input/>
   </div>
 </template>
 
 <script setup>
+import Input from "./components/Global-Input/Input.vue";
 import GlobInput from "./components/CustomInput/GlobInput.vue";
+import TableToDo from "./components/Table-Todo/TableToDo.vue";
 import Shelves from "./components/Shelves/Shelves.vue";
 import PackagingSection from "./components/Packaging-Section/PackagingSection.vue";
 import WashingSection from "./components/Washing/WashingSection.vue";
