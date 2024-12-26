@@ -68,10 +68,12 @@
     >
   </div> -->
   <Map/>
+  <Relax/>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import Relax from "./components/Relax/Relax.vue";
 import Map from "./components/Gps-Map/Map.vue";
 import Input from "./components/Global-Input/Input.vue";
 import GlobInput from "./components/CustomInput/GlobInput.vue";
