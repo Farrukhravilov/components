@@ -1,4 +1,7 @@
 <template>
+  <h2 class="text-center text-[40px] animate-heading hover:text-blue-500 hover:underline transition-all duration-500 ease-in-out">
+      Farrukh MAP!
+    </h2>
   <div>
     <div class="flex items-center justify-center mt-[20px] mb-[20px]">
       <button
@@ -156,4 +159,52 @@ button {
   list-style: none;
   text-decoration: none;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Применяем анимацию к заголовку */
+.animate-heading {
+  animation: fadeIn 1s ease-out;
+}
+
+h2:hover {
+  text-decoration: underline;
+  color: #3498db;
+  
+}
 </style>
+<!-- 1 -->
+<!-- initMap: -->
+<!-- Инициализирует карту, устанавливая её в центр Москвы с масштабом 13. -->
+<!-- Добавляет слой OpenStreetMap. -->
+<!-- Настроен обработчик для кликов на карту, который вызывает функцию onMapClick. -->
+
+<!-- 2 -->
+<!-- getLocation:
+
+Проверяет, поддерживает ли браузер геолокацию.
+Если поддерживает, запрашивает местоположение пользователя.
+Добавляет маркер на карту для текущего местоположения и центрирует карту на этом месте. -->
+
+<!-- 3 -->
+<!-- getNeighborhood:
+
+Выполняет запрос к API Nominatim для получения информации о районе на основе широты и долготы.
+Сохраняет название района в переменную neighborhood. -->
+
+<!-- 4 -->
+<!-- onMapClick:
+
+Обрабатывает клики на карту.
+Если местоположение пользователя не определено, показывает сообщение.
+Получает координаты точки клика и добавляет маркер для этой точки.
+Создаёт маршрут между текущим местоположением и точкой назначения.
+Настроены стили маршрута и отключение маркеров для промежуточных точек маршрута. -->
