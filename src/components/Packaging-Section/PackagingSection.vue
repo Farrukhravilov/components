@@ -64,8 +64,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import WashingCard from "../Washing/WashingCard.vue";
 import OrderCountCard from "../TransportSection/OrderCountCard.vue";
+import WashingCard from "../Washing/WashingCard.vue";
 </script>
 
 <style></style>

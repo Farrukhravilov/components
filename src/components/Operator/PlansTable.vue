@@ -67,142 +67,134 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 import OperatorDropDown from "../Operator/OperatorDropDown.vue";
 import Pagination from "../Operator/Pagination.vue";
-export default defineComponent({
-  setup() {
-    const tableData = [
-      {
-        xodim: "feewefw",
-        telefon: "+998975871313",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Anvarjonefw",
-        telefon: "+998975891456",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Test nurisolm",
-        telefon: "+9983699638523",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "test davron",
-        telefon: "+998894671354",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "weffew",
-        telefon: "+998312654879",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "feqwewf",
-        telefon: "+998789658778",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "cwewf",
-        telefon: "+998547983535",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "ewv",
-        telefon: "+998789743636",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "egr",
-        telefon: "+998559997878",
-        sana: "-739631 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Alijon ggt",
-        telefon: "+998985594478",
-        sana: "-10 kun",
-        vaqt: "17:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "yangi test",
-        telefon: "+998679684646",
-        sana: "-10 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Abdulhalim",
-        telefon: "+998907772600",
-        sana: "-10 kun",
-        vaqt: "12:15:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Ismoiljon",
-        telefon: "+998973336696",
-        sana: "-10 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "yana 1 test",
-        telefon: "+9988467797",
-        sana: "-10 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-      {
-        xodim: "Saidjonn",
-        telefon: "+998978741010",
-        sana: "-10 kun",
-        vaqt: "00:00:00",
-        izoh: "No malum",
-        operator: "No malum",
-      },
-    ];
-      
-    return { tableData };
+
+const tableData = ref([
+  {
+    xodim: "feewefw",
+    telefon: "+998975871313",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
   },
-  components: {
-    OperatorDropDown,
-    Pagination,
+  {
+    xodim: "Anvarjonefw",
+    telefon: "+998975891456",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
   },
-});
+  {
+    xodim: "Test nurisolm",
+    telefon: "+9983699638523",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "test davron",
+    telefon: "+998894671354",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "weffew",
+    telefon: "+998312654879",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "feqwewf",
+    telefon: "+998789658778",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "cwewf",
+    telefon: "+998547983535",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "ewv",
+    telefon: "+998789743636",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "egr",
+    telefon: "+998559997878",
+    sana: "-739631 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "Alijon ggt",
+    telefon: "+998985594478",
+    sana: "-10 kun",
+    vaqt: "17:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "yangi test",
+    telefon: "+998679684646",
+    sana: "-10 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "Abdulhalim",
+    telefon: "+998907772600",
+    sana: "-10 kun",
+    vaqt: "12:15:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "Ismoiljon",
+    telefon: "+998973336696",
+    sana: "-10 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "yana 1 test",
+    telefon: "+9988467797",
+    sana: "-10 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+  {
+    xodim: "Saidjonn",
+    telefon: "+998978741010",
+    sana: "-10 kun",
+    vaqt: "00:00:00",
+    izoh: "No malum",
+    operator: "No malum",
+  },
+]);
+
 </script>
 
 <style scoped>
@@ -210,5 +202,5 @@ export default defineComponent({
 .active {  
     border: 2px solid #fff; /* Пример оформления для активного состояния */  
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Пример тени */  
-  }
+}
 </style>

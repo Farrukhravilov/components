@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import UserCard from "../Customers/UserCard.vue";
 import DebtorsCard from "../Customers/DebtorsCard.vue";
 import DebtorsHeader from "../Customers/DebtorsHeader.vue";

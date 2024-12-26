@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import TaminotHeader from "../taminot-header/TaminotHeader.vue";
 import TaminotCard from "../taminot-main/TaminotCard.vue";
 // import TaminotDetail from "../taminot-detail/TaminotDetail.vue";

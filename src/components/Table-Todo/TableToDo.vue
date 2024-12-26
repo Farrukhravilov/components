@@ -29,114 +29,115 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from "vue";
 import draggable from "vuedraggable";
 
-export default {
-  components: {
-    draggable,
+interface Item {
+  id: number;
+  serviceType: string;
+  price: string;
+  minPrice: string;
+  maxPrice: string;
+  operatorKPI: string;
+  status: string;
+}
+
+const items = ref<Item[]>([
+  {
+    id: 1,
+    serviceType: "Yangiv (kg)",
+    price: "4 000 so'm",
+    minPrice: "3 000 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
   },
-  data() {
-    return {
-      items: [
-        {
-          id: 1,
-          serviceType: "Yangiv (kg)",
-          price: "4 000 so'm",
-          minPrice: "3 000 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-        {
-          id: 2,
-          serviceType: "Yumshoqlar o'yinchoq (kg)",
-          price: "25 000 so'm",
-          minPrice: "25 000 so'm",
-          maxPrice: "333 333 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-        {
-          id: 3,
-          serviceType: "Adiyol (dona)",
-          price: "90 000 so'm",
-          minPrice: "50 000 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-        {
-          id: 4,
-          serviceType: "GILAM 15000 (m2)",
-          price: "15 000 so'm",
-          minPrice: "12 000 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "inactive",
-        },
-        {
-          id: 5,
-          serviceType: "Папа",
-          price: "25 000 so'm",
-          minPrice: "0 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "80 000 so'm",
-          status: "active",
-        },
-        {
-          id: 6,
-          serviceType: "bsfgshfs (m2)",
-          price: "0 so'm",
-          minPrice: "0 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-        {
-          id: 7,
-          serviceType: "tes",
-          price: "123 so'm",
-          minPrice: "0 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "inactive",
-        },
-        {
-          id: 8,
-          serviceType: "ADIYOL 1 KISHI (dona)",
-          price: "60 000 so'm",
-          minPrice: "50 000 so'm",
-          maxPrice: "60 000 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-        {
-          id: 9,
-          serviceType: "Mebel (o'rin)",
-          price: "50 000 so'm",
-          minPrice: "40 000 so'm",
-          maxPrice: "70 000 so'm",
-          operatorKPI: "0 so'm",
-          status: "inactive",
-        },
-        {
-          id: 10,
-          serviceType: "Ko'rpa (m)",
-          price: "25 000 so'm",
-          minPrice: "15 000 so'm",
-          maxPrice: "0 so'm",
-          operatorKPI: "0 so'm",
-          status: "active",
-        },
-      ],
-    };
+  {
+    id: 2,
+    serviceType: "Yumshoqlar o'yinchoq (kg)",
+    price: "25 000 so'm",
+    minPrice: "25 000 so'm",
+    maxPrice: "333 333 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
   },
-  methods: {
-    editItem(item) {
-      alert(`Редактирование: ${item.serviceType}`);
-    },
+  {
+    id: 3,
+    serviceType: "Adiyol (dona)",
+    price: "90 000 so'm",
+    minPrice: "50 000 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
   },
+  {
+    id: 4,
+    serviceType: "GILAM 15000 (m2)",
+    price: "15 000 so'm",
+    minPrice: "12 000 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "inactive",
+  },
+  {
+    id: 5,
+    serviceType: "Папа",
+    price: "25 000 so'm",
+    minPrice: "0 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "80 000 so'm",
+    status: "active",
+  },
+  {
+    id: 6,
+    serviceType: "bsfgshfs (m2)",
+    price: "0 so'm",
+    minPrice: "0 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
+  },
+  {
+    id: 7,
+    serviceType: "tes",
+    price: "123 so'm",
+    minPrice: "0 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "inactive",
+  },
+  {
+    id: 8,
+    serviceType: "ADIYOL 1 KISHI (dona)",
+    price: "60 000 so'm",
+    minPrice: "50 000 so'm",
+    maxPrice: "60 000 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
+  },
+  {
+    id: 9,
+    serviceType: "Mebel (o'rin)",
+    price: "50 000 so'm",
+    minPrice: "40 000 so'm",
+    maxPrice: "70 000 so'm",
+    operatorKPI: "0 so'm",
+    status: "inactive",
+  },
+  {
+    id: 10,
+    serviceType: "Ko'rpa (m)",
+    price: "25 000 so'm",
+    minPrice: "15 000 so'm",
+    maxPrice: "0 so'm",
+    operatorKPI: "0 so'm",
+    status: "active",
+  },
+]);
+
+const editItem = (item: Item) => {
+  alert(`Редактирование: ${item.serviceType}`);
 };
 </script>
 

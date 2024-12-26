@@ -54,7 +54,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in 8">
+        <tr v-for="item in 8" :key="item">
           <td>1</td>
           <td>ADIYOL 1 KISHI</td>
           <td>4 dona</td>
@@ -67,15 +67,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "TaxInvoice",
-  setup() {
-    return {};
-  },
-});
+// Реактивные переменные для ввода данных
+const quantity = ref<number>(4);
+const price = ref<number>(25000);
 </script>
 
 <style scoped></style>

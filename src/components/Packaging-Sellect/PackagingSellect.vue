@@ -5,9 +5,9 @@
     </h2>
     <div class="flex items-center justify-center">
       <div class="mb-6 border border-gray-200 p-[25px] w-full max-w-[650px]">
-        <label class="block text-lg font-semibold mb-[30px]"
-          >Kpi hisoblansh usuli</label
-        >
+        <label class="block text-lg font-semibold mb-[30px]">
+          Kpi hisoblansh usuli
+        </label>
 
         <div class="flex flex-col space-y-2">
           <label class="flex items-center space-x-2">
@@ -18,10 +18,10 @@
               v-model="selectedMethod"
               class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500"
             />
-            <span class="w-full max-w-[500px]"
-              >Kpi hisoblanayotganda kpiga ishlaydigan hodimning kpidan oylikga
-              ishlaydigan hodim kunlig pulini ayrib hisoblash</span
-            >
+            <span class="w-full max-w-[500px]">
+              Kpi hisoblanayotganda kpiga ishlaydigan hodimning kpidan oylikga
+              ishlaydigan hodim kunlig pulini ayrib hisoblash
+            </span>
           </label>
 
           <label class="flex items-center space-x-2">
@@ -32,42 +32,34 @@
               v-model="selectedMethod"
               class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500"
             />
-            <span class="w-full max-w-[500px]"
-              >Kpi hisoblanayotganda oylik va kpiga ishlaydigan hodimlarni
-              pulini alohida hisoblash.</span
-            >
+            <span class="w-full max-w-[500px]">
+              Kpi hisoblanayotganda oylik va kpiga ishlaydigan hodimlarni pulini
+              alohida hisoblash.
+            </span>
           </label>
           <div class="flex items-center justify-end">
-            <button class="mt-4 btn bg-indigo-600 text-white rounded px-4 py-2">
+            <button
+              class="mt-4 btn bg-indigo-600 text-white rounded px-4 py-2"
+              @click="saveSelection"
+            >
               Saqlash
             </button>
           </div>
         </div>
       </div>
     </div>
-    <!-- btn -->
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "KpiSelection",
-  setup() {
-    const selectedMethod = ref<string>(""); // Holds the selected radio button value
+const selectedMethod = ref<string>(""); // Хранит выбранное значение радио-кнопки
 
-    const saveSelection = () => {
-      console.log("Selected KPI Method:", selectedMethod.value);
-      // Here you can implement saving logic
-    };
-
-    return {
-      selectedMethod,
-      saveSelection,
-    };
-  },
-});
+const saveSelection = () => {
+  console.log("Selected KPI Method:", selectedMethod.value);
+  // Здесь можно добавить логику сохранения
+};
 </script>
 
 <style scoped>

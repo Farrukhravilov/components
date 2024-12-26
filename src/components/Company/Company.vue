@@ -28,37 +28,24 @@
       </button>
     </div>
   </header>
-  <CompanyTable/>
+  <CompanyTable />
 </template>
 
-<script lang="ts">
-import { ref, defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 import CompanyTable from "../Сompany-Table/CompanyTable.vue";
-export default defineComponent({
-  name: "HeaderWithFilter",
-  setup() {
-    // Список годов
-    const years = ref<number[]>([2022, 2023, 2024, 2025]);
 
-    // Текущий выбранный год
-    const selectedYear = ref<number>(2022);
+// Список годов
+const years = ref<number[]>([2022, 2023, 2024, 2025]);
 
-    // Метод поиска
-    const onSearch = (): void => {
-      console.log("Selected year:", selectedYear.value);
-      // Логика поиска или фильтрации
-    };
+// Текущий выбранный год
+const selectedYear = ref<number>(2022);
 
-    return {
-      years,
-      selectedYear,
-      onSearch,
-    };
-  },
-  components: {
-    CompanyTable, // Регистрируем компонент
-  },
-});
+// Метод поиска
+const onSearch = (): void => {
+  console.log("Selected year:", selectedYear.value);
+  // Логика поиска или фильтрации
+};
 </script>
 
-<style></style>
+<style scoped></style>

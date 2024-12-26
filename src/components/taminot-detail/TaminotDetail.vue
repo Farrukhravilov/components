@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // import TaminotTable from "./components/taminot-table/TaminotTable.vue";
 // import TaminotDetailLeft from "./components/taminot-detail-left/TaminotDetailLeft.vue";
 // import TaminotTableHeader from "../taminot-table-header/TaminotTableHeader.vue";

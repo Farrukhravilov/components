@@ -26,10 +26,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  components: {},
-};
+<script setup lang="ts">
+
 </script>
 
 <style></style>

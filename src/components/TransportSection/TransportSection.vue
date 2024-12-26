@@ -31,8 +31,8 @@
     </div>
   </div>
 </template>
-
-<script setup>
+ 
+<script setup lang="ts">
 import TransportHeader from "../TransportSection/TransportHeader.vue";
 import TransportUserCard from "../TransportSection/TransportUserCard.vue";
 import NewTransportUserCard from "../TransportSection/NewTransportUserCard.vue";

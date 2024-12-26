@@ -101,98 +101,99 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      searchTerm: "",
-      selectedRows: [],
-      selectedDate: "", // Added date for selection
-      rows: [
-        {
-          name: "Sarvar Sodiqov",
-          phone: "+998 908330620",
-          salary: "0 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "Tayorlov",
-          phone: "+998 985663214",
-          salary: "0 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "Yuvuvchi Hodimn",
-          phone: "+998 985214141",
-          salary: "0 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "Operator",
-          phone: "+998 995487454",
-          salary: "24 000 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "Yuvish test",
-          phone: "+998 984523679",
-          salary: "0 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "Filial operator",
-          phone: "+998 907852420",
-          salary: "0 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-        {
-          name: "ELYOR",
-          phone: "+998 987452679",
-          salary: "12 000 so`m",
-          status: "Kelmadi",
-          note: "ИЗОХ",
-        },
-      ],
-    };
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+
+interface Row {
+  name: string;
+  phone: string;
+  salary: string;
+  status: string;
+  note: string;
+}
+
+const selectedRows = ref<string[]>([]);
+const selectedDate = ref<string>('');
+const rows = ref<Row[]>([
+  {
+    name: "Sarvar Sodiqov",
+    phone: "+998 908330620",
+    salary: "0 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
   },
-  computed: {
-    filteredRows() {
-      return this.rows.filter((row) =>
-        row.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    },
+  {
+    name: "Tayorlov",
+    phone: "+998 985663214",
+    salary: "0 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
   },
-  methods: {
-    toggleAllCheckboxes(event) {
-      if (event.target.checked) {
-        this.selectedRows = this.filteredRows.map((row) => row.name);
-      } else {
-        this.selectedRows = [];
-      }
-    },
-    updateAllCheckboxState() {
-      const allSelected = this.filteredRows.every((row) =>
-        this.selectedRows.includes(row.name)
-      );
-      const allCheckbox = this.$el.querySelector("input[type=checkbox]");
-      if (allCheckbox) {
-        allCheckbox.checked = allSelected;
-      }
-    },
-    searchByDate() {
-      // Implement search functionality based on the selected date
-      console.log("Searching for date:", this.selectedDate);
-    },
+  {
+    name: "Yuvuvchi Hodimn",
+    phone: "+998 985214141",
+    salary: "0 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
   },
-};
+  {
+    name: "Operator",
+    phone: "+998 995487454",
+    salary: "24 000 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
+  },
+  {
+    name: "Yuvish test",
+    phone: "+998 984523679",
+    salary: "0 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
+  },
+  {
+    name: "Filial operator",
+    phone: "+998 907852420",
+    salary: "0 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
+  },
+  {
+    name: "ELYOR",
+    phone: "+998 987452679",
+    salary: "12 000 so`m",
+    status: "Kelmadi",
+    note: "ИЗОХ",
+  },
+]);
+
+const filteredRows = computed(() => {
+  return rows.value.filter((row) =>
+    row.name.toLowerCase().includes(selectedDate.value.toLowerCase())
+  );
+});
+
+function toggleAllCheckboxes(event: Event) {
+  const target = event.target as HTMLInputElement;
+  if (target.checked) {
+    selectedRows.value = filteredRows.value.map((row) => row.name);
+  } else {
+    selectedRows.value = [];
+  }
+}
+
+function updateAllCheckboxState() {
+  const allSelected = filteredRows.value.every((row) =>
+    selectedRows.value.includes(row.name)
+  );
+  const allCheckbox = document.querySelector("input[type=checkbox]") as HTMLInputElement;
+  if (allCheckbox) {
+    allCheckbox.checked = allSelected;
+  }
+}
+
+function searchByDate() {
+  console.log("Searching for date:", selectedDate.value);
+}
 </script>
 
-<style scoped>
-/* You can add additional styles here if necessary */
-</style>
+<style scoped></style>

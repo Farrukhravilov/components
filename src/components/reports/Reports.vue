@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ReportsMainTable from "../reports-main-table/ReportsMainTable.vue";
 import ReportsDataItem from "../reports-data-item/ReportsDataItem.vue";
 import ReportsGlobal from "../reports-table-global/ReportsGlobal.vue";

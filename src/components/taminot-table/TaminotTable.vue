@@ -7,15 +7,10 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import TaminotTableHeader from "../taminot-table-header/TaminotTableHeader.vue";
 import TaminotTableMain from "../taminot-table-main/TaminotTableMain.vue";
-export default {
-  components: {
-    TaminotTableHeader,
-    TaminotTableMain,
-  },
-};
+
 </script>
 
 <style lang="scss" scoped></style>

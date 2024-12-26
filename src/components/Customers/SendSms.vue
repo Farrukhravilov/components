@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
 const smsLimit = 5000;
@@ -57,11 +57,11 @@ const clients = ref([
   { id: 2, name: "Client 2" },
   { id: 3, name: "Client 3" },
 ]);
-const totalClients = clients.value.length;
-const selectedClient = ref("");
-const message = ref("");
-const messageCount = ref(0);
-const smsRemaining = ref(smsLimit - totalSent.value);
+const totalClients = computed(() => clients.value.length);
+const selectedClient = ref<string>("");
+const message = ref<string>("");
+const messageCount = ref<number>(0);
+const smsRemaining = computed(() => smsLimit - totalSent.value);
 
 const updateCharacterCount = () => {
   messageCount.value = message.value.length;

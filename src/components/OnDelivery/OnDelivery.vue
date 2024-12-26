@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import OnDeliveryTable from "../OnDelivery/OnDeliveryTable.vue";
 
 </script>

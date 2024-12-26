@@ -27,8 +27,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
 interface Option {
   id: number;
@@ -36,37 +36,24 @@ interface Option {
   count: number;
 }
 
-export default defineComponent({
-  name: "OperatorDropDown",
-  setup() {
-    const isOpen = ref(false);
-    const selectedOption = ref<Option>({ id: 1, label: "Barchasi", count: 20 });
+const isOpen = ref(false);
+const selectedOption = ref<Option>({ id: 1, label: "Barchasi", count: 20 });
 
-    const options: Option[] = [
-      { id: 1, label: "Barchasi", count: 20 },
-      { id: 2, label: "TEST FILIAL ADMIN", count: 4 },
-      { id: 3, label: "Maxmud5050", count: 20 },
-      // Добавьте больше опций по необходимости
-    ];
+const options: Option[] = [
+  { id: 1, label: "Barchasi", count: 20 },
+  { id: 2, label: "TEST FILIAL ADMIN", count: 4 },
+  { id: 3, label: "Maxmud5050", count: 20 },
+  // Добавьте больше опций по необходимости
+];
 
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
 
-    const selectOption = (option: Option) => {
-      selectedOption.value = option;
-      isOpen.value = false;
-    };
-
-    return {
-      isOpen,
-      selectedOption,
-      options,
-      toggleDropdown,
-      selectOption,
-    };
-  },
-});
+const selectOption = (option: Option) => {
+  selectedOption.value = option;
+  isOpen.value = false;
+};
 </script>
 
 <style>

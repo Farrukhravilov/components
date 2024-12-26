@@ -57,15 +57,9 @@
       </table>
     </div>
   </div>
-  <!-- <ReportsFilterModal
-    :isVisible="isModalVisible"
-    @close="closeModal"
-    @apply-filters="handleFilters"
-  /> -->
 </template>
 
 <script>
-// import ReportsFilterModal from "../reports-filter-modal/ReportsFilterModal.vue";
 import Pagination from "../Pagination/Pagination.vue";
 export default {
   name: "ReportsGlobal",

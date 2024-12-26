@@ -17,7 +17,7 @@
     <History/>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from "vue";
 import History from "../Operator/History.vue";
 import PlansTable from "../Operator/PlansTable.vue";
@@ -25,16 +25,6 @@ import Passive from "../Operator/Passive.vue";
 import YesturdayTable from "../Operator/YesturdayTable.vue";
 import Buttons from "../Operator/Buttons.vue";
 import Monthly from "../Operator/Monthly.vue";
-export default defineComponent({
-  components: {
-    YesturdayTable,
-    Buttons,
-    PlansTable,
-    Monthly,
-    Passive,
-    History,
-  },
-});
 </script>
 
 <style></style>

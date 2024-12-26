@@ -72,17 +72,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from "vue";
 
-export default {
-  setup() {
-    const limitFoiz = ref(0);
-    const limitSoM = ref(0);
-
-    return { limitFoiz, limitSoM };
-  },
-};
+const limitFoiz = ref(0);
+const limitSoM = ref(0);
 </script>
 
 <style scoped>

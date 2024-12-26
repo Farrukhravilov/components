@@ -49,38 +49,34 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "Dropdown",
-  setup() {
-    const isOpen = ref(false);
-    const items = ref([
-      { name: "barchasi", count: 67 },
-      { name: "TEST FILIAL ADMIN", count: 7 },
-      { name: "Sarvar Sodiqov", count: 4 },
-      { name: "Yuvuvchi Hodimn", count: 2 },
-      { name: "Yuvish test", count: 1 },
-      { name: "Maxmud5050", count: 44 },
-      { name: "Anvar sifat", count: 1 },
-      { name: "Iqboljon Raimjanov", count: 2 },
-    ]);
+// Состояния
+const isOpen = ref(false);
+const items = ref([
+  { name: "barchasi", count: 67 },
+  { name: "TEST FILIAL ADMIN", count: 7 },
+  { name: "Sarvar Sodiqov", count: 4 },
+  { name: "Yuvuvchi Hodimn", count: 2 },
+  { name: "Yuvish test", count: 1 },
+  { name: "Maxmud5050", count: 44 },
+  { name: "Anvar sifat", count: 1 },
+  { name: "Iqboljon Raimjanov", count: 2 },
+]);
 
-    const selectedItem = ref(items.value[0]); // Выбор первого элемента по умолчанию
+const selectedItem = ref(items.value[0]); // Выбор первого элемента по умолчанию
 
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
+// Переключение выпадающего меню
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
 
-    const selectItem = (item: { name: string; count: number }) => {
-      selectedItem.value = item; // Установка выбранного элемента
-      isOpen.value = false; // Закрытие меню после выбора
-    };
-
-    return { isOpen, items, selectedItem, toggleDropdown, selectItem };
-  },
-});
+// Выбор элемента из списка
+const selectItem = (item: { name: string; count: number }) => {
+  selectedItem.value = item; // Установка выбранного элемента
+  isOpen.value = false; // Закрытие меню
+};
 </script>
 
 <style scoped>

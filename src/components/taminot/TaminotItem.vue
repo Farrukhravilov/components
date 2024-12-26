@@ -7,15 +7,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import TaminotHeader from "../taminot-header/TaminotHeader.vue";
 import TaminotCard from "../taminot-main/TaminotCard.vue";
-export default {
-  components: {
-    TaminotHeader,
-    TaminotCard
-  },
-};
 </script>
 
 <style lang="scss" scoped></style>

@@ -46,21 +46,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "WashingTasks",
-  data() {
-    return {
-      tasks: [
-        { id: 1, from: "0 kvm", to: "100 kvm", total: "1 000 so'm" },
-        { id: 2, from: "100.01 kvm", to: "200 kvm", total: "1 200 so'm" },
-        { id: 3, from: "200.01 kvm", to: "300 kvm", total: "1 400 so'm" },
-      ],
-    };
-  },
-});
+interface Task {
+  id: number;
+  from: string;
+  to: string;
+  total: string;
+}
+
+const tasks = ref<Task[]>([
+  { id: 1, from: "0 kvm", to: "100 kvm", total: "1 000 so'm" },
+  { id: 2, from: "100.01 kvm", to: "200 kvm", total: "1 200 so'm" },
+  { id: 3, from: "200.01 kvm", to: "300 kvm", total: "1 400 so'm" },
+]);
 </script>
 
 <style scoped>

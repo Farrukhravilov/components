@@ -1,11 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from "vue";
 import CustomersPagination from "../Customers/CustomersPagination.vue";
-export default defineComponent({
-  components: {
-    CustomersPagination,
-  },
-});
+
 </script>
 
 <template>

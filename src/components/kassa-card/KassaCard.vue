@@ -2,7 +2,9 @@
   <div class="bg-gray-100 p-6 flex flex-col items-center">
     <div class="w-full flex max-w-lg items-center justify-between mb-[25px]">
       <h2 class="text-xl text-left font-bold">Kassaga kirim</h2>
-      <button class="rounded-[6px] w-[40px] h-[40px] flex items-center justify-center bg-blue-600">
+      <button
+        class="rounded-[6px] w-[40px] h-[40px] flex items-center justify-center bg-blue-600"
+      >
         <i class="fa-solid fa-question text-white"></i>
       </button>
     </div>
@@ -44,13 +46,6 @@
           >
             200000 so'm
           </div>
-          <!-- <input
-              v-model="naqdPul"
-              type="text"
-              id="naqdPul"
-              class="border rounded w-full py-2 px-3 mb-4 transition duration-200 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="200000 so‘m"
-            /> -->
         </div>
         <div class="flex flex-col">
           <label class="block text-gray-700 mb-2" for="hisobPul"
@@ -89,36 +84,29 @@
         @click="submit"
         class="bg-blue-500 flex items-center justify-center gap-[10px] text-white rounded py-2 w-full transition duration-200 hover:bg-blue-600 hover:shadow-lg"
       >
-       Olindi <i class="fa-solid fa-check"></i>
+        Olindi <i class="fa-solid fa-check"></i>
       </button>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      naqdPul: "",
-      hisobPul: "",
-      hisobPulTop: "",
-    };
-  },
-  methods: {
-    submit() {
-      // Handle form submission logic
-      console.log("Form submitted: ", {
-        naqdPul: this.naqdPul,
-        hisobPul: this.hisobPul,
-        hisobPulTop: this.hisobPulTop,
-      });
+<script setup lang="ts">
+import { ref } from "vue";
 
-      // Clear the form fields after submission
-      this.naqdPul = "";
-      this.hisobPul = "";
-      this.hisobPulTop = "";
-    },
-  },
+const naqdPul = ref("");
+const hisobPul = ref("");
+const hisobPulTop = ref("");
+
+const submit = () => {
+  console.log("Form submitted: ", {
+    naqdPul: naqdPul.value,
+    hisobPul: hisobPul.value,
+    hisobPulTop: hisobPulTop.value,
+  });
+
+  naqdPul.value = "";
+  hisobPul.value = "";
+  hisobPulTop.value = "";
 };
 </script>
 

@@ -36,22 +36,16 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue';
 import ExpenceModal from "../expense-modal-all/ExpenceModal.vue";
-export default {
-  components: { ExpenceModal },
-  data() {
-    return {
-      showModal: false,
-      newItem: "",
-    };
-  },
-  methods: {
-    handleAdd() {
-      console.log("Добавленный элемент:", this.newItem);
-      this.newItem = ""; // очистка поля
-      this.showModal = false;
-    },
-  },
+
+const showModal = ref(false);
+const newItem = ref("");
+
+const handleAdd = () => {
+  console.log("Добавленный элемент:", newItem.value);
+  newItem.value = ""; // очистка поля
+  showModal.value = false;
 };
 </script>

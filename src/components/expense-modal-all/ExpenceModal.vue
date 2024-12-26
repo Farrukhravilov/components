@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="isOpen"
-    class="fixed inset-0 flex items-center justify-center z-50"
-  >
+  <div v-if="isOpen" class="fixed inset-0 flex items-center justify-center z-50">
     <div class="absolute inset-0 bg-black opacity-50" @click="close"></div>
     <div class="bg-white rounded-lg shadow-lg p-6 z-10 w-[50%] h-[35%] mx-auto relative">
       <div class="flex justify-between items-center border-b border-gray-300 pb-[30px]">
@@ -31,23 +28,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    isOpen: {
-      type: Boolean,
-      required: true,
-    },
+<script setup lang="ts">
+import { defineProps, emit } from 'vue';
+
+const { isOpen } = defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
   },
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-    confirm() {
-      this.$emit("confirm");
-      this.close();
-    },
-  },
+});
+
+const close = () => {
+  emit("close");
+};
+
+const confirm = () => {
+  emit("confirm");
+  close();
 };
 </script>
 

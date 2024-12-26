@@ -57,11 +57,13 @@
     </div>
     <div class="flex items-center justify-center mb-[10px] mt-[10px]">
       <button
-      :class="[
-        'border border-green-500 w-full max-w-[400px] p-3 flex items-center justify-center rounded-[6px] transition duration-200',
-        isActive ? 'bg-green-600 text-white' : 'hover:bg-green-600 hover:text-white'
-      ]"
-      @click="toggleActive"
+        :class="[
+          'border border-green-500 w-full max-w-[400px] p-3 flex items-center justify-center rounded-[6px] transition duration-200',
+          isActive
+            ? 'bg-green-600 text-white'
+            : 'hover:bg-green-600 hover:text-white',
+        ]"
+        @click="toggleActive"
       >
         Filtirlangan malumotlar
       </button>
@@ -102,45 +104,44 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from "vue";
 import Pagination from "../Pagination/Pagination.vue";
-import { defineComponent, ref } from "vue";
 
-export default defineComponent({
-  name: "ButtonGroup",
-  setup() {
-    const selectedButton = ref<number | null>(null);
+// Состояние для выбора кнопки
+const selectedButton = ref<number | null>(null);
 
-    const buttons = [
-      { label: "Qayta qongiroqa", color: "border-red-500 hover:bg-red-500" },
-      { label: "6 oyliklar", color: "border-green-500 hover:bg-green-600" },
-      {
-        label: "rejadagi qo‘ng‘iroqlar",
-        color: "border-yellow-500 hover:bg-yellow-500",
-      },
-    ];
-
-    const setActive = (index: number) => {
-      selectedButton.value = index;
-    };
-    const isActive = ref(false);
-
-    const toggleActive = () => {
-      isActive.value = !isActive.value;
-    };
-    return {
-      buttons,
-      selectedButton,
-      setActive,
-      isActive,
-      toggleActive,
-    };
+// Массив кнопок
+const buttons = [
+  { label: "Qayta qongiroqa", color: "border-red-500 hover:bg-red-500" },
+  { label: "6 oyliklar", color: "border-green-500 hover:bg-green-600" },
+  {
+    label: "rejadagi qo‘ng‘iroqlar",
+    color: "border-yellow-500 hover:bg-yellow-500",
   },
-});
+];
+
+// Функция для установки активной кнопки
+const setActive = (index: number) => {
+  selectedButton.value = index;
+};
+
+// Состояние для активации фильтра
+const isActive = ref(false);
+
+// Функция для переключения состояния фильтра
+const toggleActive = () => {
+  isActive.value = !isActive.value;
+};
+
+// Функция для отображения модала (можно подключить вашу логику)
+const showModal = () => {
+  // Ваша логика для открытия модала
+};
 </script>
 
 <style scoped>
-/* Add any additional styles here if necessary */
+/* Добавьте дополнительные стили здесь, если нужно */
 .bg-opacity-70 {
   background-color: rgb(22, 163, 74);
   border: none;

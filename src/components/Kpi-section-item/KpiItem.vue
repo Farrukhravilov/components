@@ -51,8 +51,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 import KpiForm from "../Kpi-Form/KpiForm.vue";
 
 interface Operator {
@@ -64,60 +64,40 @@ interface Operator {
   maxSumma: number;
 }
 
-export default defineComponent({
-  setup() {
-    const limitPercentage = ref<number>(0);
-    const limitSum = ref<number>(0);
-    const selectedOperator = ref<string>("operator1");
-    const operators = ref<Operator[]>([
-      {
-        id: 1,
-        name: "Operator 1",
-        min: 1,
-        max: 10,
-        minSumma: 5000,
-        maxSumma: 10000,
-      },
-    ]);
-
-    const addOperator = () => {
-      const newOperator: Operator = {
-        id: operators.value.length + 1,
-        name: `Operator ${operators.value.length + 1}`,
-        min: 1,
-        max: 10,
-        minSumma: 5000,
-        maxSumma: 10000,
-      };
-      operators.value.push(newOperator);
-    };
-
-    const editOperator = (operator: Operator) => {
-      // Editing logic (can be expanded)
-      console.log("Edit Operator:", operator);
-    };
-
-    const deleteOperator = (id: number) => {
-      operators.value = operators.value.filter(
-        (operator) => operator.id !== id
-      );
-    };
-
-    return {
-      limitPercentage,
-      limitSum,
-      selectedOperator,
-      operators,
-      addOperator,
-      editOperator,
-      deleteOperator,
-    };
-    
+const limitPercentage = ref<number>(0);
+const limitSum = ref<number>(0);
+const selectedOperator = ref<string>("operator1");
+const operators = ref<Operator[]>([
+  {
+    id: 1,
+    name: "Operator 1",
+    min: 1,
+    max: 10,
+    minSumma: 5000,
+    maxSumma: 10000,
   },
-  components: {
-    KpiForm,
-  },
-});
+]);
+
+const addOperator = () => {
+  const newOperator: Operator = {
+    id: operators.value.length + 1,
+    name: `Operator ${operators.value.length + 1}`,
+    min: 1,
+    max: 10,
+    minSumma: 5000,
+    maxSumma: 10000,
+  };
+  operators.value.push(newOperator);
+};
+
+const editOperator = (operator: Operator) => {
+  // Editing logic (can be expanded)
+  console.log("Edit Operator:", operator);
+};
+
+const deleteOperator = (id: number) => {
+  operators.value = operators.value.filter((operator) => operator.id !== id);
+};
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
     <h1 class="text-[26px] font-bold text-[#000] mb-4">
       Buyurtmalarni qiymatlarini dan-gacha belgilash
     </h1>
-    <!-- Таблица -->
+    <!-- Фильтр -->
     <div class="flex space-x-4 mb-4">
       <input
         v-model="fromValue"
@@ -102,9 +102,22 @@ export default defineComponent({
       return "bg-red-500 text-white text-center";
     };
 
+    // Метод для применения фильтра
+    const applyFilter = (): void => {
+      // Логика фильтрации данных по значениям fromValue и toValue
+      console.log(`Filtering from ${fromValue} to ${toValue}`);
+    };
+
+    // Переменные для фильтра
+    const fromValue = ref<number | null>(null);
+    const toValue = ref<number | null>(null);
+
     return {
       tableData,
       getCellClass,
+      fromValue,
+      toValue,
+      applyFilter,
     };
   },
 });

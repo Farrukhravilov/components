@@ -9,8 +9,9 @@
       >
         <h2 class="text-[28px] font-semibold">Filtlash</h2>
         <button
+          type="button"
           @click="closeModal"
-          class="text-white w-[50px] h-[40px] rounded bg-red-500"
+          class="text-white w-[50px] h-[40px] rounded bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
         >
           ✕
         </button>
@@ -69,14 +70,15 @@
         </div>
         <div class="flex justify-end">
           <button
+            type="button"
             @click="closeModal"
-            class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2"
+            class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
           >
             X
           </button>
           <button
             type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
             ✓
           </button>
@@ -86,50 +88,44 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref, defineProps } from "vue";
 
-export default defineComponent({
-  name: "FilterModal",
-  props: {
-    isOpen: {
-      type: Boolean,
-      required: true,
-    },
-    closeModal: {
-      type: Function,
-      required: true,
-    },
+// Props
+defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
   },
-  setup() {
-    const formData = ref({
-      kvNomeri: "",
-      telefonRagam: "",
-      status: "",
-      status2: "",
-      muddat: "",
-    });
-
-    const submitForm = () => {
-      // Handle the form submission logic here
-      console.log(formData.value);
-    };
-
-    return {
-      formData,
-      submitForm,
-    };
+  closeModal: {
+    type: Function,
+    required: true,
   },
 });
+
+// Reactive form data
+const formData = ref({
+  kvNomeri: "",
+  telefonRagam: "",
+  status: "",
+  status2: "",
+  muddat: "",
+});
+
+// Submit handler
+const submitForm = () => {
+  console.log(formData.value);
+  // Здесь добавьте логику обработки формы
+};
 </script>
 
 <style scoped>
-/* Add additional styles if necessary */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

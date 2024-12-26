@@ -5,16 +5,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from "vue";
-import TransportForm from "../Transport/TransportForm.vue";
 import TransportHistory from "../Transport/TransportHistory.vue";
-export default defineComponent({
-  components: {
-    TransportForm,
-    TransportHistory,
-  },
-});
+import TransportForm from "../Transport/TransportForm.vue";
 </script>
 
 <style></style>

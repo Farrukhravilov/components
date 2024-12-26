@@ -5,17 +5,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from "vue";
 import KpiItem from "../Kpi-section-item/KpiItem.vue";
 import KpiOperator from "../Kpi-Operator/KpiOperator.vue";
-
-export default defineComponent({
-  components: {
-    KpiItem,
-    KpiOperator,
-  },
-});
 </script>
 
 <style></style>

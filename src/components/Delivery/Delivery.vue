@@ -32,18 +32,20 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from 'vue';
 import DeliveryUserCard from "../Delivery/DeliveryUserCard.vue";
 import DeliveryTable from "../Delivery/DeliveryTable.vue";
 import NewDeliveryUserCard from "../Delivery/NewDeliveryUserCard.vue";
-const columns = ["T/r", "Xodim", "Buyurtmalar", "Olib kelish jarayonida"];
-const data = [
+
+const columns = ref(["T/r", "Xodim", "Buyurtmalar", "Olib kelish jarayonida"]);
+const data = ref([
   [1, "Hamma", "6 dona", "0 dona"],
   [2, "TEST FILIAL ADMIN", "1 dona", "0 dona"],
   [3, "Sarvar Sodiqov", "13 dona", "13 dona"],
   [4, "Anvar sifat", "2 dona", "0 dona"],
   [5, "AZAMAT", "10 dona", "0 dona"],
-];
+]);
 </script>
 
 <style></style>

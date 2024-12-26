@@ -8,8 +8,12 @@
           Ko'rsatkichlar
         </h1>
         <div class="flex items-center gap-[10px]">
-          <button class="border border-blue-600 p-2 rounded-[6px]">shu kun</button>
-          <button class="border border-blue-600 p-2 rounded-[6px]">shu joy</button>
+          <button class="border border-blue-600 p-2 rounded-[6px]">
+            shu kun
+          </button>
+          <button class="border border-blue-600 p-2 rounded-[6px]">
+            shu joy
+          </button>
         </div>
       </div>
       <label class="block mb-2 text-[#000]">Dan-gacha tanlash</label>
@@ -35,20 +39,14 @@
   </div>
 </template>
 
-<script>
-// import ExpenceTableTop from "../expense-table-top/ExpenceTableTop.vue";
-export default {
-  data() {
-    return {
-      startDate: "",
-      endDate: "",
-    };
-  },
-  methods: {
-    search() {
-      console.log("Selected dates:", this.startDate, this.endDate);
-    },
-  },
+<script setup lang="ts">
+import { ref } from "vue";
+
+const startDate = ref<string>("");
+const endDate = ref<string>("");
+
+const search = () => {
+  console.log("Selected dates:", startDate.value, endDate.value);
 };
 </script>
 

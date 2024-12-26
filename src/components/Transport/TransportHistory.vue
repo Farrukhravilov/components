@@ -1,11 +1,11 @@
 <template>
   <div class="p-4">
-    <h1 class="text-2xl font-bold">Transport tarixi</h1>
+    <h1 class="text-2xl font-bold">Transport History</h1>
     <p class="text-gray-600">
-      2024-12-01 -> 2024-12-31 || oralig'da kpi yozilg'anlar.
+      2024-12-01 -> 2024-12-31 || KPI records for the period.
     </p>
     <div class="flex items-center justify-between mt-4">
-      <span class="font-semibold">Jami summa: 0 so'm</span>
+      <span class="font-semibold">Total Amount: 0 UZS</span>
       <button
         class="bg-blue-600 text-white rounded-full p-3 flex items-center justify-center"
       >
@@ -15,30 +15,26 @@
     <table class="table w-full mt-4">
       <thead>
         <tr>
-          <th>T/r</th>
-          <th>Xodim</th>
+          <th>№</th>
+          <th>Employee</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td>Sample Xodim</td>
+          <td>Sample Employee</td>
         </tr>
         <tr>
           <td>2</td>
-          <td>Sample Xodim 2</td>
+          <td>Sample Employee 2</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "TransportHistory",
-});
+<script setup lang="ts">
+defineProps();
 </script>
 
 <style scoped></style>
