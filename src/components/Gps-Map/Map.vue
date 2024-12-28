@@ -1,210 +1,169 @@
-<template>
-  <h2 class="text-center text-[40px] animate-heading hover:text-blue-500 hover:underline transition-all duration-500 ease-in-out">
-      Farrukh MAP!
-    </h2>
-  <div>
-    <div class="flex items-center justify-center mt-[20px] mb-[20px]">
-      <button
-        class="border border-gray-300 bg-blue-500 rounded p-2 text-white"
-        @click="getLocation"
-      >
-        Узнать моё местоположение
-      </button>
-    </div>
-    <div id="map" style="height: 500px"></div>
-    <div v-if="neighborhood" style="margin-top: 10px">
-      Вы находитесь в районе: {{ neighborhood }}
-    </div>
-    <div v-if="myLocation" class="text-center mt-2">
-      <p>
-        <strong>Вы находитесь здесь:</strong> {{ myLocation.lat }},
-        {{ myLocation.lon }}
-      </p>
-    </div>
-  </div>
-</template>
+<template>  
+  <div>  
+    <h2 class="animate-heading">Выберите категорию меток</h2>  
+    <div class="category-buttons">  
+    </div>  
+    <div id="mapContainer" style="height: 500px;"></div>  
+  </div>  
+</template>  
 
-<script setup lang="ts">
-import { ref, onMounted } from "vue";
-import "leaflet/dist/leaflet.css";
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
-import "leaflet-control-geocoder"; // Добавляем импорт для геокодера
-import L from "leaflet";
-import "leaflet-routing-machine";
+<script setup lang="ts">  
+import { ref, onMounted, nextTick } from 'vue';  
 
-const map = ref<L.Map | null>(null);
-const myMarker = ref<L.Marker | null>(null);
-const secondMarker = ref<L.Marker | null>(null); // Новый маркер для второй локации
-const neighborhood = ref<string | null>(null);
-const myLocation = ref<{ lat: number; lon: number } | null>(null);
-let routingControl: L.Routing.Control | null = null; // Для управления маршрутом
+// Данные категорий и меток  
+const categoriesData = {  
+  category1: [  
+    { lat: 55.75222, lon: 37.61556, name: 'Метка 1 - Категория 1' },  
+    { lat: 55.75159, lon: 37.61688, name: 'Метка 2 - Категория 1' },  
+  ],  
+  category2: [  
+    { lat: 55.75583, lon: 37.61778, name: 'Метка 1 - Категория 2' },  
+    { lat: 55.75651, lon: 37.61622, name: 'Метка 2 - Категория 2' },  
+  ],  
+  category3: [  
+    { lat: 55.75444, lon: 37.61833, name: 'Метка 1 - Категория 3' },  
+    { lat: 55.75333, lon: 37.61722, name: 'Метка 2 - Категория 3' },  
+  ],  
+};  
 
-onMounted(() => {
-  initMap();
-  // Добавление метода получения места при загрузке карты
-  getLocation();
-});
+const activeCategory = ref('category1'); // Текущая активная категория  
+let map: any; // Переменная для карты  
+let userLocation: any; // Переменная для хранения местоположения пользователя  
+let previousRoute: any; // Переменная для хранения предыдущего маршрута  
 
-function initMap() {
-  // Инициализация карты
-  map.value = L.map("map").setView([55.751244, 37.618423], 13); // Москва по умолчанию
+// Инициализация карты  
+const initMap = () => {  
+  const mapContainer = document.getElementById('mapContainer');  
+  if (!mapContainer) {  
+    console.error("Картографический контейнер не найден");  
+    return;  
+  }  
 
-  // Добавляем слой карты
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map.value);
+  // Создаем экземпляр карты  
+  map = new window.ymaps.Map(mapContainer, {  
+    center: [55.753215, 37.622504],  
+    zoom: 14,  
+  });  
 
-  // Устанавливаем обработчик кликов на карту
-  map.value.on("click", onMapClick);
-}
+  // Получаем текущее местоположение пользователя  
+  getUserLocation();  
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        myLocation.value = { lat, lon }; // Сохраняем текущие координаты
+  // Добавляем обработчик щелчка по карте для построения маршрута  
+  map.events.add('click', (e) => {  
+    const coords = e.get('coords'); // Получаем координаты щелчка  
+    if (userLocation) {  
+      drawRoute(userLocation, coords); // Рисуем маршрут от пользователя до выбранных координат  
+    }  
+  });  
 
-        // Удаляем предыдущий маркер, если он существует
-        if (myMarker.value) {
-          map.value?.removeLayer(myMarker.value);
-        }
+  showCategory(activeCategory.value); // Показываем начальную категорию  
+};  
 
-        // Добавляем маркер для текущего местоположения
-        myMarker.value = L.marker([lat, lon]).addTo(map.value);
-        map.value?.setView([lat, lon], 13); // Центрируем карту на моем местоположении
+// Функция для отображения меток выбранной категории  
+const showCategory = (category: string) => {  
+  if (!map) {  
+    console.error("Карта не инициализирована");  
+    return;  
+  }  
 
-        // Добавляем всплывающее окно с информацией о текущем местоположении
-        myMarker.value.bindPopup("Вы находитесь здесь!").openPopup();
+  map.geoObjects.removeAll(); // Удаляем все метки на карте  
 
-        // Получаем информацию о районе
-        getNeighborhood(lat, lon);
-      },
-      (error) => {
-        console.error("Ошибка получения геолокации:", error);
-        alert("Не удалось получить ваше местоположение.");
-      }
-    );
-  } else {
-    alert("Ваш браузер не поддерживает геолокацию.");
-  }
-}
+  categoriesData[category].forEach((item) => {  
+    const placemark = new window.ymaps.Placemark([item.lat, item.lon], {  
+      hintContent: item.name,  
+      balloonContent: item.name,  
+    });  
 
-async function getNeighborhood(lat: number, lon: number) {
-  try {
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
-    );
-    const data = await response.json();
-    neighborhood.value = data.display_name; // Сохраняем информацию о районе
-  } catch (error) {
-    console.error("Ошибка при получении района:", error);
-  }
-}
+    map.geoObjects.add(placemark); // Добавляем метку на карту  
+  });  
 
-// Функция обработки клика по карте
-function onMapClick(e: L.LeafletEvent) {
-  if (!myLocation.value) {
-    alert("Сначала нужно узнать ваше местоположение!");
-    return;
-  }
+  activeCategory.value = category; // Обновляем активную категорию  
+};  
 
-  // Получаем координаты точки клика
-  const destination = L.latLng(e.latlng.lat, e.latlng.lng);
+// Функция для получения местоположения пользователя  
+const getUserLocation = () => {  
+  if (navigator.geolocation) {  
+    navigator.geolocation.getCurrentPosition(position => {  
+      userLocation = [position.coords.latitude, position.coords.longitude]; // Сохраняем местоположение  
+      const userPlacemark = new window.ymaps.Placemark(userLocation, {  
+        hintContent: 'Вы находитесь здесь',  
+        balloonContent: 'Ваше текущее местоположение'  
+      });  
 
-  // Если второй маркер уже существует, удалим его
-  if (secondMarker.value) {
-    map.value?.removeLayer(secondMarker.value);
-  }
+      map.geoObjects.add(userPlacemark); // Добавляем маркер пользователя на карту  
+      map.setCenter(userLocation); // Центрируем карту на местоположении пользователя  
+    }, () => {  
+      console.error("Не удалось получить местоположение пользователя");  
+    });  
+  } else {  
+    console.error("Geolocation не поддерживается браузером");  
+  }  
+};  
 
-  // Добавляем новый маркер для второй локации
-  secondMarker.value = L.marker([destination.lat, destination.lng]).addTo(
-    map.value
-  );
+// Функция для рисования маршрута  
+const drawRoute = (startCoords: number[], endCoords: number[]) => {  
+  window.ymaps.route([startCoords, endCoords]).then((route) => {  
+    // Проверяем, был ли маршрут успешно найден  
+    if (route) {  
+      // Удаляем предыдущий маршрут, если он существует  
+      if (previousRoute) {  
+        map.geoObjects.remove(previousRoute);  
+      }  
 
-  // Удаляем старый маршрут, если он существует
-  if (routingControl) {
-    routingControl.setWaypoints([]); // Очищаем старый маршрут
-  }
+      map.geoObjects.add(route); // Добавляем новый маршрут на карту  
+      previousRoute = route; // Сохраняем текущий маршрут как предыдущий  
 
-  // Создаем новый маршрут от текущего местоположения до выбранной точки
-  routingControl = L.Routing.control({
-    waypoints: [
-      L.latLng(myLocation.value.lat, myLocation.value.lon), // Текущая позиция
-      destination, // Точка назначения
-    ],
-    routeWhileDragging: true,
-    geocoder: L.Control.Geocoder.nominatim(), // Это теперь должно работать
-    styles: [
-      { color: "blue", opacity: 0.7, weight: 5 }, // Стиль для маршрута от вашей локации
-      { color: "green", opacity: 0.7, weight: 5 }, // Стиль для маршрута к точке назначения
-    ],
-    createMarker: () => null, // Убираем маркеры для промежуточных точек
-  }).addTo(map.value);
+      // Центрируем карту на маршруте  
+      const bounds = route.getBounds();  
+      if (bounds) {  
+        map.setBounds(bounds);  
+      } else {  
+        console.error("Не удалось получить границы маршрута");  
+      }  
+    } else {  
+      console.error("Маршрут не найден");  
+    }  
+  }).catch((error) => {  
+    console.error("Ошибка при построении маршрута:", error);  
+  });  
+};  
 
-  // Закрепляем маркеры в текущем месте
-  myMarker.value.setLatLng([myLocation.value.lat, myLocation.value.lon]);
-  secondMarker.value.setLatLng([destination.lat, destination.lng]);
-}
-</script>
+// Функция для загрузки Yandex Maps  
+const loadYandexMaps = () => {  
+  return new Promise((resolve, reject) => {  
+    if (window.ymaps) {  
+      resolve();  
+    } else {  
+      const script = document.createElement('script');  
+      script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9566ee55-2ca3-40b5-b63b-8723f58700af"; // Замените на ваш API ключ  
+      script.onload = () => resolve();  
+      script.onerror = () => reject(new Error('Не удалось загрузить Yandex Maps'));  
+      document.head.appendChild(script);  
+    }  
+  });  
+};  
 
-<style>
-#map {
-  height: 500px;
-}
-button {
-  list-style: none;
-  text-decoration: none;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// Загрузка Yandex Maps и инициализация карты при монтировании компонента  
+onMounted(async () => {  
+  try {  
+    await loadYandexMaps();  
+    await nextTick();  
+    window.ymaps.ready(initMap);  
+  } catch (error) {  
+    console.error('Ошибка загрузки карты:', error);  
+  }  
+});  
+</script>  
 
-/* Применяем анимацию к заголовку */
-.animate-heading {
-  animation: fadeIn 1s ease-out;
-}
+<style scoped>  
+.category-buttons {  
+  margin-bottom: 10px;  
+}  
 
-h2:hover {
-  text-decoration: underline;
-  color: #3498db;
-  
-}
+.category-button {  
+  margin-right: 10px;  
+}  
+#mapContainer {  
+  height: 500px; /* Высота карты */  
+}  
 </style>
-<!-- 1 -->
-<!-- initMap: -->
-<!-- Инициализирует карту, устанавливая её в центр Москвы с масштабом 13. -->
-<!-- Добавляет слой OpenStreetMap. -->
-<!-- Настроен обработчик для кликов на карту, который вызывает функцию onMapClick. -->
-
-<!-- 2 -->
-<!-- getLocation:
-
-Проверяет, поддерживает ли браузер геолокацию.
-Если поддерживает, запрашивает местоположение пользователя.
-Добавляет маркер на карту для текущего местоположения и центрирует карту на этом месте. -->
-
-<!-- 3 -->
-<!-- getNeighborhood:
-
-Выполняет запрос к API Nominatim для получения информации о районе на основе широты и долготы.
-Сохраняет название района в переменную neighborhood. -->
-
-<!-- 4 -->
-<!-- onMapClick:
-
-Обрабатывает клики на карту.
-Если местоположение пользователя не определено, показывает сообщение.
-Получает координаты точки клика и добавляет маркер для этой точки.
-Создаёт маршрут между текущим местоположением и точкой назначения.
-Настроены стили маршрута и отключение маркеров для промежуточных точек маршрута. -->

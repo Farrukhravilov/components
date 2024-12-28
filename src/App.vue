@@ -69,10 +69,12 @@
   </div> -->
   <Map/>
   <Relax/>
+  <DropDown/>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import DropDown from "./components/Drop-down/DropDown.vue";
 import Relax from "./components/Relax/Relax.vue";
 import Map from "./components/Gps-Map/Map.vue";
 import Input from "./components/Global-Input/Input.vue";

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,6 +8,30 @@
   </head>
   <body>
     <div id="app"></div>
+
+    <!-- Скрипт для Яндекс.Карт с API-ключом -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9566ee55-2ca3-40b5-b63b-8723f58700af"></script>
+
+    <!-- Основной скрипт проекта -->
     <script type="module" src="/src/main.ts"></script>
+
+    <script>
+      // Проверка загрузки Яндекс.Карт
+      (function checkYandexAPI() {
+        const retryInterval = 500;
+        const maxAttempts = 20;
+
+        let attempts = 0;
+        const interval = setInterval(() => {
+          if (typeof window.ymaps !== "undefined") {
+            console.log("Yandex Maps API загружен");
+            clearInterval(interval);
+          } else if (++attempts > maxAttempts) {
+            console.error("Не удалось загрузить Yandex Maps API");
+            clearInterval(interval);
+          }
+        }, retryInterval);
+      })();
+    </script>
   </body>
 </html>
