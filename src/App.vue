@@ -55,10 +55,12 @@
   <!-- <Map /> -->
   <DropDown />
   <i18/>
+  <DarkMode/>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import DarkMode from "./components/DarkMode/DarkMode.vue";
 import i18 from "./components/i18-locales/i18.vue";
 import DropDown from "./components/Drop-down/DropDown.vue";
 import Map from "./components/Gps-Map/Map.vue";

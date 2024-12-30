@@ -1,0 +1,12 @@
+/* Глобальные стили */
+body {
+    @apply bg-background-light text-text-light;
+    /* для светлой темы */
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* Плавное переключение */
+}
+
+body.dark {
+    @apply bg-background-dark text-text-dark;
+    /* для темной темы */
+}

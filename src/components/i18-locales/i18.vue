@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ $t("welcome") }}</h1>
+    <p>{{ $t("password") }}</p>
     <select v-model="currentLanguage" @change="changeLanguage">
       <option value="uz">Uzbek</option>
       <option value="ru">Russian</option>
