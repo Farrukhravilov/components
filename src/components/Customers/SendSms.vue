@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const smsLimit = 5000;
 const totalSent = ref(2);
@@ -70,7 +70,7 @@ const updateCharacterCount = () => {
 const sendSms = () => {
   if (messageCount.value > 0 && totalSent.value < smsLimit) {
     totalSent.value++;
-    smsRemaining.value = smsLimit - totalSent.value;
+    // smsRemaining.value = smsLimit - totalSent.value;
     message.value = "";
     messageCount.value = 0;
   }

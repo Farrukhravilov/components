@@ -1,86 +1,82 @@
 <template>
-  <div class="relative inline-block text-left">
-    <div>
-      <button
-        @click="toggleDropdown"
-        class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        {{ selectedOption || "Выберите опцию" }}
-        <svg
-          class="-mr-1 ml-2 h-5 w-5"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.29 7.79a1 1 0 011.42 0L10 10.59l3.29-2.8a1 1 0 011.42 1.42l-4 3.5a1 1 0 01-1.42 0l-4-3.5a1 1 0 010-1.42z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <div
-      v-if="isOpen"
-      class="absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
+  <div class="relative p-[20px] mb-[20px]">
+    <!-- Кнопка для открытия dropdown -->
+    <button
+      @click="toggleDropdown"
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition ease-out duration-300"
     >
-      <div class="p-2">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Поиск..."
-          class="w-full px-3 py-2 border border-gray-300 rounded-md"
-        />
-      </div>
-      <div class="max-h-60 overflow-y-auto">
-        <div
-          v-for="option in filteredOptions"
-          :key="option"
-          @click="selectOption(option)"
-          class="py-2 px-4 hover:bg-gray-100 cursor-pointer"
-        >
-          {{ option }}
+      Открыть
+    </button>
+
+    <!-- Dropdown -->
+    <transition
+      enter="transition ease-out duration-300"
+      enter-from="opacity-0 translate-y-2"
+      enter-to="opacity-100 translate-y-0"
+      leave="transition ease-in duration-200"
+      leave-from="opacity-100 translate-y-0"
+      leave-to="opacity-0 translate-y-2"
+    >
+      <div
+        v-if="isOpen"
+        class="absolute mt-2 w-64 p-4 bg-white border border-gray-300 rounded shadow-lg"
+      >
+        <!-- Input -->
+        <div className="relative z-0 w-full mb-5 group">
+          <input
+            type="email"
+            name="floating_email"
+            id="floating_email"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required
+          />
+          <label
+            htmlFor="floating_email"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Email address</label
+          >
+        </div>
+
+        <!-- Select -->
+        <div>
+          <label
+            for="dropdown-select"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Выберите опцию
+          </label>
+          <select
+            id="dropdown-select"
+            class="mt-1 w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option>Опция 1</option>
+            <option>Опция 2</option>
+            <option>Опция 3</option>
+          </select>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
-const options = ref(["Опция 1", "Опция 2", "Опция 3", "Опция 4"]);
-const selectedOption = ref<string | null>(null);
 const isOpen = ref(false);
-const searchQuery = ref("");
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
 };
-
-const filteredOptions = computed(() => {
-  return options.value.filter((option) =>
-    option.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
-});
-
-const selectOption = (option: string) => {
-  selectedOption.value = option;
-  searchQuery.value = "";
-  isOpen.value = false;
-};
-
-// Закрыть dropdown при клике вне его
-document.addEventListener("click", (event) => {
-  const target = event.target as HTMLElement;
-  if (!target.closest(".relative")) {
-    isOpen.value = false;
-  }
-});
 </script>
 
-<style scoped>
-/* Добавьте свои стили здесь, если необходимо */
+<style >
+button {
+  list-style: none;
+  text-decoration: none;
+  &:hover {
+    list-style: none;
+    text-decoration: none;
+  }
+}
 </style>

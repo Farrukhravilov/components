@@ -6,7 +6,7 @@
         type="text"
         v-model="phoneValue"
         :placeholder="isPlaceholderVisible ? placeholder : ''"
-        :class="[inputClasses, textAlignClass]"
+        :class="computedInputClasses"
         @focus="handleFocus"
         @blur="handleBlur"
         @input="handleInput"
@@ -27,9 +27,11 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { ref, watch, defineProps, defineEmits } from "vue";
 
+<script setup lang="ts">
+import { ref, watch, computed, defineProps, defineEmits } from "vue";
+
+// Описание пропсов
 const props = defineProps<{
   type?: string;
   modelValue: string;
@@ -37,9 +39,11 @@ const props = defineProps<{
   containerClass?: string;
   iconClass?: string;
   textAlignClass?: string;
+  inputClasses?: string | string[]; // Добавлено описание inputClasses
   iconPositionClass?: string;
 }>();
-const mask = ref("+998 (##) ### ## ##")
+
+const mask = ref("+998 (##) ### ## ##");
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
@@ -48,7 +52,18 @@ const phoneValue = ref(props.modelValue || "");
 const isFocused = ref(false);
 const isPlaceholderVisible = ref(!phoneValue.value);
 
-// Watch for external modelValue updates
+// Вычисляемое свойство для классов input
+const computedInputClasses = computed(() => {
+  const baseClasses = props.inputClasses
+    ? Array.isArray(props.inputClasses)
+      ? props.inputClasses
+      : [props.inputClasses]
+    : [];
+  const alignmentClass = props.textAlignClass ? [props.textAlignClass] : [];
+  return [...baseClasses, ...alignmentClass];
+});
+
+// Наблюдение за внешними изменениями modelValue
 watch(
   () => props.modelValue,
   (newValue) => {
@@ -57,26 +72,28 @@ watch(
   }
 );
 
-// Watch for internal phoneValue changes
+// Наблюдение за внутренними изменениями phoneValue
 watch(phoneValue, (newValue) => {
   emit("update:modelValue", newValue);
 });
 
+// Событие фокуса
 const handleFocus = () => {
   isFocused.value = true;
 };
 
+// Событие потери фокуса
 const handleBlur = () => {
   isFocused.value = false;
 };
 
-// Handle input changes
+// Обработка изменений ввода
 const handleInput = (event: InputEvent) => {
   const target = event.target as HTMLInputElement;
-  phoneValue.value = target.value; // Just update the value
+  phoneValue.value = target.value; // Просто обновляем значение
 };
 </script>
 
 <style scoped>
-/* Add your styles here */
+/* Добавьте стили при необходимости */
 </style>

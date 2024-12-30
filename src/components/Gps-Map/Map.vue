@@ -129,10 +129,10 @@ const drawRoute = (startCoords: number[], endCoords: number[]) => {
 };  
 
 // Функция для загрузки Yandex Maps  
-const loadYandexMaps = () => {  
+const loadYandexMaps = (): Promise<void> => {  
   return new Promise((resolve, reject) => {  
     if (window.ymaps) {  
-      resolve();  
+      resolve(); // Здесь мы не возвращаем данных, просто вызываем resolve  
     } else {  
       const script = document.createElement('script');  
       script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9566ee55-2ca3-40b5-b63b-8723f58700af"; // Замените на ваш API ключ  
@@ -141,7 +141,7 @@ const loadYandexMaps = () => {
       document.head.appendChild(script);  
     }  
   });  
-};  
+};   
 
 // Загрузка Yandex Maps и инициализация карты при монтировании компонента  
 onMounted(async () => {  
