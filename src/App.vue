@@ -52,12 +52,14 @@
     <TableToDo />
     <Input />
   </div>
-  <Map />
+  <!-- <Map /> -->
   <DropDown />
+  <i18/>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import i18 from "./components/i18-locales/i18.vue";
 import DropDown from "./components/Drop-down/DropDown.vue";
 import Map from "./components/Gps-Map/Map.vue";
 import Input from "./components/Global-Input/Input.vue";

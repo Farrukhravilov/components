@@ -1,13 +1,7 @@
 <template>
   <div class="relative p-[20px] mb-[20px]">
     <!-- Кнопка для открытия dropdown -->
-    <button
-      @click="toggleDropdown"
-      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition ease-out duration-300"
-    >
-      Открыть
-    </button>
-
+    <button @click="toggleDropdown" class="bg-blue-500 text-white rounded hover:bg-blue-600 transition ease-out duration-300 p-[15px]">Нажми на меня</button>
     <!-- Dropdown -->
     <transition
       enter="transition ease-out duration-300"
@@ -28,7 +22,7 @@
             name="floating_email"
             id="floating_email"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
+            placeholder=""
             required
           />
           <label
@@ -50,9 +44,9 @@
             id="dropdown-select"
             class="mt-1 w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
-            <option>Опция 1</option>
-            <option>Опция 2</option>
-            <option>Опция 3</option>
+            <option>Опция 1 farrukh</option>
+            <option>Опция 2 farrukh</option>
+            <option>Опция 3 farrukh </option>
           </select>
         </div>
       </div>
@@ -78,5 +72,9 @@ button {
     list-style: none;
     text-decoration: none;
   }
+}
+button:hover {
+  list-style: none;
+  text-decoration: none;
 }
 </style>
