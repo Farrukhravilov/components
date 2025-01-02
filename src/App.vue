@@ -54,8 +54,8 @@
   </div>
   <!-- <Map /> -->
   <DropDown />
-  <i18/>
-  <DarkMode/>
+  <i18 />
+  <DarkMode />
 </template>
 
 <script setup lang="ts">

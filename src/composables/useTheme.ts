@@ -15,7 +15,6 @@ export function useTheme() {
       document.body.classList.remove("dark");
     }
   };
-
   return {
     isDarkMode,
     toggleTheme,

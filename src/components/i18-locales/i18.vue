@@ -2,7 +2,7 @@
   <div>
     <h1>{{ $t("welcome") }}</h1>
     <p>{{ $t("password") }}</p>
-    <select v-model="currentLanguage" @change="changeLanguage">
+    <select v-model="currentLanguage" @change="changeLanguage" class="border border-gray-300 p-2 w-full max-w-[250px] rounded">
       <option value="uz">Uzbek</option>
       <option value="ru">Russian</option>
       <option value="en">English</option>
@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue"; // Импорт Vue
-import i18next from "/src/i18"; // Импорт i18next из правильного пути
+import { ref, watch } from "vue"; 
+import i18next from "/src/i18"; 
 
 const currentLanguage = ref("uz");
 
