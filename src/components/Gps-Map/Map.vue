@@ -7,135 +7,84 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick, computed } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 
-// Данные категорий и меток
-const categoriesData = {
-  category1: [
-    { lat: 55.75222, lon: 37.61556, name: "Метка 1 - Категория 1" },
-    { lat: 55.75159, lon: 37.61688, name: "Метка 2 - Категория 1" },
-  ],
-  category2: [
-    { lat: 55.75583, lon: 37.61778, name: "Метка 1 - Категория 2" },
-    { lat: 55.75651, lon: 37.61622, name: "Метка 2 - Категория 2" },
-  ],
-  category3: [
-    { lat: 55.75444, lon: 37.61833, name: "Метка 1 - Категория 3" },
-    { lat: 55.75333, lon: 37.61722, name: "Метка 2 - Категория 3" },
-  ],
-};
+let map: any;
+let userLocation: number[] | undefined;
+let previousRoute: any;
 
-const activeCategory = ref("category1"); // Текущая активная категория
-let map: any; // Переменная для карты
-let userLocation: any; // Переменная для хранения местоположения пользователя
-let previousRoute: any; // Переменная для хранения предыдущего маршрута
-
-// Инициализация карты
-const initMap = () => {
+const initMap = (): void => {
   const mapContainer = document.getElementById("mapContainer");
-  if (!mapContainer) {
-    console.error("Картографический контейнер не найден");
-    return;
-  }
+  if (!mapContainer) return;
 
-  // Создаем экземпляр карты
   map = new window.ymaps.Map(mapContainer, {
-    center: [55.753215, 37.622504],
+    center: [55.753215, 37.622504], // Центр по умолчанию
     zoom: 14,
   });
 
-  // Получаем текущее местоположение пользователя
-  getUserLocation();
-
-  // Добавляем обработчик щелчка по карте для построения маршрута
-  map.events.add("click", (e) => {
-    const coords = e.get("coords"); // Получаем координаты щелчка
-    if (userLocation) {
-      drawRoute(userLocation, coords); // Рисуем маршрут от пользователя до выбранных координат
+  // Установка текущей позиции пользователя
+  getUserLocation().then((location) => {
+    if (location) {
+      userLocation = location;
+      map.setCenter(location);
+      const userPlacemark = new window.ymaps.Placemark(location, {
+        hintContent: "Вы находитесь здесь",
+        balloonContent: "Ваше текущее местоположение",
+      });
+      map.geoObjects.add(userPlacemark);
     }
   });
 
-  showCategory(activeCategory.value); // Показываем начальную категорию
-};
-
-// Функция для отображения меток выбранной категории
-const showCategory = (category: string) => {
-  if (!map) {
-    console.error("Карта не инициализирована");
-    return;
-  }
-
-  map.geoObjects.removeAll(); // Удаляем все метки на карте
-
-  categoriesData[category].forEach((item) => {
-    const placemark = new window.ymaps.Placemark([item.lat, item.lon], {
-      hintContent: item.name,
-      balloonContent: item.name,
-    });
-
-    map.geoObjects.add(placemark); // Добавляем метку на карту
+  // Добавление события на клик по карте
+  map.events.add("click", (e: any) => {
+    const coords = e.get("coords");
+    console.log("Щелчок по карте, координаты:", coords);
+    if (userLocation) {
+      drawRoute(userLocation, coords);
+    }
   });
-
-  activeCategory.value = category; // Обновляем активную категорию
 };
 
-// Функция для получения местоположения пользователя
-const getUserLocation = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        userLocation = [position.coords.latitude, position.coords.longitude]; // Сохраняем местоположение
-        const userPlacemark = new window.ymaps.Placemark(userLocation, {
-          hintContent: "Вы находитесь здесь",
-          balloonContent: "Ваше текущее местоположение",
-        });
-
-        map.geoObjects.add(userPlacemark); // Добавляем маркер пользователя на карту
-        map.setCenter(userLocation); // Центрируем карту на местоположении пользователя
-      },
-      () => {
-        console.error("Не удалось получить местоположение пользователя");
-      }
-    );
-  } else {
-    console.error("Geolocation не поддерживается браузером");
-  }
+// Получение местоположения пользователя
+const getUserLocation = (): Promise<number[] | undefined> => {
+  return new Promise((resolve) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const location = [
+            position.coords.latitude,
+            position.coords.longitude,
+          ];
+          resolve(location);
+        },
+        (error) => {
+          console.error("Ошибка получения местоположения:", error.message);
+          resolve(undefined);
+        }
+      );
+    } else {
+      console.error("Geolocation не поддерживается браузером");
+      resolve(undefined);
+    }
+  });
 };
 
-// Функция для рисования маршрута
-const drawRoute = (startCoords: number[], endCoords: number[]) => {
-  // Проверяем корректность координат
-  if (
-    !Array.isArray(startCoords) ||
-    !Array.isArray(endCoords) ||
-    startCoords.length !== 2 ||
-    endCoords.length !== 2
-  ) {
-    console.error("Некорректные координаты");
-    return;
-  }
+// Построение маршрута
+const drawRoute = (startCoords: number[], endCoords: number[]): void => {
+  if (!startCoords || !endCoords) return;
 
   window.ymaps
     .route([startCoords, endCoords])
-    .then((route) => {
+    .then((route: any) => {
       if (route) {
-        // Удаляем предыдущий маршрут, если он существует
-        if (previousRoute) {
-          map.geoObjects.remove(previousRoute);
-        }
+        if (previousRoute) map.geoObjects.remove(previousRoute);
 
-        map.geoObjects.add(route); // Добавляем новый маршрут на карту
-        previousRoute = route; // Сохраняем текущий маршрут как предыдущий
+        map.geoObjects.add(route);
+        previousRoute = route;
 
-        // Центрируем карту на маршруте
         const bounds = route.getBounds();
-        if (bounds) {
-          map.setBounds(bounds);
-        } else {
-          console.error("Не удалось получить границы маршрута");
-        }
-      } else {
-        console.error("Маршрут не найден");
+        if (bounds)
+          map.setBounds(bounds, { checkZoomRange: true, zoomMargin: 10 });
       }
     })
     .catch((error) => {
@@ -143,15 +92,15 @@ const drawRoute = (startCoords: number[], endCoords: number[]) => {
     });
 };
 
-// Функция для загрузки Yandex Maps
+// Загрузка карт Yandex
 const loadYandexMaps = (): Promise<void> => {
   return new Promise((resolve, reject) => {
     if (window.ymaps) {
-      resolve(); // Здесь мы не возвращаем данных, просто вызываем resolve
+      resolve();
     } else {
       const script = document.createElement("script");
       script.src =
-        "https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9566ee55-2ca3-40b5-b63b-8723f58700af"; // Замените на ваш API ключ
+        "https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=431b3393-7782-439f-bbc2-c730862cc80d";
       script.onload = () => resolve();
       script.onerror = () =>
         reject(new Error("Не удалось загрузить Yandex Maps"));
@@ -160,14 +109,14 @@ const loadYandexMaps = (): Promise<void> => {
   });
 };
 
-// Загрузка Yandex Maps и инициализация карты при монтировании компонента
+// Инициализация карты при монтировании
 onMounted(async () => {
   try {
     await loadYandexMaps();
     await nextTick();
     window.ymaps.ready(initMap);
   } catch (error) {
-    console.error("Ошибка загрузки карты:", error);
+    console.error("Ошибка загрузки карты:", error.message);
   }
 });
 </script>
@@ -180,7 +129,8 @@ onMounted(async () => {
 .category-button {
   margin-right: 10px;
 }
+
 #mapContainer {
-  height: 500px; /* Высота карты */
+  height: 500px;
 }
 </style>

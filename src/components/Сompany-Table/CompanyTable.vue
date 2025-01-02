@@ -60,69 +60,55 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "OrdersTable",
-  setup() {
-    // Данные таблицы
-    const tableData = ref([
-      {
-        id: 1,
-        year: "1 million so'mdan yuqori",
-        moreThanFour: 0,
-        twoToThree: 0,
-        oneTime: 3,
-        noOrders: 343,
-      },
-      {
-        id: 2,
-        year: "200 ming so'mdan yuqori",
-        moreThanFour: 2,
-        twoToThree: 2,
-        oneTime: 31,
-        noOrders: 343,
-      },
-      {
-        id: 3,
-        year: "200 ming so'mgacha",
-        moreThanFour: 1,
-        twoToThree: 6,
-        oneTime: 27,
-        noOrders: 343,
-      },
-    ]);
-
-    // Классы для ячеек на основе значений
-    const getCellClass = (value: number): string => {
-      if (value === 0) return "bg-green-500 text-white text-center";
-      if (value <= 2) return "bg-green-300 text-black text-center";
-      if (value <= 6) return "bg-yellow-300 text-black text-center";
-      return "bg-red-500 text-white text-center";
-    };
-
-    // Метод для применения фильтра
-    const applyFilter = (): void => {
-      // Логика фильтрации данных по значениям fromValue и toValue
-      console.log(`Filtering from ${fromValue} to ${toValue}`);
-    };
-
-    // Переменные для фильтра
-    const fromValue = ref<number | null>(null);
-    const toValue = ref<number | null>(null);
-
-    return {
-      tableData,
-      getCellClass,
-      fromValue,
-      toValue,
-      applyFilter,
-    };
+// Данные таблицы
+const tableData = ref([
+  {
+    id: 1,
+    year: "1 million so'mdan yuqori",
+    moreThanFour: 0,
+    twoToThree: 0,
+    oneTime: 3,
+    noOrders: 343,
   },
-});
-</script>
+  {
+    id: 2,
+    year: "200 ming so'mdan yuqori",
+    moreThanFour: 2,
+    twoToThree: 2,
+    oneTime: 31,
+    noOrders: 343,
+  },
+  {
+    id: 3,
+    year: "200 ming so'mgacha",
+    moreThanFour: 1,
+    twoToThree: 6,
+    oneTime: 27,
+    noOrders: 343,
+  },
+]);
 
+// Классы для ячеек на основе значений
+const getCellClass = (value: number): string => {
+  if (value === 0) return "bg-green-500 text-white text-center";
+  if (value <= 2) return "bg-green-300 text-black text-center";
+  if (value <= 6) return "bg-yellow-300 text-black text-center";
+  return "bg-red-500 text-white text-center";
+};
+
+// Метод для применения фильтра
+const applyFilter = (): void => {
+  // Логика фильтрации данных по значениям fromValue и toValue
+  console.log(`Filtering from ${fromValue.value} to ${toValue.value}`);
+};
+
+// Переменные для фильтра
+const fromValue = ref<number | null>(null);
+const toValue = ref<number | null>(null);
+</script>
 <style scoped>
 /* Дополнительные стили не требуются, всё покрывается DaisyUI */
 </style>

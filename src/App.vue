@@ -49,10 +49,10 @@
       iconPositionClass="right-[10px] top-[25px]"
     />
     <p class="mt-2">Текущее значение: {{ inputValue }}</p>
-    <TableToDo />
+    <!-- <TableToDo /> -->
     <Input />
   </div>
-  <!-- <Map /> -->
+  <Map />
   <DropDown />
   <i18 />
   <DarkMode />

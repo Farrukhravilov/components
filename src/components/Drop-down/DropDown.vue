@@ -1,7 +1,12 @@
 <template>
   <div class="relative p-[20px] mb-[20px]">
     <!-- Кнопка для открытия dropdown -->
-    <button @click="toggleDropdown" class="bg-blue-500 text-white rounded hover:bg-blue-600 transition ease-out duration-300 p-[15px]">Нажми на меня</button>
+    <button
+      class="bg-black text-white rounded hover:bg-blue-600 transition ease-out duration-300 p-[15px]"
+      @click="toggleDropdown"
+    >
+      Нажми на меня
+    </button>
     <!-- Dropdown -->
     <transition
       enter="transition ease-out duration-300"
@@ -46,7 +51,7 @@
           >
             <option>Опция 1 farrukh</option>
             <option>Опция 2 farrukh</option>
-            <option>Опция 3 farrukh </option>
+            <option>Опция 3 farrukh</option>
           </select>
         </div>
       </div>
@@ -64,7 +69,7 @@ const toggleDropdown = () => {
 };
 </script>
 
-<style >
+<style>
 button {
   list-style: none;
   text-decoration: none;

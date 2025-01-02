@@ -4,30 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vite + Vue + TypeScript приложение с картами Яндекса"
+    />
     <title>Vite + Vue + TS</title>
   </head>
   <body>
     <div id="app"></div>
 
-    <!-- Скрипт для Яндекс.Карт с API-ключом -->
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=apikey=9566ee55-2ca3-40b5-b63b-8723f58700af"></script>
+    <!-- Скрипт для Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=431b3393-7782-439f-bbc2-c730862cc80d"></script>
 
     <!-- Основной скрипт проекта -->
     <script type="module" src="/src/main.ts"></script>
 
     <script>
-      // Проверка загрузки Яндекс.Карт
       (function checkYandexAPI() {
-        const retryInterval = 500;
-        const maxAttempts = 20;
+        const retryInterval = 500; // Интервал повторной проверки (мс)
+        const maxAttempts = 20; // Максимальное количество попыток
 
         let attempts = 0;
         const interval = setInterval(() => {
           if (typeof window.ymaps !== "undefined") {
-            console.log("Yandex Maps API загружен");
+            console.log("Yandex Maps API успешно загружен");
             clearInterval(interval);
           } else if (++attempts > maxAttempts) {
-            console.error("Не удалось загрузить Yandex Maps API");
+            console.error("Ошибка: Yandex Maps API не удалось загрузить");
             clearInterval(interval);
           }
         }, retryInterval);
