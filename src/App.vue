@@ -52,7 +52,7 @@
     <!-- <TableToDo /> -->
     <Input />
   </div>
-  <Map />
+  <!-- <Map /> -->
   <DropDown />
   <i18 />
   <DarkMode />
