@@ -51,10 +51,7 @@ const getUserLocation = (): Promise<number[] | undefined> => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const location = [
-            position.coords.latitude,
-            position.coords.longitude,
-          ];
+          const location = [position.coords.latitude, position.coords.longitude];
           resolve(location);
         },
         (error) => {
@@ -69,7 +66,7 @@ const getUserLocation = (): Promise<number[] | undefined> => {
   });
 };
 
-// Построение маршрута
+// Построение маршрута 
 const drawRoute = (startCoords: number[], endCoords: number[]): void => {
   if (!startCoords || !endCoords) return;
 
@@ -83,8 +80,7 @@ const drawRoute = (startCoords: number[], endCoords: number[]): void => {
         previousRoute = route;
 
         const bounds = route.getBounds();
-        if (bounds)
-          map.setBounds(bounds, { checkZoomRange: true, zoomMargin: 10 });
+        if (bounds) map.setBounds(bounds, { checkZoomRange: true, zoomMargin: 10 });
       }
     })
     .catch((error) => {

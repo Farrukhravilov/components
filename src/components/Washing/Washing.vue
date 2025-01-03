@@ -38,13 +38,15 @@
           type="button"
           class="px-4 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-r-md flex items-center justify-center"
         >
-        <i class="fa fa-check text-white-800"></i>
+          <i class="fa fa-check text-white-800"></i>
         </button>
       </div>
     </div>
     <div class="p-2">
       <h4 class="text-[32px] font-normal text-[#000]">Yuvish.</h4>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-[20px] p-1">
+      <div
+        class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-[20px] p-1"
+      >
         <WashingCard
           v-for="item in 10"
           :invoiceNumber="245"
