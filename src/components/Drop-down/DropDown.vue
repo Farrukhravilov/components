@@ -5,12 +5,14 @@
       @click="toggleDropdown">
       Нажми на меня
     </button>
+
     <!-- Dropdown -->
     <transition enter="transition ease-out duration-300" enter-from="opacity-0 translate-y-2"
       enter-to="opacity-100 translate-y-0" leave="transition ease-in duration-200"
       leave-from="opacity-100 translate-y-0" leave-to="opacity-0 translate-y-2">
       <div v-if="isOpen" class="absolute mt-2 w-64 p-4 bg-white border border-gray-300 rounded shadow-lg">
         <!-- Input -->
+
         <div class="relative z-0 w-full mb-5 group">
           <input type="text" name="floating_email" id="floating_email" v-model="emailInput" @input="applyEmailMask"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -39,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { ref } from "vue";
 
 const isOpen = ref(false);

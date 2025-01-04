@@ -56,9 +56,11 @@
   <DropDown />
   <i18 />
   <DarkMode />
+  <GroupInput/>
 </template>
 
 <script setup lang="ts">
+
 import { ref } from "vue";
 import DarkMode from "./components/DarkMode/DarkMode.vue";
 import i18 from "./components/i18-locales/i18.vue";
@@ -67,6 +69,7 @@ import Map from "./components/Gps-Map/Map.vue";
 import Input from "./components/Global-Input/Input.vue";
 import GlobInput from "./components/CustomInput/GlobInput.vue";
 import TableToDo from "./components/Table-Todo/TableToDo.vue";
+import GroupInput from "./components/Input-groups/GroupInput.vue";
 // import Shelves from "./components/Shelves/Shelves.vue";
 // import PackagingSection from "./components/Packaging-Section/PackagingSection.vue";
 // import WashingSection from "./components/Washing/WashingSection.vue";
