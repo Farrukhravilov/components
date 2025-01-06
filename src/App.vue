@@ -39,7 +39,7 @@
     <!-- <WashingSection/> -->
     <!-- <PackagingSection /> -->
     <!-- <Shelves /> -->
-    <GlobInput
+    <!-- <GlobInput
       type="number"
       v-model="inputValue"
       placeholder=""
@@ -47,21 +47,24 @@
       iconClass="fas fa-user"
       textAlignClass="text-left"
       iconPositionClass="right-[10px] top-[25px]"
-    />
-    <p class="mt-2">Текущее значение: {{ inputValue }}</p>
+    /> -->
+    <!-- <p class="mt-2">Текущее значение: {{ inputValue }}</p> -->
     <!-- <TableToDo /> -->
-    <Input />
+    <!-- <Input /> -->
   </div>
+  <router-view />
+  <HomeView />
   <!-- <Map /> -->
-  <DropDown />
-  <i18 />
-  <DarkMode />
-  <GroupInput/>
+  <!-- <DropDown /> -->
+  <!-- <i18 /> -->
+  <!-- <DarkMode /> -->
+  <!-- <GroupInput/> -->
 </template>
 
 <script setup lang="ts">
 
 import { ref } from "vue";
+import HomeView from "./views/HomeView.vue";
 import DarkMode from "./components/DarkMode/DarkMode.vue";
 import i18 from "./components/i18-locales/i18.vue";
 import DropDown from "./components/Drop-down/DropDown.vue";
