@@ -60,14 +60,101 @@
   <!-- <i18 /> -->
   <!-- <DarkMode /> -->
   <!-- <GroupInput/> -->
-  <About/>
+  <!-- <About/> -->
+  <!-- <Connection/> -->
+  <Videos/>
+  <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
+    <nav class="p-4">
+      <ul class="flex justify-between items-center">
+        <li>
+          <router-link to="/About" class="text-white hover:text-red-700 uppercase text-[25px]"
+            active-class="active-link">
+            Biz haqimizda
+          </router-link>
+        </li>
+        <li>
+          <span class="text-white">•</span>
+        </li>
+        <li>
+          <router-link to="/Connection" class="text-white hover:text-red-700 uppercase text-[25px]"
+            active-class="active-link">
+            Aloqa uchun
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/" class="text-2xl text-white font-bold text-center mt-2 uppercase text-[30px]"
+            active-class="active-link">
+            CRUD GROUP
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/Faq" class="text-white hover:text-red-700 uppercase text-[25px]" active-class="active-link">
+            FAQ
+          </router-link>
+        </li>
+        <li>
+          <span class="text-white">•</span>
+        </li>
+        <li>
+          <router-link to="/Videos" class="text-white hover:text-red-700 uppercase text-[25px]"
+            active-class="active-link">
+            Video kushimchalar
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+  </header> -->
+  <!-- footer -->
+  <!-- <div class="border border-white rounded mt-[40px] relative  mx-auto w-full max-w-[1320px]">
+    <div class="flex items-center">
+      <div class="flex p-5 gap-[60px]">
+        <div class="">
+          <nav>
+            <ul class="flex flex-col items-center gap-[32px] justify-left ">
+              <li class="flex flex-col gap-[15px] items-center justify-left">
+                <span href="" class="text-white text-[19px] ">IJTIMOIY TARMOQLAR</span>
+                <i class="fa-solid fa-house text-white"></i>
+              </li>
+              <li>
+                <a class="text-white text-[22px]">TELEFON RAQAM:</a>
+              </li>
+              <span class="text-white">+998(33)509-09-01</span>
+              <li>
+                <span href="" class="text-white text-[22px]">EMAIL MANZIL:</span>
+              </li>
+              <a class="text-white text-[22px] hover:text-black">cruddev1@gmail.com</a>
+            </ul>
+          </nav>
+        </div>
+        <div class="mt-[3px]">
+          <h2 class="text-white text-[24px]">BIZNING MANZIL:</h2>
+          <Map />
+        </div>
+      </div>
+      <div class="border-l border-white w-full h-[45vh]">
+        <form class="flex flex-col gap-[50px] h-[46vh] items-center justify-center w-full">
+          <input type="text" v-model="phoneValue"
+            class="peer block w-[97%] rounded border border-gray-500 mr-[20px] ml-[20px]  px-3 pt-4 pb-2 text-black-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+          <label for="float"
+            class="absolute left-3 top-2.5 text-black-500 transition-all duration-200 peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2.5 peer-focus:text-blue-500 peer-focus:text-sm">
+            ism familiyangiz
+          </label>
+          <GlobInput type="number" v-model="inputValue" placeholder="" containerClass="py-2" iconClass=""
+            textAlignClass="text-left" iconPositionClass="right-[10px] top-[25px]" />
+          <button class="text-white  rounded bg-red w-full max-w-[120px] p-3">Yuborish</button>
+        </form>
+      </div>
+    </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
 
 import { ref } from "vue";
 import Faq from "./views/Faq.vue";
-import About from "./views/About.vue";
+import Connection from "./views/Connection.vue";
+import Videos from "./views/Videos.vue";
+// import About from "./views/About.vue";
 import HomeView from "./views/HomeView.vue";
 import DarkMode from "./components/DarkMode/DarkMode.vue";
 import i18 from "./components/i18-locales/i18.vue";

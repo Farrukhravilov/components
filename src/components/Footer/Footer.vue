@@ -1,5 +1,5 @@
 <template>
-    <div class="border border-white rounded mt-[40px]">
+    <div class="border border-white rounded mt-[40px] relative  mx-auto w-full max-w-[1320px]">
         <div class="flex items-center">
             <div class="flex p-5 gap-[60px]">
                 <div class="">
@@ -27,9 +27,7 @@
             </div>
             <div class="border-l border-white w-full h-[45vh]">
                 <form class="flex flex-col gap-[50px] h-[46vh] items-center justify-center w-full">
-                    <input v-mask="mask" type="text" v-model="phoneValue"
-                        :placeholder="isPlaceholderVisible ? placeholder : ''" :class="computedInputClasses"
-                        @focus="handleFocus" @blur="handleBlur" @input="handleInput" id="float"
+                    <input  type="text" v-model="phoneValue"
                         class="peer block w-[97%] rounded border border-gray-500 mr-[20px] ml-[20px]  px-3 pt-4 pb-2 text-black-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
                     <label for="float"
                         class="absolute left-3 top-2.5 text-black-500 transition-all duration-200 peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2.5 peer-focus:text-blue-500 peer-focus:text-sm">

@@ -8,7 +8,7 @@ export default async function server(
   method = "get",
   data = null
 ) {
-  let token = store.getters?.user?.access_token;
+  let token = store.getters?.user?.access_token || '';
   let result, error;
 
 	await axios
