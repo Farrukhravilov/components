@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col p-2">
-    <div :class="['relative', containerClass, 'max-w-[243px]']">
+  <div class="flex flex-col p-2 w-full">
+    <div :class="['relative', containerClass, 'w-[100%]']">
       <input
         v-mask="mask"
         type="text"
@@ -11,7 +11,7 @@
         @blur="handleBlur"
         @input="handleInput"
         id="floatingInput"
-        class="peer block w-full rounded border border-gray-300 bg-transparent px-3 pt-4 pb-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        class="peer block w-full rounded border border-gray-500  bg-gray-500 px-3 pt-4 pb-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
       />
       <label
         for="floatingInput"

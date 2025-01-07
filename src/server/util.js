@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 export default {
   payment_types: ["naqd", "plastik", "click"],

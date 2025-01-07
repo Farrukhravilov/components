@@ -1,7 +1,7 @@
 import axios from 'axios';
 import baseurl from './baseurl';
 import handleError from './handle';
-import store from '../store/index';
+// import store from '../store/index';
 import util from './util';
 export default async function server(
   endpoint = "",

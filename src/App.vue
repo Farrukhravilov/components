@@ -52,18 +52,22 @@
     <!-- <TableToDo /> -->
     <!-- <Input /> -->
   </div>
-  <router-view />
-  <HomeView />
+  <!-- <router-view /> -->
+  <!-- <HomeView /> -->
   <!-- <Map /> -->
+  <!-- <Faq/> -->
   <!-- <DropDown /> -->
   <!-- <i18 /> -->
   <!-- <DarkMode /> -->
   <!-- <GroupInput/> -->
+  <About/>
 </template>
 
 <script setup lang="ts">
 
 import { ref } from "vue";
+import Faq from "./views/Faq.vue";
+import About from "./views/About.vue";
 import HomeView from "./views/HomeView.vue";
 import DarkMode from "./components/DarkMode/DarkMode.vue";
 import i18 from "./components/i18-locales/i18.vue";

@@ -2,7 +2,7 @@
   <div>
     <h2 class="animate-heading">Выберите категорию меток</h2>
     <div class="category-buttons"></div>
-    <div id="mapContainer" style="height: 500px"></div>
+    <div id="mapContainer" style="height: 250px"></div>
   </div>
 </template>
 
@@ -127,6 +127,7 @@ onMounted(async () => {
 }
 
 #mapContainer {
-  height: 500px;
+  height: 300px;
+  width: 500px;
 }
 </style>

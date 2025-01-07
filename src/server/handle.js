@@ -1,6 +1,6 @@
 import util from "./util";
 import router from "../router/index";
-import store from "@/store";
+// import store from "@/store";
 export default function handleError(error) {
   const status = error.response?.status;
   const detail = error.response?.data?.detail;
