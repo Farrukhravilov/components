@@ -1,5 +1,5 @@
 <template>
-    <div class="border border-white rounded mt-[40px] relative  mx-auto w-full max-w-[1320px]">
+    <div class="border border-white rounded-[12px] mt-[40px] relative  mx-auto w-full max-w-[1320px]">
         <div class="flex items-center">
             <div class="flex p-5 gap-[60px]">
                 <div class="">
@@ -26,17 +26,13 @@
                 </div>
             </div>
             <div class="border-l border-white w-full h-[45vh]">
-                <form class="flex flex-col gap-[50px] h-[46vh] items-center justify-center w-full">
-                    <input  type="text" v-model="phoneValue"
-                        class="peer block w-[97%] rounded border border-gray-500 mr-[20px] ml-[20px]  px-3 pt-4 pb-2 text-black-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
-                    <label for="float"
-                        class="absolute left-3 top-2.5 text-black-500 transition-all duration-200 peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2.5 peer-focus:text-blue-500 peer-focus:text-sm">
-                        ism familiyangiz
-                    </label>
-                    <GlobInput type="number" v-model="inputValue" placeholder="" containerClass="py-2" iconClass=""
-                        textAlignClass="text-left" iconPositionClass="right-[10px] top-[25px]" />
-                    <button class="text-white  rounded bg-red w-full max-w-[120px] p-3">Yuborish</button>
-                </form>
+                <div class="mr-[20px] ml-[20px]">
+                    <form class="flex flex-col gap-[50px] h-[46vh] items-center justify-center w-full">
+                        <input type="number" class="inputs text-white focus:none" placeholder="number">
+                        <input type="text" class="inputs  text-white focus:none" placeholder="tekst">
+                        <button class="sumbit">Jonatish</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -50,4 +46,24 @@ const inputValue = ref("");
 </script>
 
 
-<style></style>
+<style>
+.inputs {
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+.sumbit {
+    padding: 20px;
+    color: white;
+    background-color: #700;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 150px;
+}
+</style>

@@ -8,6 +8,9 @@ export default {
   getCategory(p = query) {
     return server(`category/all`, "get");
   },
+  createCategory(data) {
+    return server(`category/create`, "post", data);
+  },
   // Kassalar
   // createKassa(data) {
   //   return server(`v1/checkouts`, "post", data);

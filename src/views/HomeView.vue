@@ -4,10 +4,10 @@ import MyDastur from "../components/Dastur/MyDastur.vue";
 </script>
 
 <template>
-  <div class="relative z-55">
+  <div class="fixed z-55">
     <img class="w-full absolute z-22" src="../assets/images/png/back-img-26055c57.png" alt="" />
     <!-- <Header /> -->
-    <div class="text-3xl font-bold mt-[120px]">
+    <div class="text-3xl font-bold mt-[120px] w-full max-w-[1320px]">
       <div class="flex flex-col gap-[20px]">
         <div class="text-animation text-1 text-white text-center text-uppercase text-[45px]">BIZNESINGGIZGA <br> <span
             class="text-red-800">Oson</span> YECHIM TOPAMIZ</div>
