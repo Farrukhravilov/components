@@ -5,6 +5,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "./assets/global.css";
 import VueTheMask from "vue-the-mask";
 import i18next from "./i18"; // Импортируем i18next
+import 'aos/dist/aos.css'; // Импорт стилей AOS
+import AOS from 'aos';
 import App from "./App.vue";
 import router from "./router";
 
@@ -21,6 +23,12 @@ import AutoComplete from "primevue/autocomplete";
 // Создаем инстанс Naive UI с необходимыми компонентами
 const naive = create({
   components: [NButton, NInput, NDynamicInput],
+});
+
+AOS.init({
+  duration: 800, // Длительность анимации в миллисекундах
+  easing: 'ease-in-out', // Стиль анимации
+  once: true, // Анимация запускается только один раз
 });
 
 // Создаем приложение Vue

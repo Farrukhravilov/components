@@ -15,6 +15,20 @@ export default {
         'text-light': '#000000',
         'text-dark': '#ffffff',
       },
+      animation: {
+        'scroll-up': 'scrollUp 1s ease-out',
+        'scroll-down': 'scrollDown 1s ease-out',
+      },
+      keyframes: {
+        scrollUp: {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        scrollDown: {
+          '0%': { opacity: 0, transform: 'translateY(-20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+      },
     },
     colors: {
       // Ты можешь расширить цвета, например, добавив фоны для светлой и темной темы

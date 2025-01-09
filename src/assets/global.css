@@ -21,3 +21,185 @@ button:hover {
     list-style: none;
     text-decoration: none;
 }
+
+/* .cardss:hover .tekts {
+    display: none;
+    transition: all .3s ease;
+
+}
+.cardss:hover .answer {
+    display: flex;
+    transition: all .3s ease;
+}
+.cardss {
+    transition: all .3s ease;
+}
+.answer {
+    display: none;
+    transition: all .3s ease;
+    color: yellow;
+} */
+
+/*  */
+
+.tekts {
+    opacity: 1;
+    color: white;
+    transition: all .3s ease;
+}
+
+.answer {
+    opacity: 0;
+    color: yellow;
+    transition: all .3s ease;
+}
+
+/* При наведении скрываем вопрос и показываем ответ */
+.cardss:hover .tekts {
+    opacity: 0;
+    transition: all .3s ease;
+
+}
+
+.cardss:hover .answer {
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.purple {
+    color: purple;
+}
+
+.effec {
+    position: absolute;
+    /* Абсолютное позиционирование */
+    bottom: -15px;
+    /* Сдвиг вниз от родителя */
+    left: 0;
+    /* Выровнять слева */
+    right: 0;
+    /* Выровнять справа */
+    height: 15px;
+    /* Высота подсветки */
+    background-color: yellow;
+    /* Синий фон */
+    opacity: 0;
+    /* Непрозрачность по умолчанию */
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+    /* Плавный переход с эффектом ease */
+    border-radius: 0.5rem 0.5rem 0 0;
+    /* Сглаженные углы */
+}
+
+.gro:hover .effec {
+    opacity: 0.5;
+    /* Меняем opacity при наведении */
+    bottom: 0;
+    /* Подсветка "входит" на место */
+}
+
+.gro:hover .yellow {
+    border-radius: 1px;
+    transition: all .1s ease;
+}
+
+/* .eff {
+    } */
+.e {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-color: green;
+    opacity: 0;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+    border-radius: 0.5rem 0.5rem 0 0;
+
+}
+
+.gre:hover .eff {
+    opacity: 0.5;
+    bottom: 0;
+}
+
+.gre:hover .green {
+    border-radius: 1px;
+    transition: all .1s ease;
+}
+
+.pur:hover .ef {
+    opacity: 0.5;
+    bottom: 0;
+}
+
+.pur:hover .purple {
+    border-radius: 1px;
+    transition: all .1s ease;
+}
+
+.ef {
+    position: absolute;
+    /* Абсолютное позиционирование */
+    bottom: -50px;
+    /* Сдвиг вниз от родителя */
+    left: 0;
+    /* Выровнять слева */
+    right: 0;
+    /* Выровнять справа */
+    height: 15px;
+    /* Высота подсветки */
+    background-color: purple;
+    /* Синий фон */
+    opacity: 0;
+    /* Непрозрачность по умолчанию */
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+    /* Плавный переход с эффектом ease */
+    border-radius: 0.5rem 0.5rem 0 0;
+    /* Сглаженные углы */
+}
+
+.gre:hover .e {
+    opacity: 0.5;
+    bottom: 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.group:hover .blue {
+    border-radius: 1px;
+    transition: all .1s ease;
+}
+
+.blue {
+    color: rgb(0, 125, 228);
+    transition: all .1s ease;
+}
+
+.effect {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-color: rgb(0, 125, 228);
+    opacity: 0;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
