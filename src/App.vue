@@ -56,14 +56,14 @@
   <!-- <HomeView /> -->
   <!-- <Map /> -->
   <!-- <Faq/> -->
-  <HomeView/>
+  <!-- <HomeView/> -->
   <!-- <DropDown /> -->
   <!-- <i18 /> -->
   <!-- <DarkMode /> -->
   <!-- <GroupInput/> -->
   <!-- <About/> -->
   <!-- <Connection/> -->
-  <!-- <Videos/> -->
+  <Videos/>
   <!-- <CreateCategory/> -->
   <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
     <nav class="p-4">

@@ -10,13 +10,13 @@
             <p class="text-white font-normal  mt-[15px] text-[18px]">Biz har bir mahsulotlrimiz uchun video qo’llanmalar tayyorlaymiz</p>
             <Video/>
         </div> -->
-        <!-- <div class="mx-auto w-full max-w-[1320px] relative mt-[120px]">
+        <div class="mx-auto w-full max-w-[1320px] relative mt-[120px]">
             <div class="flex items-center gap-[10px]">
                 <i class="fa-solid fa-slash text-white"></i>
                 <h2 class="text-white text-[22px] tracking-[3px] uppercase">Qo'shimcha</h2>
             </div>
-            <SmallVideo/>
-        </div> -->
+            <!-- <SmallVideo/> -->
+        </div> 
         <!-- <div class="w-full max-w-[1320px] mx-auto relative mt-[40px]">
             <div class="flex items-center gap-[10px]">
                 <i class="fa-solid fa-slash text-white"></i>
