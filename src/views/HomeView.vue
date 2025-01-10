@@ -68,20 +68,6 @@ onBeforeUnmount(() => {
     <Title />
     <MyDastur />
 
-    <!-- Окно логина -->
-    <div v-if="isLoginOpen" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-200">
-      <div class="bg-white p-8 rounded-lg">
-        <h2 class="text-xl font-semibold mb-4">Login</h2>
-        <form @submit.prevent="handleLogin" >
-          <input type="text" placeholder="Username" v-model="username"  class="mb-4 p-2 border border-gray-300 rounded" />
-          <input type="password" placeholder="Password"  v-model="password" class="mb-4 p-2 border border-gray-300 rounded" />
-          <div class="flex justify-end">
-            <!-- <button type="button" @click="closeLogin" class="px-4 py-2 bg-red-500 text-black rounded">Close</button> -->
-            <button class="ml-2 px-4 py-2 bg-blue-500 text-black rounded">Login</button>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
 </template>
 

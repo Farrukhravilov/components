@@ -53,7 +53,7 @@
     <!-- <Input /> -->
   </div>
   <!-- <router-view /> -->
-  <HomeView />
+  <!-- <HomeView /> -->
   <!-- <Map /> -->
   <!-- <Faq/> -->
   <!-- <HomeView/> -->
@@ -65,7 +65,23 @@
   <!-- <Connection/> -->
   <!-- <Videos/> -->
   <!-- <CreateCategory/> -->
-  <!-- <RouterView /> -->
+  <RouterView />
+  <!-- Окно логина -->
+    <div v-if="isLoginOpen" class="fixed inset-0 flex justify-center  items-center bg-black bg-opacity-50 z-200">
+      <div class="bg-white p-8 rounded-lg h-[40vh]">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold mb-4">Login For Crud Company</h2>
+          <button type="button" @click="closeLogin" class="px-4 border border-green-700 mb-4 py-2 bg-red-500 text-black rounded">Close</button>
+        </div>
+        <form @submit.prevent="handleLogin" >
+          <input type="text" placeholder="Username" v-model="username"  class="mb-4 p-2 border border-gray-300 rounded" />
+          <input type="password" placeholder="Password"  v-model="password" class="mb-4 p-2 border border-gray-300 rounded" />
+          <div class="flex justify-end mt-[160px]">
+            <button class="ml-2 px-4 py-2 bg-yellow-500 text-black  border border-green-700  rounded">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
   <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
     <nav class="p-4">
       <ul class="flex justify-between items-center">
@@ -153,9 +169,12 @@
 </template>
 
 <script setup lang="ts">
-
-import { ref } from "vue";
+// import api from '../server/api';
+import api from "./server/api";
+import Dashboardd from "./views/Dashboardd.vue";
+import { ref,onBeforeUnmount,onMounted } from "vue";
 import { RouterView } from 'vue-router';
+import { useRouter } from 'vue-router';
 import Faq from "./views/Faq.vue";
 import InfoPage from "./views/InfoPage.vue";
 // import CreateCategory from "./components/Creater-Category/CreateCategory.vue";
@@ -206,6 +225,67 @@ import GroupInput from "./components/Input-groups/GroupInput.vue";
 // import TableCollapseUse from "./components/table-collapse/TableCollapseUse.vue";
 // import TaminotItem from "./components/taminot/TaminotItem.vue";
 const inputValue = ref("");
+
+// Стейт для управления состоянием окна логина
+const isLoginOpen = ref(false);
+
+// Открытие окна логина
+const openLogin = () => {
+  isLoginOpen.value = true;
+};
+
+const username = ref('');
+const password = ref('');
+const isLoading = ref(false);
+const errorMessage = ref('');
+const usernameDisplay = ref('');
+const router = useRouter();
+// Метод для выполнения логина
+const handleLogin = async () => {
+  isLoading.value = true;
+  errorMessage.value = ''; // Сбрасываем ошибку перед новым запросом
+
+  try {
+    const response = await api.login({ username: username.value, password: password.value });
+    console.log(response);
+    // Если логин успешный, перенаправляем на страницу /Dashboard
+    // Сохраняем имя пользователя в состояние после успешного входа
+    usernameDisplay.value = username.value;
+    router.push('/Dashboard');
+  } catch (error) {
+    errorMessage.value = 'Invalid credentials or server error.';
+    console.error(error);
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+// Закрытие окна логина
+const closeLogin = () => {
+  isLoginOpen.value = false;
+};
+
+// Обработчик нажатия клавиш
+const handleKeyboardEvent = (event: KeyboardEvent) => {
+  console.log('hello', event.key);
+
+  // Проверяем, что нажаты Ctrl + Shift + F7
+  if (event.ctrlKey && event.shiftKey && event.key === 'F7') {
+    console.log('hi');
+    
+    openLogin();  // Открываем окно логина
+  }
+};
+
+onMounted(() => {
+  // Добавляем обработчик события клавиатуры при монтировании компонента
+  window.addEventListener('keydown', handleKeyboardEvent);
+});
+
+onBeforeUnmount(() => {
+  // Убираем обработчик события при размонтировании компонента
+  window.removeEventListener('keydown', handleKeyboardEvent);
+});
 </script>
 
 <style lang="scss" scoped></style>

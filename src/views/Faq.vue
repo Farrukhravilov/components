@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
+  <div class="relative z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')] pt-[40px]">
     <!-- <img class="w-full fixed z-22 h-[100%]" src="../assets/images/png/back-img-26055c57.png" alt="" /> -->
     <!-- <Header /> -->
     <div class="relative w-full max-w-[1380px] mx-auto pb-[150px]">

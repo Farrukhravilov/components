@@ -47,9 +47,9 @@ const router = createRouter({
       meta: {
         title: "Select style",
       },
-      path: "/",
-      name: "style",
-      component: Style,
+      path: "/StyleView",
+      name: "StyleView",
+      component: () => import("@/views/StyleView.vue"),
     },
     // {
     //   meta: {
@@ -74,6 +74,11 @@ const router = createRouter({
       path: "/forms",
       name: "forms",
       component: () => import("@/views/FormsView.vue"),
+    },
+    {
+      path: "/Dashboard",
+      name: "Dashboard",
+      component: () => import("@/views/Dashboard.vue"),
     },
     {
       meta: {
