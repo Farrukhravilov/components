@@ -134,3 +134,11 @@ const transactionBarItems = computed(() => mainStore.history)
     </SectionMain>
   </LayoutAuthenticated>
 </template>
+
+<script setup lang="ts">
+
+</script>
+
+<style>
+
+</style>

@@ -4,6 +4,7 @@ import "./assets/main.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./assets/global.css";
 import VueTheMask from "vue-the-mask";
+import { createPinia } from 'pinia'  // Подключаем Pinia
 import i18next from "./i18"; // Импортируем i18next
 import 'aos/dist/aos.css'; // Импорт стилей AOS
 import AOS from 'aos';
@@ -44,6 +45,7 @@ app.use(VueTheMask);
 app.use(naive);
 app.use(PrimeVue);
 app.use(router);
+app.use(createPinia());
 // Регистрация компонентов PrimeVue
 app.component("FloatLabel", FloatLabel);
 app.component("AutoComplete", AutoComplete);
