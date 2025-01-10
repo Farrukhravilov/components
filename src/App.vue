@@ -63,8 +63,9 @@
   <!-- <GroupInput/> -->
   <!-- <About/> -->
   <!-- <Connection/> -->
-  <Videos/>
+  <!-- <Videos/> -->
   <!-- <CreateCategory/> -->
+  <RouterView />
   <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
     <nav class="p-4">
       <ul class="flex justify-between items-center">
@@ -154,6 +155,7 @@
 <script setup lang="ts">
 
 import { ref } from "vue";
+import { RouterView } from 'vue-router';
 import Faq from "./views/Faq.vue";
 import InfoPage from "./views/InfoPage.vue";
 // import CreateCategory from "./components/Creater-Category/CreateCategory.vue";
