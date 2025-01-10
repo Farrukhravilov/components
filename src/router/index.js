@@ -51,14 +51,14 @@ const router = createRouter({
       name: "style",
       component: Style,
     },
-    {
-      meta: {
-        title: "Dashboard",
-      },
-      path: "/dashboard",
-      name: "dashboard",
-      component: Home,
-    },
+    // {
+    //   meta: {
+    //     title: "Dashboard",
+    //   },
+    //   path: "/dashboard",
+    //   name: "dashboard",
+    //   component: Home,
+    // },
     {
       meta: {
         title: "Tables",

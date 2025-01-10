@@ -53,7 +53,7 @@
     <!-- <Input /> -->
   </div>
   <!-- <router-view /> -->
-  <!-- <HomeView /> -->
+  <HomeView />
   <!-- <Map /> -->
   <!-- <Faq/> -->
   <!-- <HomeView/> -->
@@ -65,7 +65,7 @@
   <!-- <Connection/> -->
   <!-- <Videos/> -->
   <!-- <CreateCategory/> -->
-  <RouterView />
+  <!-- <RouterView /> -->
   <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
     <nav class="p-4">
       <ul class="flex justify-between items-center">
