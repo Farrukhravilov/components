@@ -29,6 +29,7 @@
     "swiper": "^11.2.0",
     "vue": "^3.5.13",
     "vue-i18next": "^0.9.4",
+    "vue-loading-overlay": "^6.0.6",
     "vue-router": "^4.5.0",
     "vue-the-mask": "^0.11.1",
     "vue-toastification": "^2.0.0-rc.5",

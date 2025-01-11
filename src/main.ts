@@ -8,7 +8,6 @@ import { createPinia } from 'pinia'; // Подключаем Pinia
 import i18next from "./i18"; // Импортируем i18next  
 import 'aos/dist/aos.css'; // Импорт стилей AOS  
 import Toast, { POSITION } from 'vue-toastification';   
-import 'vue-toastification/dist/index.css';  
 import AOS from 'aos';  
 import App from "./App.vue";  
 import router from "./router";  
@@ -46,6 +45,7 @@ app.use(VueTheMask);
 app.use(naive);  
 app.use(PrimeVue);  
 app.use(router);  
+// app.use(loading);
 app.use(createPinia());  
 
 // Подключаем Toast  

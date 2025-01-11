@@ -161,7 +161,7 @@
   <!-- <About/> -->
   <!-- <Connection/> -->
   <!-- <Videos/> -->
-  <!-- <CreateCategory/> -->
+  <!-- <CreateCategory /> -->
   <!-- Окно логина -->
   <!-- <router-view/> -->
   <!-- footer -->

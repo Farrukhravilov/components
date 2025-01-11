@@ -11,6 +11,19 @@ export default {
   createCategory(data) {
     return server(`category/create`, "post", data);
   },
+  createCategoryItems(data) {
+    return server(`categorys/create_items`, "post", data);
+  },
+  getTarget(p = query) {
+    return server(`target/all`, "get");
+  },
+  createTarget(data) {
+    return server(`target/create`, "post", data);
+  },
+  getOneTarget(p = query) {
+    return server(`target/one_target`, "get");
+  },
+  
   // Kassalar
   // createKassa(data) {
   //   return server(`v1/checkouts`, "post", data);
