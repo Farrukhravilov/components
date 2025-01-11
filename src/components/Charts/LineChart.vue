@@ -1,14 +1,14 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
-// import {
-//   Chart,
-//   LineElement,
-//   PointElement,
-//   LineController,
-//   LinearScale,
-//   CategoryScale,
-//   Tooltip
-// } from 'chart.js'
+import {
+  Chart,
+  LineElement,
+  PointElement,
+  LineController,
+  LinearScale,
+  CategoryScale,
+  Tooltip
+} from 'chart.js'
 
 const props = defineProps({
   data: {
