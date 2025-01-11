@@ -1,6 +1,6 @@
 <template>
     <div class="relative z-55 h-[100vh]" >
-        <img class="w-full fixed z-22 h-[100%]" src="../assets/images/png/back-img-26055c57.png" alt="" />
+        <!-- <img class="w-full fixed z-22 h-[100%]" src="../assets/images/png/back-img-26055c57.png" alt="" /> -->
         <!-- <Header/> -->
         <div class="relative w-full max-w-[1320px] mx-auto mt-[100px]">
             <div class="flex items-center gap-[10px]">

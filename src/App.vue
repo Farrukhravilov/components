@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]"
+  >
     <!-- <TaminotItem /> -->
     <!-- <TaminotTableHeader/> -->
     <!-- <TaminotTable/> -->
@@ -51,8 +53,65 @@
     <!-- <p class="mt-2">Текущее значение: {{ inputValue }}</p> -->
     <!-- <TableToDo /> -->
     <!-- <Input /> -->
+    <header class="relative z-100 w-full max-w-[1380px] m-auto">
+      <nav class="p-4">
+        <ul class="flex justify-between items-center">
+          <li>
+            <router-link
+              to="/About"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              active-class="active-link"
+            >
+              Biz haqimizda
+            </router-link>
+          </li>
+          <li>
+            <span class="text-white">•</span>
+          </li>
+          <li>
+            <router-link
+              to="/Connection"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              active-class="active-link"
+            >
+              Aloqa uchun
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/"
+              class="text-2xl text-white font-bold text-center mt-2 uppercase text-[30px]"
+              active-class="active-link"
+            >
+              CRUD GROUP
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/Faq"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              active-class="active-link"
+            >
+              FAQ
+            </router-link>
+          </li>
+          <li>
+            <span class="text-white">•</span>
+          </li>
+          <li>
+            <router-link
+              to="/Videos"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              active-class="active-link"
+            >
+              Video kushimchalar
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <RouterView />
   </div>
-  <!-- <router-view /> -->
   <!-- <HomeView /> -->
   <!-- <Map /> -->
   <!-- <Faq/> -->
@@ -65,64 +124,46 @@
   <!-- <Connection/> -->
   <!-- <Videos/> -->
   <!-- <CreateCategory/> -->
-  <RouterView />
   <!-- Окно логина -->
-    <div v-if="isLoginOpen" class="fixed inset-0 flex justify-center  items-center bg-black bg-opacity-50 z-200">
-      <div class="bg-white p-8 rounded-lg h-[40vh]">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-semibold mb-4">Login For Crud Company</h2>
-          <button type="button" @click="closeLogin" class="px-4 border border-green-700 mb-4 py-2 bg-red-500 text-black rounded">Close</button>
-        </div>
-        <form @submit.prevent="handleLogin" >
-          <input type="text" placeholder="Username" v-model="username"  class="mb-4 p-2 border border-gray-300 rounded" />
-          <input type="password" placeholder="Password"  v-model="password" class="mb-4 p-2 border border-gray-300 rounded" />
-          <div class="flex justify-end mt-[160px]">
-            <button class="ml-2 px-4 py-2 bg-yellow-500 text-black  border border-green-700  rounded">Login</button>
-          </div>
-        </form>
+  <div
+    v-if="isLoginOpen"
+    class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-200"
+  >
+    <div class="bg-white p-8 rounded-lg h-[40vh]">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold mb-4">Login For Crud Company</h2>
+        <button
+          type="button"
+          @click="closeLogin"
+          class="px-4 border border-green-700 mb-4 py-2 bg-red-500 text-black rounded"
+        >
+          Close
+        </button>
       </div>
+      <form @submit.prevent="handleLogin">
+        <input
+          type="text"
+          placeholder="Username"
+          v-model="username"
+          class="mb-4 p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="password"
+          class="mb-4 p-2 border border-gray-300 rounded"
+        />
+        <div class="flex justify-end mt-[160px]">
+          <button
+            class="ml-2 px-4 py-2 bg-yellow-500 text-black border border-green-700 rounded"
+          >
+            Login
+          </button>
+        </div>
+      </form>
     </div>
-  <!-- <header class="relative z-100 w-full max-w-[1380px] m-auto">
-    <nav class="p-4">
-      <ul class="flex justify-between items-center">
-        <li>
-          <router-link to="/About" class="text-white hover:text-red-700 uppercase text-[25px]"
-            active-class="active-link">
-            Biz haqimizda
-          </router-link>
-        </li>
-        <li>
-          <span class="text-white">•</span>
-        </li>
-        <li>
-          <router-link to="/Connection" class="text-white hover:text-red-700 uppercase text-[25px]"
-            active-class="active-link">
-            Aloqa uchun
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/" class="text-2xl text-white font-bold text-center mt-2 uppercase text-[30px]"
-            active-class="active-link">
-            CRUD GROUP
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/Faq" class="text-white hover:text-red-700 uppercase text-[25px]" active-class="active-link">
-            FAQ
-          </router-link>
-        </li>
-        <li>
-          <span class="text-white">•</span>
-        </li>
-        <li>
-          <router-link to="/Videos" class="text-white hover:text-red-700 uppercase text-[25px]"
-            active-class="active-link">
-            Video kushimchalar
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-  </header> -->
+  </div>
+  <!-- <router-view/> -->
   <!-- footer -->
   <!-- <InfoPage/> -->
   <!-- <div class="border border-white rounded mt-[40px] relative  mx-auto w-full max-w-[1320px]">
@@ -172,9 +213,9 @@
 // import api from '../server/api';
 import api from "./server/api";
 import Dashboardd from "./views/Dashboardd.vue";
-import { ref,onBeforeUnmount,onMounted } from "vue";
-import { RouterView } from 'vue-router';
-import { useRouter } from 'vue-router';
+import { ref, onBeforeUnmount, onMounted } from "vue";
+import { RouterView } from "vue-router";
+import { useRouter } from "vue-router";
 import Faq from "./views/Faq.vue";
 import InfoPage from "./views/InfoPage.vue";
 // import CreateCategory from "./components/Creater-Category/CreateCategory.vue";
@@ -234,26 +275,30 @@ const openLogin = () => {
   isLoginOpen.value = true;
 };
 
-const username = ref('');
-const password = ref('');
+const username = ref("");
+const password = ref("");
 const isLoading = ref(false);
-const errorMessage = ref('');
-const usernameDisplay = ref('');
+const errorMessage = ref("");
+const usernameDisplay = ref("");
 const router = useRouter();
 // Метод для выполнения логина
 const handleLogin = async () => {
   isLoading.value = true;
-  errorMessage.value = ''; // Сбрасываем ошибку перед новым запросом
+  errorMessage.value = ""; // Сбрасываем ошибку перед новым запросом
 
   try {
-    const response = await api.login({ username: username.value, password: password.value });
+    const response = await api.login({
+      username: username.value,
+      password: password.value,
+    });
     console.log(response);
     // Если логин успешный, перенаправляем на страницу /Dashboard
     // Сохраняем имя пользователя в состояние после успешного входа
     usernameDisplay.value = username.value;
-    router.push('/Dashboard');
+    closeLogin();
+    router.push("/Dashboard");
   } catch (error) {
-    errorMessage.value = 'Invalid credentials or server error.';
+    errorMessage.value = "Invalid credentials or server error.";
     console.error(error);
   } finally {
     isLoading.value = false;
@@ -267,24 +312,24 @@ const closeLogin = () => {
 
 // Обработчик нажатия клавиш
 const handleKeyboardEvent = (event: KeyboardEvent) => {
-  console.log('hello', event.key);
+  console.log("hello", event.key);
 
   // Проверяем, что нажаты Ctrl + Shift + F7
-  if (event.ctrlKey && event.shiftKey && event.key === 'F7') {
-    console.log('hi');
-    
-    openLogin();  // Открываем окно логина
+  if (event.ctrlKey && event.shiftKey && event.key === "F7") {
+    console.log("hi");
+
+    openLogin(); // Открываем окно логина
   }
 };
 
 onMounted(() => {
   // Добавляем обработчик события клавиатуры при монтировании компонента
-  window.addEventListener('keydown', handleKeyboardEvent);
+  window.addEventListener("keydown", handleKeyboardEvent);
 });
 
 onBeforeUnmount(() => {
   // Убираем обработчик события при размонтировании компонента
-  window.removeEventListener('keydown', handleKeyboardEvent);
+  window.removeEventListener("keydown", handleKeyboardEvent);
 });
 </script>
 
