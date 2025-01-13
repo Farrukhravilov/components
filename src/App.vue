@@ -1,6 +1,7 @@
 <template>
   <div
-    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
+    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]"
+  >
     <!-- <TaminotItem /> -->
     <!-- <TaminotTableHeader/> -->
     <!-- <TaminotTable/> -->
@@ -56,7 +57,10 @@
       <nav class="p-4">
         <ul class="flex justify-between items-center">
           <li>
-            <router-link to="/About" class="text-white hover:text-black uppercase text-[25px]">
+            <router-link
+              to="/About"
+              class="text-white hover:text-black uppercase text-[25px]"
+            >
               Biz haqimizda
             </router-link>
           </li>
@@ -64,20 +68,29 @@
             <span class="text-white">•</span>
           </li>
           <li>
-            <router-link to="/Connection" class="text-white hover:text-red-700 uppercase text-[25px]"
-              :class="{ active: $route.path == '/Connection' }">
+            <router-link
+              to="/Connection"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              :class="{ active: $route.path == '/Connection' }"
+            >
               Aloqa uchun
             </router-link>
           </li>
           <li>
-            <router-link to="/" class="text-2xl text-white font-bold text-center mt-2 uppercase text-[30px]"
-              :class="{ active: $route.path == '/' }">
+            <router-link
+              to="/"
+              class="text-2xl text-white font-bold text-center mt-2 uppercase text-[30px]"
+              :class="{ active: $route.path == '/' }"
+            >
               CRUD GROUP
             </router-link>
           </li>
           <li>
-            <router-link to="/Faq" class="text-white hover:text-red-700 uppercase text-[25px]"
-              :class="{ active: $route.path == '/Faq' }">
+            <router-link
+              to="/Faq"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              :class="{ active: $route.path == '/Faq' }"
+            >
               FAQ
             </router-link>
           </li>
@@ -85,8 +98,11 @@
             <span class="text-white">•</span>
           </li>
           <li>
-            <router-link to="/Videos" class="text-white hover:text-red-700 uppercase text-[25px]"
-              :class="{ active: $route.path == '/Videos' }">
+            <router-link
+              to="/Videos"
+              class="text-white hover:text-red-700 uppercase text-[25px]"
+              :class="{ active: $route.path == '/Videos' }"
+            >
               Video kushimchalar
             </router-link>
           </li>
@@ -94,23 +110,39 @@
       </nav>
     </header>
     <RouterView />
-    <div v-if="isLoginOpen" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-200">
+    <div
+      v-if="isLoginOpen"
+      class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-200"
+    >
       <div class="bg-white p-8 rounded-lg h-[40vh]">
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold mb-4">Login For Crud Company</h2>
-          <button type="button" @click="closeLogin"
-            class="px-4 border border-green-700 mb-4 py-2 bg-red-500 text-black rounded">
+          <button
+            type="button"
+            @click="closeLogin"
+            class="px-4 border border-green-700 mb-4 py-2 bg-red-500 text-black rounded"
+          >
             Close
           </button>
         </div>
         <form @submit.prevent="handleLogin">
-          <input type="text" placeholder="Username" v-model="username"
-            class="mb-4 p-2 border border-gray-300 rounded" />
-          <input type="password" placeholder="Password" v-model="password"
-            class="mb-4 p-2 border border-gray-300 rounded" />
+          <input
+            type="text"
+            placeholder="Username"
+            v-model="username"
+            class="mb-4 p-2 border border-gray-300 rounded"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            v-model="password"
+            class="mb-4 p-2 border border-gray-300 rounded"
+          />
           <div class="flex justify-end mt-[160px]">
-            <button :disabled="isLoading"
-              class="ml-2 px-4 py-2 bg-yellow-500 text-black border border-green-700 rounded">
+            <button
+              :disabled="isLoading"
+              class="ml-2 px-4 py-2 bg-yellow-500 text-black border border-green-700 rounded"
+            >
               Login
             </button>
           </div>
@@ -253,7 +285,7 @@ const usernameDisplay = ref("");
 const router = useRouter();
 const toast = useToast();
 // const categoryIds = [1, 2, 3, 4, 5, 6]; // Статические ID категорий
-// const categoriesData = ref([]); 
+// const categoriesData = ref([]);
 const handleLogin = async () => {
   isLoading.value = true;
   errorMessage.value = ""; // Сбрасываем ошибку перед новым запросом
@@ -281,37 +313,27 @@ const closeLogin = () => {
 };
 
 const Category = () => {
-  getOneCategory(6) // Запросит категорию с ID = 1
-    .then((res) => {
-      console.log("Результат для category_id=1:", res.data);
+  const categoryIds = [1, 2, 3, 4, 5, 6];
+  const categories = [];
+
+  const promises = categoryIds.map((id) => {
+    return getOneCategory({ category_id: id })
+      .then((res) => {
+        categories.push(res.data);
+        console.log(`Категория ${id}:`, res.data);
+      })
+      .catch((error) => {
+        console.error(`Ошибка при получении категории ${id}:`, error);
+      });
+  });
+  Promise.all(promises)
+    .then(() => {
+      console.log("Все категории успешно загружены:", categories);
     })
-    .catch((err) => {
-      console.error("Ошибка:", err);
+    .catch((error) => {
+      console.error("Ошибка при загрузке категорий:", error);
     });
 };
-
-// const Category = () => {
-//   const categoryIds = [1, 2, 3, 4, 5, 6]; 
-//   const categories = []; 
-
-//   const promises = categoryIds.map((id) => {
-//     return getOneCategory({ category_id: id })
-//       .then((res) => {
-//         categories.push(res.data);
-//         console.log(`Категория ${id}:`, res.data);
-//       })
-//       .catch((error) => {
-//         console.error(`Ошибка при получении категории ${id}:`, error);
-//       });
-//   });
-//   Promise.all(promises)
-//     .then(() => {
-//       console.log("Все категории успешно загружены:", categories);
-//     })
-//     .catch((error) => {
-//       console.error("Ошибка при загрузке категорий:", error);
-//     });
-// };
 
 const handleKeyboardEvent = (event: KeyboardEvent) => {
   console.log("hello", event.key);
@@ -334,7 +356,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .hov:hover {
-  color:brown;
-  transition: all .3s ease;
+  color: brown;
+  transition: all 0.3s ease;
 }
 </style>
