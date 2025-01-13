@@ -1,7 +1,6 @@
 <template>
   <div
-    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]"
-  >
+    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
     <!-- <TaminotItem /> -->
     <!-- <TaminotTableHeader/> -->
     <!-- <TaminotTable/> -->
@@ -53,7 +52,7 @@
     <!-- <p class="mt-2">Текущее значение: {{ inputValue }}</p> -->
     <!-- <TableToDo /> -->
     <!-- <Input /> -->
-    <header class="relative z-100 w-full max-w-[1380px] m-auto">
+    <header class="relative z-100 w-full max-1046:none max-w-[1380px] m-auto">
       <nav class="p-4">
         <ul class="flex justify-between items-center">
           <li>
@@ -207,11 +206,15 @@
       </div>
     </div>
   </div> -->
+  <ModalRight />
+  <ModalLeft/>
 </template>
 
 <script setup lang="ts">
 // import api from '../server/api';
 import api from "./server/api";
+import ModalRight from "./components/Modal-Right/ModalRight.vue";
+import ModalLeft from "./components/Modal-Left/ModalLeft.vue";
 import { ref, onBeforeUnmount, onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { useToast } from "vue-toastification"; // Импортируем useToast

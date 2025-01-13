@@ -1,7 +1,7 @@
 <template>
   <div
     ref="container"
-    class="w-full max-w-[1350px] mx-auto fixed bottom-[97px] left-[0px] right-[0px] border border-white-700 rounded-tr-3xl rounded-tl-3xl opacity-0 transform translate-y-[100px] transition-all duration-700 ease-in-out"
+    class="w-full max-w-[1350px] mx-auto fixed max-1046:none bottom-[97px] left-[0px] right-[0px] border border-white-700 rounded-tr-3xl rounded-tl-3xl opacity-0 transform translate-y-[100px] transition-all duration-700 ease-in-out max-1370:max-w-[1300px] max-1310:max-w-[1200px] max-1210:max-w-[100%] max-1210:mr-[15px] max-1210:ml-[15px]"
   >
     <div class="p-4">
       <div
@@ -25,7 +25,8 @@
         </router-link>
       </div>
       <div
-        class="flex items-center justify-between grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[20px] p-2 pt-[20px] eff bg-gradient-to-r from-gray-800 to-gray-900 backdrop bg-blue-900 bg-blue-500"
+        class="flex items-center justify-between grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] max-1370:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-[20px] p-2 pt-[20px] eff bg-gradient-to-r from-gray-800 to-gray-900 backdrop bg-blue-900 bg-blue-500 max-1310:grid-cols-[repeat(auto-fill,minmax(230px,1fr))]
+        max-1210:grid-cols[repeat(auto-fill,minmax(150px,1fr))]"
       >
         <router-link
           to="/InfoPage"
@@ -35,7 +36,7 @@
             class="w-10 h-10 border-4 blue border-blue-600 rounded-full filter blur-[1.0px] shadow-lg animate-spin"
           ></div>
           <p
-            class="text-left text-white text-[30px] truncate overflow-hidden whitespace-nowrap"
+            class="text-left text-white text-[30px] truncate overflow-hidden whitespace-nowrap max-1210:text-[25px]"
           >
             Savdo hozmalar<br />uchun
           </p>
@@ -48,7 +49,7 @@
           <div
             class="w-10 h-10 border-4 yellow border-blue-600 rounded-full animate-spin"
           ></div>
-          <p class="text-left text-white text-[30px]">
+          <p class="text-left text-white text-[30px] max-1210:text-[25px]">
             Qurilish davlat<br />obyektlari uchun
           </p>
           <div class="effec"></div>
@@ -60,7 +61,7 @@
           <div
             class="w-10 h-10 border-4 green border-blue-600 rounded-full animate-spin"
           ></div>
-          <p class="text-left text-white text-[30px]">Ishlab chiqarish</p>
+          <p class="text-left text-white text-[30px] max-1210:text-[25px]">Ishlab chiqarish</p>
           <div class="e"></div>
         </router-link>
         <router-link
@@ -70,7 +71,7 @@
           <div
             class="w-10 h-10 border-4 purple border-blue-600 rounded-full animate-spin"
           ></div>
-          <p class="text-left text-white text-[30px]">
+          <p class="text-left text-white text-[30px] max-1210:text-[25px]">
             Qurilish<br />mahsulotlarini ishlab chiqarish
           </p>
           <div class="ef"></div>
@@ -119,9 +120,9 @@ onMounted(() => {
   bottom: 0;
 }
 
-.backdrop {
+/* .backdrop {
   backdrop-filter: blur(8px);
-}
+} */
 
 .bg-blue-500 {
   color: blue;
