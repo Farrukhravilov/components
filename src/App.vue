@@ -316,7 +316,7 @@ const Category = () => {
   const categoryIds = [1, 2, 3, 4, 5, 6];
   const categories = [];
 
-  const promises = categoryIds.map((id) => {
+  const promises = categoryIds.map((id: number) => {
     return getOneCategory({ category_id: id })
       .then((res) => {
         categories.push(res.data);
@@ -326,13 +326,6 @@ const Category = () => {
         console.error(`Ошибка при получении категории ${id}:`, error);
       });
   });
-  Promise.all(promises)
-    .then(() => {
-      console.log("Все категории успешно загружены:", categories);
-    })
-    .catch((error) => {
-      console.error("Ошибка при загрузке категорий:", error);
-    });
 };
 
 const handleKeyboardEvent = (event: KeyboardEvent) => {
