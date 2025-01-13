@@ -23,6 +23,9 @@ export default {
   getOneTarget(p = query) {
     return server(`target/one_target`, "get");
   },
+  getOneCategory(p = query) {
+    return server(`category/one_category`, "get", p);
+  },
   
   // Kassalar
   // createKassa(data) {

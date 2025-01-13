@@ -206,13 +206,13 @@
       </div>
     </div>
   </div> -->
-  <ModalRight />
-  <ModalLeft/>
+  <!-- <ModalRight /> -->
+  <!-- <ModalLeft/> -->
 </template>
 
 <script setup lang="ts">
-// import api from '../server/api';
 import api from "./server/api";
+// import { getOneCategory } from "@/api/api.js";
 import ModalRight from "./components/Modal-Right/ModalRight.vue";
 import ModalLeft from "./components/Modal-Left/ModalLeft.vue";
 import { ref, onBeforeUnmount, onMounted } from "vue";
@@ -284,6 +284,8 @@ const errorMessage = ref("");
 const usernameDisplay = ref("");
 const router = useRouter();
 const toast = useToast();
+// const categoryIds = [1, 2, 3, 4, 5, 6]; // Статические ID категорий
+// const categoriesData = ref([]); 
 // Метод для выполнения логина
 const handleLogin = async () => {
   isLoading.value = true;
@@ -312,6 +314,41 @@ const closeLogin = () => {
   isLoginOpen.value = false;
 };
 
+// const Category = () => {
+//   getOneCategory()
+//     .then((res) => {
+//       categories = res.data; // Заполняем категории из ответа
+//       console.log("Полученные категории:", categories);
+//       console.log(res.data);
+//     })
+//     .catch((error) => {
+//       console.error("Ошибка при получении категорий:", error);
+//     });
+// };
+
+const Category = () => {
+  const categoryIds = [1, 2, 3, 4, 5, 6]; 
+  const categories = []; 
+
+  const promises = categoryIds.map((id) => {
+    return getOneCategory({ category_id: id })
+      .then((res) => {
+        categories.push(res.data);
+        console.log(`Категория ${id}:`, res.data);
+      })
+      .catch((error) => {
+        console.error(`Ошибка при получении категории ${id}:`, error);
+      });
+  });
+  Promise.all(promises)
+    .then(() => {
+      console.log("Все категории успешно загружены:", categories);
+    })
+    .catch((error) => {
+      console.error("Ошибка при загрузке категорий:", error);
+    });
+};
+
 // Обработчик нажатия клавиш
 const handleKeyboardEvent = (event: KeyboardEvent) => {
   console.log("hello", event.key);
@@ -327,6 +364,7 @@ const handleKeyboardEvent = (event: KeyboardEvent) => {
 onMounted(() => {
   // Добавляем обработчик события клавиатуры при монтировании компонента
   window.addEventListener("keydown", handleKeyboardEvent);
+  Category();
 });
 
 onBeforeUnmount(() => {
