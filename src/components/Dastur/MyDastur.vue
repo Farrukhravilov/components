@@ -1,8 +1,8 @@
 <template>
   <div ref="container"
     class="w-full max-w-[1350px] mx-auto fixed max-1046:none bottom-[97px] left-[0px] right-[0px] border border-white-700 rounded-tr-3xl rounded-tl-3xl  transform translate-y-[100px] transition-all duration-700 ease-in-out max-1370:max-w-[1300px] max-1310:max-w-[1200px] max-1210:max-w-[100%] max-1210:mr-[15px] max-1210:ml-[15px]">
-    <div class="p-4">
-      <div class="flex items-center justify-between border-b border-white rounded pb-[0px]">
+    <div class="p-4 cc">
+      <div class="flex items-center justify-between border-b border-white rounded pb-[0px] ">
         <div>
           <h2 class="text-2xl mb-4 text-white text-[23px] uppercase">
             Bizning dasturlarimiz:
@@ -17,7 +17,7 @@
           </button>
         </router-link>
       </div>
-      <div class="flex items-center justify-between grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] max-1370:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-[20px] p-2 pt-[20px] eff bg-gradient-to-r from-gray-800 to-gray-900 backdrop bg-blue-900 bg-blue-500 max-1310:grid-cols-[repeat(auto-fill,minmax(230px,1fr))]
+      <div class="flex items-center justify-between cls grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] max-1370:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-[20px] p-2 pt-[20px] eff bg-gradient-to-r from-gray-800 to-gray-900 backdrop bg-blue-900 bg-blue-500 max-1310:grid-cols-[repeat(auto-fill,minmax(230px,1fr))]
         max-1210:grid-cols[repeat(auto-fill,minmax(150px,1fr))]">
         <router-link to="/InfoPage"
           class="bg-gray-800 rounded-lg flex flex-col gap-[30px] h-[25vh] p-4 hover:scale-105 transition-transform relative group overflow-hidden">
@@ -100,5 +100,17 @@ onMounted(() => {
 
 .bg-blue-500 {
   color: blue;
+}
+
+.cls {
+  background: linear-gradient(180deg, rgba(0, 46, 65, .29) 0%, rgba(0, 46, 65, 0) 100%);
+  -webkit-backdrop-filter: blur(10.6903095245px);
+  backdrop-filter: blur(10.6903095245px);
+}
+
+.cc {
+  background: linear-gradient(180deg, rgba(0, 46, 65, .29) 0%, rgba(0, 46, 65, 0) 100%);
+  -webkit-backdrop-filter: blur(10.6903095245px);
+  backdrop-filter: blur(10.6903095245px);
 }
 </style>
