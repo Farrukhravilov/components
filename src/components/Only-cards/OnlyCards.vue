@@ -1,8 +1,15 @@
 <template>
-  <div class="text-white mx-auto w-full max-w-[1320px] pt-[90px] pb-[140px]">
-    <h2 class="text-[22px] font-normal mt-[40px] mb-6">
-      <span class="text-white">AYNI DAMDAGI FOYDALANUVCHILAR</span>
-    </h2>
+  <div
+    class="text-white mx-auto w-full max-w-[1320px] pt-[90px] pb-[140px]"
+    data-aos="fade-down"
+    data-aos-delay="1000"
+  >
+    <div class="flex items-center gap-[15px] mb-6">
+      <i class="fa-solid fa-slash text-white"></i>
+      <h2 class="text-[22px] font-normal">
+        <span class="text-white">AYNI DAMDAGI FOYDALANUVCHILAR</span>
+      </h2>
+    </div>
     <Swiper
       :slidesPerView="5"
       :spaceBetween="20"

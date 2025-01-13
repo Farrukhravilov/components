@@ -56,7 +56,7 @@
       <nav class="p-4">
         <ul class="flex justify-between items-center">
           <li>
-            <router-link to="/About" class="text-white hover:text-red-700 uppercase text-[25px] hover:text-red-600">
+            <router-link to="/About" class="text-white hover:text-black uppercase text-[25px]">
               Biz haqimizda
             </router-link>
           </li>
@@ -281,7 +281,7 @@ const closeLogin = () => {
 };
 
 const Category = () => {
-  getOneCategory(5) // Запросит категорию с ID = 1
+  getOneCategory(6) // Запросит категорию с ID = 1
     .then((res) => {
       console.log("Результат для category_id=1:", res.data);
     })
@@ -332,4 +332,9 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.hov:hover {
+  color:brown;
+  transition: all .3s ease;
+}
+</style>

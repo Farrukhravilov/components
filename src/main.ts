@@ -27,10 +27,14 @@ const naive = create({
 
 // Инициализация AOS для анимации  
 AOS.init({  
-  duration: 800, // Длительность анимации в миллисекундах  
-  easing: 'ease-in-out', // Стиль анимации  
-  once: true, // Анимация запускается только один раз  
+  duration: 600, // Длительность анимации
+  easing: 'ease-in-out', // Тип сглаживания
+  once: false, // Анимация выполняется только один раз
 });  
+
+window.addEventListener('scroll', function() {
+  AOS.refresh(); // Обновляем AOS каждый раз при прокрутке
+});
 
 // Создаем приложение Vue  
 const app = createApp(App);  

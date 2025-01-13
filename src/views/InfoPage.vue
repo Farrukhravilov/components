@@ -57,8 +57,16 @@
       </div>
     </div>
     <!--  -->
-    <div class="p-10 text-white mx-auto w-full max-w-[1320px]">
-      <h2 class="text-3xl font-bold text-center">
+    <div
+      class="p-10 text-white mx-auto w-full max-w-[1320px]"
+      data-aos="fade-down"
+      data-aos-delay="1000"
+    >
+      <h2
+        class="text-3xl font-bold text-center"
+        data-aos="fade-down"
+        data-aos-delay="1000"
+      >
         <span class="blue">SAVDO HOZMAGLAR</span> UCHUN
       </h2>
       <p class="mt-4 font-normal text-white text-[20px]">
@@ -75,9 +83,15 @@
       </p>
       <div
         class="p-12 bg-gradient-to-r from-blue-500 to-purple-500 mt-10 flex justify-around border border-white rounded-[16px] backdrop-blur-md bg-opacity-50"
+        data-aos="fade-down"
+        data-aos-delay="1000"
       >
         <!-- Progress Bar 1 -->
-        <div class="text-center flex items-center gap-[5px]">
+        <div
+          class="text-center flex items-center gap-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="1000"
+        >
           <div class="relative">
             <svg width="80" height="80" class="transform rotate-[-90deg]">
               <circle
@@ -105,10 +119,20 @@
               >81%</span
             >
           </div>
-          <p class="mt-2 text-white text-[18px]">Ishingizni tezlashtadi</p>
+          <p
+            class="mt-2 text-white text-[18px]"
+            data-aos="fade-down"
+            data-aos-delay="1000"
+          >
+            Ishingizni tezlashtadi
+          </p>
         </div>
         <!-- Progress Bar 2 -->
-        <div class="text-center flex items-center gap-[5px]">
+        <div
+          class="text-center flex items-center gap-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="1000"
+        >
           <div class="relative">
             <svg width="80" height="80" class="transform rotate-[-90deg]">
               <circle
@@ -136,10 +160,20 @@
               >78%</span
             >
           </div>
-          <p class="mt-2 text-white text-[18px]">Ishingizni tezlashtadi</p>
+          <p
+            class="mt-2 text-white text-[18px]"
+            data-aos="fade-down"
+            data-aos-delay="1000"
+          >
+            Ishingizni tezlashtadi
+          </p>
         </div>
         <!-- Progress Bar 3 -->
-        <div class="text-center flex items-center gap-[5px]">
+        <div
+          class="text-center flex items-center gap-[5px]"
+          data-aos="fade-down"
+          data-aos-delay="1000"
+        >
           <div class="relative">
             <svg width="80" height="80" class="transform rotate-[-90deg]">
               <circle
@@ -167,18 +201,28 @@
               >63%</span
             >
           </div>
-          <p class="mt-2 text-white text-[18px]">Ishingizni tezlashtadi</p>
+          <p
+            class="mt-2 text-white text-[18px]"
+            data-aos="fade-down"
+            data-aos-delay="1000"
+          >
+            Ishingizni tezlashtadi
+          </p>
         </div>
       </div>
       <img
         src="../assets/images/png/31040d80-0db7-42e5-8c62-681a9ae8a67c-Rectangle 15.png"
         class="w-[60%] mx-auto pt-[60px]"
+        data-aos="fade-down"
+        data-aos-delay="1000"
         alt=""
       />
     </div>
     <!--  -->
     <div
       class="p-7 bg-gradient-to-r bg-opacity-50 from-blue-500 backdrop-blur-md to-purple-500 text-white mx-auto w-full max-w-[1320px] border border-white rounded-[12px]"
+      data-aos="fade-down"
+      data-aos-delay="1000"
     >
       <h2 class="text-3xl font-bold text-left mb-4">
         <span class="text-white">FOYDALANUVCHILAR SONI</span>
@@ -233,7 +277,6 @@ onMounted(() => {
     },
     { threshold: 0.1 }
   );
-
   // Наблюдение за всеми карточками с помощью массива ref
   cardRefs.value.forEach((card) => {
     if (card) observer.observe(card); // Наблюдение за карточками
@@ -253,29 +296,6 @@ html {
 
 .animate-fadeIn {
   animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes progressAnimation {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: inherit;
-    /* наследует конечное значение ширины */
-  }
 }
 
 .animate-progress {

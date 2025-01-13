@@ -1,8 +1,8 @@
 <template>
   <div ref="container"
     class="w-full max-w-[1350px] mx-auto fixed max-1046:none bottom-[97px] left-[0px] right-[0px] border border-white-700 rounded-tr-3xl rounded-tl-3xl  transform translate-y-[100px] transition-all duration-700 ease-in-out max-1370:max-w-[1300px] max-1310:max-w-[1200px] max-1210:max-w-[100%] max-1210:mr-[15px] max-1210:ml-[15px]">
-    <div class="p-4 cc">
-      <div class="flex items-center justify-between border-b border-white rounded pb-[0px] ">
+    <div class="p-4 ">
+      <div class="flex cc items-center justify-between border-b border-white rounded pb-[0px] ">
         <div>
           <h2 class="text-2xl mb-4 text-white text-[23px] uppercase">
             Bizning dasturlarimiz:
