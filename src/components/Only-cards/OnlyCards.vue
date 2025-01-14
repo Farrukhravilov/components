@@ -11,7 +11,7 @@
       </h2>
     </div>
     <Swiper
-      :slidesPerView="5"
+      :slidesPerView="3"
       :spaceBetween="20"
       pagination
       scrollbar
@@ -21,9 +21,9 @@
         v-for="item in displayedItems"
         :key="item.id"
         class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="height: 180px"
+        style="width: 18%"
       >
-        <img :src="item.logo" alt="Company Logo" class="object-cover w-full" />
+        <img :src="item.logo" alt="Company Logo" class="h-[180px]" />
       </SwiperSlide>
     </Swiper>
   </div>

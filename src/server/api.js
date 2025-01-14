@@ -24,9 +24,11 @@ export default {
     return server(`target/one_target`, "get");
   },
   getOneCategory(p = query) {
-    return server(`category/one_category`, "get");
+    return server(`category/one_category?category_id=${p.category_id}`, "get");
   },
-  
+  createVideo(data) {
+    return server(`files_by?sourse_id=${p.sourse_id}`, "post", data);
+  },
   
   // Kassalar
   // createKassa(data) {

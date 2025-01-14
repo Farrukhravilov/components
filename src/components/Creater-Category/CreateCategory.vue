@@ -2,43 +2,32 @@
 import { ref } from "vue";
 import api from "../../server/api";
 
-// Данные формы
-const categoryName = ref<string>(""); // Название категории
-const categoryComment = ref<string>(""); // Комментарий категории
+const categoryName = ref<string>("");
+const categoryComment = ref<string>("");
 const categoryItems = ref<{ text: string; ordinal_number: number }[]>([
   { text: "Home", ordinal_number: 1 },
   { text: "About", ordinal_number: 2 },
   { text: "Contact", ordinal_number: 3 },
-]); // Элементы для Navbar
+]);
 
-const responseMessage = ref<string>(""); // Сообщение о результате
+const responseMessage = ref<string>("");
 
-// Функция для отправки данных
 const createCategorys = async () => {
   try {
-    // 1. Создать категорию
     const categoryResponse = await api.createCategory({
       name: categoryName.value,
       comment: categoryComment.value,
     });
-
-    // Проверяем ответ и получаем ID категории
-    const categoryId = categoryResponse?.data?.id; // Предположим, что API возвращает `id`
-
+    const categoryId = categoryResponse?.data?.id;
     if (!categoryId) {
       throw new Error("Не удалось получить ID категории.");
     }
-
-    // 2. Создать элементы для категории
     const itemsData = categoryItems.value.map((item) => ({
       category_id: categoryId,
       text: item.text,
       ordinal_number: item.ordinal_number,
     }));
-
     await api.createCategoryItems(itemsData);
-
-    // Успешное выполнение
     responseMessage.value = "Категория и элементы успешно созданы!";
   } catch (error) {
     responseMessage.value = "Ошибка при создании категории или её элементов.";
