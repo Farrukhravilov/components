@@ -21,7 +21,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
+import api from "../../server/api";
+
+const videos = ref("");
+const sendData = async () => {
+  try {
+    const response = await api.createVideo(6);
+    console.log("Успешный ответ:", response.data);
+  } catch (error) {
+    console.error("Ошибка запроса:", error);
+  }
+};
 
 // Пропсы
 defineProps({
@@ -34,7 +45,6 @@ defineProps({
 // Состояния
 const videoRef = ref<HTMLVideoElement | null>(null);
 const isPlaying = ref(false);
-
 // Методы
 const togglePlay = () => {
     if (videoRef.value) {
@@ -55,6 +65,10 @@ const onPlay = () => {
 const onPause = () => {
     isPlaying.value = false;
 };
+
+onMounted(() => {
+    sendData();
+});
 </script>
 
 <style scoped></style>
