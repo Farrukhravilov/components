@@ -7,7 +7,7 @@
     <div class="flex items-center gap-[15px] mb-6">
       <i class="fa-solid fa-slash text-white"></i>
       <h2 class="text-[22px] font-normal">
-        <span class="text-white">AYNI DAMDAGI FOYDALANUVCHILAR</span>
+        <span class="text-white uppercase" v-if="specificCategory1">{{ specificCategory1.text }}</span>
       </h2>
     </div>
     <Swiper
@@ -32,7 +32,48 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css"; // Импортируем стили Swiper
+import "swiper/swiper-bundle.css";
+import api from "../../server/api";
+const categories = ref("");
+const specificCategory1 = ref(null);
+const specificCategory2 = ref(null);
+const specificCategory3 = ref(null);
+const specificCategory4 = ref(null);
+const specificCategory5 = ref(null);
+const specificCategory6 = ref(null);
+const specificCategory7 = ref(null);
+const Category = () => {
+    return api
+        .getOneCategory({ category_id: 4 })
+        .then((res) => {
+            categories.value = res.data;
+            specificCategory1.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 1
+            );
+            specificCategory2.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 2
+            );
+            specificCategory3.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 3
+            );
+            specificCategory4.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 4
+            );
+            specificCategory5.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 5
+            );
+            specificCategory6.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 6
+            );
+            specificCategory7.value = categories.value?.category_items.find(
+                (item) => item.ordinal_number === 7
+            );
+            console.log(res.data);
+        })
+        .catch((error) => {
+            console.error(`Ошибка при получении категории ${id}:`, error);
+        });
+};
 
 const items = [
   { id: 1, logo: "https://via.placeholder.com/150x100?text=Parvoz" },
@@ -51,8 +92,10 @@ const shuffleItems = () => {
 };
 
 onMounted(() => {
+  Category();
   setInterval(shuffleItems, 3000); // Меняет местами каждые 3 секунды
 });
+
 </script>
 
 <style scoped>

@@ -222,34 +222,7 @@
       />
     </div>
     <!--  -->
-    <div
-      class="p-7 bg-gradient-to-r bg-opacity-50 from-blue-500 backdrop-blur-md to-purple-500 text-white mx-auto w-full max-w-[1320px] border border-white rounded-[12px]"
-      data-aos="fade-down"
-      data-aos-delay="1000"
-    >
-      <h2 class="text-3xl font-bold text-left mb-4">
-        <span class="text-white" v-if="hozmaq" >{{ hozmaq.text }}</span>
-      </h2>
-      <div class="p-6 rounded-lg">
-        <div class="flex items-center justify-between">
-          <div class="bg-gray-900 rounded-lg p-4 shadow-lg">
-            <img src="../assets/images/png/vector.png" alt="" />
-          </div>
-          <div class="w-full max-w-[450px]">
-            <p class="mt-4 font-normal text-white text-[19px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the
-              1500s, when an unknown printer took a galley of type and scrambled it to
-              make a type specimen book. It has survived not only five centuries, but also
-              the leap into electronic typesetting, remaining essentially unchanged. It
-              was popularised in the 1960s with the release of Letraset sheets containing
-              Lorem Ipsum passages, and more recently with desktop publishing software
-              like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Users/>
     <OnlyCards />
     <InfoVideo />
     <div class="pb-[40px]">
@@ -264,6 +237,7 @@ import api from "../server/api";
 import Footer from "../components/Footer/Footer.vue";
 import OnlyCards from "../components/Only-cards/OnlyCards.vue";
 import InfoVideo from "../components/Info-Video/InfoVideo.vue";
+import Users from "../components/Users/Users.vue";
 // import InfoVideo from "../components/Info-Video/InfoVideo.vue;
 
 // Создаем массив для хранения ссылок на карточки
@@ -275,6 +249,7 @@ const specificCategory2 = ref(null);
 const specificCategory3 = ref(null);
 const specificCategory4 = ref(null);
 const specificCategory5 = ref(null);
+const specific5 = ref(null);
 const specificCategory6 = ref(null);
 const specificCategory7 = ref(null);
 const Category = () => {
@@ -311,10 +286,10 @@ const Category = () => {
 };
 const Category2 = () => {
   return api
-    .getOneCategory({ category_id: 3 })
+    .getOneCategory({ category_id: 1 })
     .then((res) => {
       categories2.value = res.data;
-      hozmaq.value = categories2.value?.category_items.find(
+      specificCategory1.value = categories2.value?.category_items.find(
         (item) => item.ordinal_number === 1
       );
       specificCategory2.value = categories2.value?.category_items.find(
@@ -326,7 +301,7 @@ const Category2 = () => {
       specificCategory4.value = categories2.value?.category_items.find(
         (item) => item.ordinal_number === 4
       );
-      specificCategory5.value = categories2.value?.category_items.find(
+      specific5.value = categories2.value?.category_items.find(
         (item) => item.ordinal_number === 5
       );
       specificCategory6.value = categories2.value?.category_items.find(
@@ -341,6 +316,7 @@ const Category2 = () => {
       console.error(`Ошибка при получении категории ${id}:`, error);
     });
 };
+
 onMounted(() => {
   Category();
   Category2();
