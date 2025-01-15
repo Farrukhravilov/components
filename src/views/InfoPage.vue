@@ -2,17 +2,7 @@
   <div
     class="relative z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]"
   >
-    <div class="relative mx-auto w-full max-w-[1320px]">
-      <h2
-        class="text-white text-[51px] font-normal pt-[180px] uppercase text-center tracking-[5px]"
-      >
-        <span class="text-blue"
-          >QURILISH DAVLAT <br />
-          OBYEKTLARI</span
-        >
-        UCHUN DASTUR
-      </h2>
-    </div>
+    <Subtitle/>
     <div
       class="flex items-center justify-between mx-auto w-full max-w-[1320px] pt-[130px] pb-[120px]"
     >
@@ -228,6 +218,7 @@
     <div class="pb-[40px]">
       <Footer />
     </div>
+    <RouterView />
   </div>
 </template>
 
@@ -238,18 +229,17 @@ import Footer from "../components/Footer/Footer.vue";
 import OnlyCards from "../components/Only-cards/OnlyCards.vue";
 import InfoVideo from "../components/Info-Video/InfoVideo.vue";
 import Users from "../components/Users/Users.vue";
+import Subtitle from "../components/Subtitle/Subtitle.vue";
 // import InfoVideo from "../components/Info-Video/InfoVideo.vue;
 
 // Создаем массив для хранения ссылок на карточки
 const cardRefs = ref<HTMLDivElement[]>([]);
 const categories = ref("");
-const categories2 = ref("");
 const specificCategory1 = ref(null);
 const specificCategory2 = ref(null);
 const specificCategory3 = ref(null);
 const specificCategory4 = ref(null);
 const specificCategory5 = ref(null);
-const specific5 = ref(null);
 const specificCategory6 = ref(null);
 const specificCategory7 = ref(null);
 const Category = () => {
@@ -284,42 +274,10 @@ const Category = () => {
       console.error(`Ошибка при получении категории ${id}:`, error);
     });
 };
-const Category2 = () => {
-  return api
-    .getOneCategory({ category_id: 1 })
-    .then((res) => {
-      categories2.value = res.data;
-      specificCategory1.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 1
-      );
-      specificCategory2.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 2
-      );
-      specificCategory3.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 3
-      );
-      specificCategory4.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 4
-      );
-      specific5.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 5
-      );
-      specificCategory6.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 6
-      );
-      specificCategory7.value = categories2.value?.category_items.find(
-        (item) => item.ordinal_number === 7
-      );
-      console.log(res.data);
-    })
-    .catch((error) => {
-      console.error(`Ошибка при получении категории ${id}:`, error);
-    });
-};
+
 
 onMounted(() => {
   Category();
-  Category2();
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -351,7 +309,9 @@ html {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease forwards;
 }
-
+#fff {
+  display:none;
+}
 .animate-progress {
   animation: progressAnimation 1s forwards;
 }

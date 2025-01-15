@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
-    <header class="relative z-100 w-full max-1046:none max-w-[1380px] m-auto">
+    <header class="relative z-100 w-full max-1046:none max-w-[1380px] m-auto" id="fff" >
       <nav class="p-4">
         <ul class="flex justify-between items-center">
           <li v-if="specificCategory1">
