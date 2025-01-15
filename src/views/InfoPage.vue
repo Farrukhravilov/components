@@ -67,7 +67,7 @@
         data-aos="fade-down"
         data-aos-delay="1000"
       >
-        <span class="blue">SAVDO HOZMAGLAR</span> UCHUN
+        <span class="blue" v-if="specificCategory1" >{{specificCategory1.text}}</span>
       </h2>
       <p class="mt-4 font-normal text-white text-[20px]">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur placeat
@@ -123,8 +123,9 @@
             class="mt-2 text-white text-[18px]"
             data-aos="fade-down"
             data-aos-delay="1000"
+            v-if="specificCategory3"
           >
-            Ishingizni tezlashtadi
+            {{ specificCategory3.text }}
           </p>
         </div>
         <!-- Progress Bar 2 -->
@@ -164,8 +165,9 @@
             class="mt-2 text-white text-[18px]"
             data-aos="fade-down"
             data-aos-delay="1000"
+            v-if="specificCategory5"
           >
-            Ishingizni tezlashtadi
+            {{ specificCategory5.text }}
           </p>
         </div>
         <!-- Progress Bar 3 -->
@@ -205,8 +207,9 @@
             class="mt-2 text-white text-[18px]"
             data-aos="fade-down"
             data-aos-delay="1000"
+            v-if="specificCategory3"
           >
-            Ishingizni tezlashtadi
+            {{ specificCategory3.text }}
           </p>
         </div>
       </div>
@@ -225,7 +228,7 @@
       data-aos-delay="1000"
     >
       <h2 class="text-3xl font-bold text-left mb-4">
-        <span class="text-white">FOYDALANUVCHILAR SONI</span>
+        <span class="text-white" v-if="hozmaq" >{{ hozmaq.text }}</span>
       </h2>
       <div class="p-6 rounded-lg">
         <div class="flex items-center justify-between">
@@ -256,16 +259,91 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
+import api from "../server/api";
 import Footer from "../components/Footer/Footer.vue";
 import OnlyCards from "../components/Only-cards/OnlyCards.vue";
 import InfoVideo from "../components/Info-Video/InfoVideo.vue";
 // import InfoVideo from "../components/Info-Video/InfoVideo.vue;
-import { onMounted, ref } from "vue";
 
 // Создаем массив для хранения ссылок на карточки
 const cardRefs = ref<HTMLDivElement[]>([]);
-
+const categories = ref("");
+const categories2 = ref("");
+const specificCategory1 = ref(null);
+const specificCategory2 = ref(null);
+const specificCategory3 = ref(null);
+const specificCategory4 = ref(null);
+const specificCategory5 = ref(null);
+const specificCategory6 = ref(null);
+const specificCategory7 = ref(null);
+const Category = () => {
+  return api
+    .getOneCategory({ category_id: 2 })
+    .then((res) => {
+      categories.value = res.data;
+      specificCategory1.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 1
+      );
+      specificCategory2.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 2
+      );
+      specificCategory3.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 3
+      );
+      specificCategory4.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 4
+      );
+      specificCategory5.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 5
+      );
+      specificCategory6.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 6
+      );
+      specificCategory7.value = categories.value?.category_items.find(
+        (item) => item.ordinal_number === 7
+      );
+      console.log(res.data);
+    })
+    .catch((error) => {
+      console.error(`Ошибка при получении категории ${id}:`, error);
+    });
+};
+const Category2 = () => {
+  return api
+    .getOneCategory({ category_id: 3 })
+    .then((res) => {
+      categories2.value = res.data;
+      hozmaq.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 1
+      );
+      specificCategory2.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 2
+      );
+      specificCategory3.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 3
+      );
+      specificCategory4.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 4
+      );
+      specificCategory5.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 5
+      );
+      specificCategory6.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 6
+      );
+      specificCategory7.value = categories2.value?.category_items.find(
+        (item) => item.ordinal_number === 7
+      );
+      console.log(res.data);
+    })
+    .catch((error) => {
+      console.error(`Ошибка при получении категории ${id}:`, error);
+    });
+};
 onMounted(() => {
+  Category();
+  Category2();
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

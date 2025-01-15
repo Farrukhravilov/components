@@ -5,7 +5,7 @@
     >
       <video
         ref="videoRef"
-        :src="`${url}uploated_files/${media/8b0eaec3-e90a-402f-8d7b-6960d09565fb-video.mp4}`"
+        :src="`${url}media/8b0eaec3-e90a-402f-8d7b-6960d09565fb-video.mp4`"
         class="w-full h-auto rounded-t-lg"
         @play="onPlay"
         @pause="onPause"
@@ -47,7 +47,7 @@ const url = baseurl;
 const videos = ref("");
 const sendData = async () => {
   try {
-    const res = await api.createVideo(6);
+    const res = await api.createVideo(9);
     console.log("Успешный ответ:", res.data);
   } catch (error) {
     console.error("Ошибка запроса:", error);
