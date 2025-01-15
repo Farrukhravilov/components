@@ -12,13 +12,13 @@
           ref="cardRefs"
           class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 animate-fadeIn"
         >
-          <img src="" alt="IDEAL Logo" class="w-full h-[180px] object-cover" />
+          <img :src="`${url}media/b937c0a9-b808-475c-b52e-ad49dfc7445e-ideal.png`" alt="IDEAL Logo" class="w-full h-[180px] object-cover" />
         </div>
         <div
           ref="cardRefs"
           class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 animate-fadeIn"
         >
-          <img src="" alt="Dehqon Logo" class="w-full h-[180px] object-cover" />
+          <img :src="`${url}media/d4bddc68-f79c-4653-90d3-84891bafcbd9-dehqon-uz.png`" alt="Dehqon Logo" class="w-full h-[180px] object-cover" />
         </div>
       </div>
       <!-- Card 2 -->
@@ -27,7 +27,7 @@
         ref="cardRefs"
         class="bg-white rounded-xl h-[60vh] w-[60vh] shadow-lg overflow-hidden transform transition duration-500 animate-fadeIn"
       >
-        <img src="" alt="Eco Bonu Logo" class="w-full h-[180px] object-cover" />
+        <img :src="`${url}media/e6cf82e9-c17f-406f-af48-f41ddd369305-eco-bonu.png`" alt="Eco Bonu Logo" class="w-full h-[100%] object-cover" />
       </div>
       <!-- Card 4 -->
       <div class="flex flex-col gap-[60px] w-[23%]">
@@ -35,14 +35,14 @@
           ref="cardRefs"
           class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 animate-fadeIn"
         >
-          <img src="" alt="Effective Logo" class="w-full h-[180px] object-cover" />
+          <img :src="`${url}media/516f54c0-45ad-4f06-8125-5a0b4b5e9310-effective-engineering.png`" alt="Effective Logo" class="w-full h-[180px] object-cover" />
         </div>
         <!-- Card 5 -->
         <div
           ref="cardRefs"
           class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 animate-fadeIn"
         >
-          <img src="" alt="Another Logo" class="w-full h-[180px] object-cover" />
+          <img :src="`${url}media/b937c0a9-b808-475c-b52e-ad49dfc7445e-ideal.png`" alt="Another Logo" class="w-full h-[180px] object-cover" />
         </div>
       </div>
     </div>
@@ -194,7 +194,7 @@
             >
           </div>
           <p
-            class="mt-2 text-white text-[18px]"
+            class="mt-2 text-white text-[18px] text-white"
             data-aos="fade-down"
             data-aos-delay="1000"
             v-if="specificCategory3"
@@ -230,7 +230,8 @@ import OnlyCards from "../components/Only-cards/OnlyCards.vue";
 import InfoVideo from "../components/Info-Video/InfoVideo.vue";
 import Users from "../components/Users/Users.vue";
 import Subtitle from "../components/Subtitle/Subtitle.vue";
-// import InfoVideo from "../components/Info-Video/InfoVideo.vue;
+import baseurl from "../server/baseurl";
+const url = baseurl;
 
 // Создаем массив для хранения ссылок на карточки
 const cardRefs = ref<HTMLDivElement[]>([]);
@@ -274,10 +275,18 @@ const Category = () => {
       console.error(`Ошибка при получении категории ${id}:`, error);
     });
 };
-
-
+const videos = ref("");
+const sendData = async () => {
+  try {
+    const res = await api.createVideo(7);
+    console.log("Успешный ответ:", res.data);
+  } catch (error) {
+    console.error("Ошибка запроса:", error);
+  }
+};
 onMounted(() => {
   Category();
+  sendData();
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -289,7 +298,6 @@ onMounted(() => {
     },
     { threshold: 0.1 }
   );
-  // Наблюдение за всеми карточками с помощью массива ref
   cardRefs.value.forEach((card) => {
     if (card) observer.observe(card); // Наблюдение за карточками
   });

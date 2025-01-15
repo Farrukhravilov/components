@@ -124,8 +124,6 @@ const Category = () => {
     .getOneCategory({ category_id: 6 })
     .then((res) => {
       categories.value = res.data;
-      // Используем find для поиска элемента с ordinal_number === 1
-      // Используем find для поиска элементов с разными ordinal_number
       specificCategory1.value = categories.value?.category_items.find(
         (item) => item.ordinal_number === 1
       );
@@ -138,26 +136,21 @@ const Category = () => {
       specificCategory4.value = categories.value?.category_items.find(
         (item) => item.ordinal_number === 4
       );
-      console.log("Найденная категория:", specificCategory.value);
       console.log(`Категория ${id}:`, res.data);
     })
-    .catch((error) => {
-      console.error(`Ошибка при получении категории ${id}:`, error);
-    });
 };
 
 const handleKeyboardEvent = (event: KeyboardEvent) => {
   console.log("hello", event.key);
   if (event.ctrlKey && event.shiftKey && event.key === "F7") {
     console.log("hi");
-
     openLogin();
   }
 };
 
 onMounted(() => {
-  window.addEventListener("keydown", handleKeyboardEvent);
   Category();
+  window.addEventListener("keydown", handleKeyboardEvent);
 });
 
 onBeforeUnmount(() => {

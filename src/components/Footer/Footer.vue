@@ -7,7 +7,6 @@
         <div class="">
           <nav>
             <ul class="flex flex-col items-center gap-[32px] justify-left">
-              <!-- <pre>{{categories}}</pre> -->
               <li
                 v-if="specificCategory2"
                 class="flex flex-col gap-[15px] text-white text-[18px] items-center justify-left"
@@ -55,9 +54,9 @@
             <input
               type="number"
               class="inputs text-white focus:none"
-              placeholder="number"
+              placeholder="Telefon raqamingiz"
             />
-            <input type="text" class="inputs text-white focus:none" placeholder="tekst" />
+            <input type="text" class="inputs text-white focus:none" placeholder="Ism familiyangiz" />
             <button class="sumbit">Jonatish</button>
           </form>
         </div>

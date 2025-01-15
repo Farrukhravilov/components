@@ -29,6 +29,9 @@ export default {
   createVideo(sourceId) {
     return server("file/files_by_source_id", "post", { source_id: sourceId });
   },
+  // getImage(p = query) {
+  //   return server
+  // },
   // get
   
   // Kassalar

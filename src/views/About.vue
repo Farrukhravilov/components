@@ -25,7 +25,7 @@
         <div class="relative mx-auto max-w-[1320px] mt-[35px] pb-[30px]">
             <div class="flex items-center gap-[10px]">
                 <i class="fa-solid fa-slash text-white"></i>
-                <h2 class="text-white text-[22px] tracking-[3px] uppercase">BiZNING MIJOZLARIMIZ</h2>
+                <h2 class="text-white text-[22px] tracking-[3px] uppercase">BIZ BILAN BOG'LANISH</h2>
             </div>
             <Footer />
         </div>
