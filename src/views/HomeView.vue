@@ -15,10 +15,9 @@ const password = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
 
-// Метод для выполнения логина
 const handleLogin = async () => {
   isLoading.value = true;
-  errorMessage.value = ""; // Сбрасываем ошибку перед новым запросом
+  errorMessage.value = "";
 
   try {
     const response = await api.login({

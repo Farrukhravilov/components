@@ -46,7 +46,6 @@
         </div>
       </div>
     </div>
-    <!--  -->
     <div
       class="p-10 text-white mx-auto w-full max-w-[1320px]"
       data-aos="fade-down"
@@ -211,7 +210,6 @@
         alt=""
       />
     </div>
-    <!--  -->
     <Users/>
     <OnlyCards />
     <InfoVideo />
