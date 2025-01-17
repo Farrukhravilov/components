@@ -12,7 +12,7 @@ import LayoutGuest from '@/layouts/LayoutGuest.vue'
       <CardBox :class="cardClass">
         <div class="space-y-3">
           <h1 class="text-2xl">Unhandled exception</h1>
-
+          dont
           <p>An Error Occurred</p>
         </div>
 

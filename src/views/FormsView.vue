@@ -149,7 +149,7 @@ const formStatusSubmit = () => {
           :is-placed-with-header="formStatusWithHeader"
         >
           <span
-            ><b class="capitalize">{{ formStatusOptions[formStatusCurrent] }}</b> state</span
+            ><b class="capitalize">{{ formStatusOptions[formStatusCurrent] }}</b> states</span
           >
         </NotificationBarInCard>
         <FormField label="Fields">

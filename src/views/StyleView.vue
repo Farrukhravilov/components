@@ -37,19 +37,10 @@ const handleStyleChange = (slug) => {
           <code class="px-1.5 py-0.5 rounded bg-white bg-opacity-20">modifier</code>
         </h2>
         <div class="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 max-w-6xl mx-auto">
-          <CardBox
-            v-for="style in styles"
-            :key="style"
-            class="cursor-pointer bg-gray-50"
-            is-hoverable
-            @click="handleStyleChange(style)"
-          >
+          <CardBox v-for="style in styles" :key="style" class="cursor-pointer bg-gray-50" is-hoverable
+            @click="handleStyleChange(style)">
             <div class="mb-3 md:mb-6">
-              <img
-                :src="`https://static.justboil.me/templates/one/small/${style}-v3.png`"
-                width="1280"
-                height="720"
-              />
+              <img :src="`https://static.justboil.me/templates/one/small/${style}-v3.png`" width="1280" height="720" />
             </div>
 
             <h1 class="text-xl md:text-2xl font-black capitalize">

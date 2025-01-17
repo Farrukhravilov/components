@@ -40,15 +40,8 @@ const submitPass = () => {
   <LayoutAuthenticated>
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
-        <BaseButton
-          href="https://github.com/justboil/admin-one-vue-tailwind"
-          target="_blank"
-          :icon="mdiGithub"
-          label="Star on GitHub"
-          color="contrast"
-          rounded-full
-          small
-        />
+        <BaseButton href="https://github.com/justboil/admin-one-vue-tailwind" target="_blank" :icon="mdiGithub"
+          label="Star on GitHub" color="contrast" rounded-full small />
       </SectionTitleLineWithButton>
 
       <UserCard class="mb-6" />
@@ -60,23 +53,12 @@ const submitPass = () => {
           </FormField>
 
           <FormField label="Name" help="Required. Your name">
-            <FormControl
-              v-model="profileForm.name"
-              :icon="mdiAccount"
-              name="username"
-              required
-              autocomplete="username"
-            />
+            <FormControl v-model="profileForm.name" :icon="mdiAccount" name="username" required
+              autocomplete="username" />
           </FormField>
           <FormField label="E-mail" help="Required. Your e-mail">
-            <FormControl
-              v-model="profileForm.email"
-              :icon="mdiMail"
-              type="email"
-              name="email"
-              required
-              autocomplete="email"
-            />
+            <FormControl v-model="profileForm.email" :icon="mdiMail" type="email" name="email" required
+              autocomplete="email" />
           </FormField>
 
           <template #footer>
@@ -89,38 +71,20 @@ const submitPass = () => {
 
         <CardBox is-form @submit.prevent="submitPass">
           <FormField label="Current password" help="Required. Your current password">
-            <FormControl
-              v-model="passwordForm.password_current"
-              :icon="mdiAsterisk"
-              name="password_current"
-              type="password"
-              required
-              autocomplete="current-password"
-            />
+            <FormControl v-model="passwordForm.password_current" :icon="mdiAsterisk" name="password_current"
+              type="password" required autocomplete="current-password" />
           </FormField>
 
           <BaseDivider />
 
           <FormField label="New password" help="Required. New password">
-            <FormControl
-              v-model="passwordForm.password"
-              :icon="mdiFormTextboxPassword"
-              name="password"
-              type="password"
-              required
-              autocomplete="new-password"
-            />
+            <FormControl v-model="passwordForm.password" :icon="mdiFormTextboxPassword" name="password" type="password"
+              required autocomplete="new-password" />
           </FormField>
 
           <FormField label="Confirm password" help="Required. New password one more time">
-            <FormControl
-              v-model="passwordForm.password_confirmation"
-              :icon="mdiFormTextboxPassword"
-              name="password_confirmation"
-              type="password"
-              required
-              autocomplete="new-password"
-            />
+            <FormControl v-model="passwordForm.password_confirmation" :icon="mdiFormTextboxPassword"
+              name="password_confirmation" type="password" required autocomplete="new-password" />
           </FormField>
 
           <template #footer>

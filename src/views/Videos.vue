@@ -7,7 +7,8 @@
                 <h2 class="text-white text-[22px] tracking-[3px] uppercase " v-if="specificCategory1">
                     {{ specificCategory1.text }}</h2>
             </div>
-            <p class="text-white font-normal  mt-[15px] text-[18px]" v-if="specificCategory2">{{ specificCategory2.text }}
+            <p class="text-white font-normal  mt-[15px] text-[18px]" v-if="specificCategory2">{{ specificCategory2.text
+                }}
             </p>
             <WatchVideo />
         </div>

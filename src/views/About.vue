@@ -5,7 +5,8 @@
     <div class="relative mx-auto w-full max-w-[1320px] mt-[60px]">
       <div class="flex items-center gap-[10px]">
         <i class="fa-solid fa-slash text-white"></i>
-        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory1">{{ specificCategory1.text }}
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory1">{{ specificCategory1.text
+          }}
         </h2>
       </div>
       <Video />
@@ -21,7 +22,8 @@
     <div class="mx-auto w-full max-w-[1320px] relative mt-[100px]">
       <div class="flex items-center gap-[10px]">
         <i class="fa-solid fa-slash text-white"></i>
-        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory3">{{ specificCategory3.text }}
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory3">{{ specificCategory3.text
+          }}
         </h2>
       </div>
       <CustomersCard />
