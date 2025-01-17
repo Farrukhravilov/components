@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="text-white mx-auto w-full max-w-[1320px] pt-[90px] pb-[140px]"
-    data-aos="fade-down"
-    data-aos-delay="1000"
-  >
+  <div class="text-white mx-auto w-full max-w-[1320px] pt-[90px] pb-[140px]" data-aos="fade-down" data-aos-delay="1000">
     <div class="flex items-center gap-[15px] mb-6">
       <i class="fa-solid fa-slash text-white"></i>
       <h2 class="text-[22px] font-normal text-white">
@@ -12,48 +8,29 @@
         }}</span>
       </h2>
     </div>
-    <Swiper
-      :slidesPerView="5"
-      :spaceBetween="0"
-      pagination
-      scrollbar
-      class="rounded-[12px] w-full"
-    >
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
-        <img :src="`${url}media/516f54c0-45ad-4f06-8125-5a0b4b5e9310-effective-engineering.png`" alt="Company Logo" class="h-[180px]" />
+    <Swiper :slidesPerView="5" :spaceBetween="0" pagination scrollbar class="rounded-[12px] w-full">
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
+        <img :src="`${url}media/516f54c0-45ad-4f06-8125-5a0b4b5e9310-effective-engineering.png`" alt="Company Logo"
+          class="h-[180px]" />
       </SwiperSlide>
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
-        <img :src="`${url}media/516f54c0-45ad-4f06-8125-5a0b4b5e9310-effective-engineering.png`" alt="Company Logo" class="h-[180px]" />
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
+        <img :src="`${url}media/516f54c0-45ad-4f06-8125-5a0b4b5e9310-effective-engineering.png`" alt="Company Logo"
+          class="h-[180px]" />
       </SwiperSlide>
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
         <img :src="`${url}media/b937c0a9-b808-475c-b52e-ad49dfc7445e-ideal.png`" alt="Company Logo" class="h-[180px]" />
       </SwiperSlide>
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
-        <img :src="`${url}media/e6cf82e9-c17f-406f-af48-f41ddd369305-eco-bonu.png`" alt="Company Logo" class="h-[180px]" />
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
+        <img :src="`${url}media/e6cf82e9-c17f-406f-af48-f41ddd369305-eco-bonu.png`" alt="Company Logo"
+          class="h-[180px]" />
       </SwiperSlide>
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
-        <img :src="`${url}media/d4bddc68-f79c-4653-90d3-84891bafcbd9-dehqon-uz.png`" alt="Company Logo" class="h-[180px]" />
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
+        <img :src="`${url}media/d4bddc68-f79c-4653-90d3-84891bafcbd9-dehqon-uz.png`" alt="Company Logo"
+          class="h-[180px]" />
       </SwiperSlide>
-      <SwiperSlide
-        class="bg-gray-800 rounded-lg flex items-center justify-center p-4"
-        style="width: 30%"
-      >
-        <img :src="`${url}media/49c661fc-0c89-4d9f-b903-c2c9b0e2f3ab-dehqon-uz.png`" alt="Company Logo" class="h-[180px]" />
+      <SwiperSlide class="bg-gray-800 rounded-lg flex items-center justify-center p-4" style="width: 30%">
+        <img :src="`${url}media/49c661fc-0c89-4d9f-b903-c2c9b0e2f3ab-dehqon-uz.png`" alt="Company Logo"
+          class="h-[180px]" />
       </SwiperSlide>
     </Swiper>
   </div>

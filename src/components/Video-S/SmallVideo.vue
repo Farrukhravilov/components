@@ -1,155 +1,63 @@
 <template>
   <div class="flex justify-center items-center mt-[50px]">
     <div class="grid grid-cols-4 gap-4">
-      <div
-        v-for="(video, index) in videos"
-        :key="index"
-        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md"
-      >
-        <video
-          ref="videoRefs"
-          :src="`${url}media/${video}.mp4`"
-          class="w-full h-auto rounded-lg"
-          @play="onPlay(index)"
-          @pause="onPause(index)"
-          controls
-        ></video>
-        <div
-          class="absolute inset-0 flex items-center justify-center"
-          v-if="!isPlaying[index]"
-        >
-          <button
-            class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
-            @click="togglePlay(index)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z"
-              />
+      <div v-for="(video, index) in videos" :key="index"
+        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <video ref="videoRefs" :src="`${url}media/${video}.mp4`" class="w-full h-auto rounded-lg" @play="onPlay(index)"
+          @pause="onPause(index)" controls></video>
+        <div class="absolute inset-0 flex items-center justify-center" v-if="!isPlaying[index]">
+          <button class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
+            @click="togglePlay(index)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z" />
             </svg>
           </button>
         </div>
       </div>
-      <div
-        v-for="(video, index) in videos"
-        :key="index"
-        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md"
-      >
-        <video
-          ref="videoRefs"
-          :src="`${url}media/${video}.mp4`"
-          class="w-full h-auto rounded-lg"
-          @play="onPlay(index)"
-          @pause="onPause(index)"
-          controls
-        ></video>
-        
-        <div
-          class="absolute inset-0 flex items-center justify-center"
-          v-if="!isPlaying[index]"
-        >
-          <button
-            class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
-            @click="togglePlay(index)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z"
-              />
+      <div v-for="(video, index) in videos" :key="index"
+        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <video ref="videoRefs" :src="`${url}media/${video}.mp4`" class="w-full h-auto rounded-lg" @play="onPlay(index)"
+          @pause="onPause(index)" controls></video>
+
+        <div class="absolute inset-0 flex items-center justify-center" v-if="!isPlaying[index]">
+          <button class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
+            @click="togglePlay(index)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z" />
             </svg>
           </button>
         </div>
       </div>
-      <div
-        v-for="(video, index) in videos"
-        :key="index"
-        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md"
-      >
-        <video
-          ref="videoRefs"
-          :src="`${url}media/${video}.mp4`"
-          class="w-full h-auto rounded-lg"
-          @play="onPlay(index)"
-          @pause="onPause(index)"
-          controls
-        ></video>
-        <div
-          class="absolute inset-0 flex items-center justify-center"
-          v-if="!isPlaying[index]"
-        >
-          <button
-            class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
-            @click="togglePlay(index)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z"
-              />
+      <div v-for="(video, index) in videos" :key="index"
+        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <video ref="videoRefs" :src="`${url}media/${video}.mp4`" class="w-full h-auto rounded-lg" @play="onPlay(index)"
+          @pause="onPause(index)" controls></video>
+        <div class="absolute inset-0 flex items-center justify-center" v-if="!isPlaying[index]">
+          <button class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
+            @click="togglePlay(index)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z" />
             </svg>
           </button>
         </div>
       </div>
-      <div
-        v-for="(video, index) in videos"
-        :key="index"
-        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md"
-      >
-        <video
-          ref="videoRefs"
-          :src="`${url}media/${video}.mp4`"
-          class="w-full h-auto rounded-lg"
-          @play="onPlay(index)"
-          @pause="onPause(index)"
-          controls
-        ></video>
-        <div
-          class="absolute inset-0 flex items-center justify-center"
-          v-if="!isPlaying[index]"
-        >
-          <button
-            class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
-            @click="togglePlay(index)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-gray-900"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z"
-              />
+      <div v-for="(video, index) in videos" :key="index"
+        class="relative bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <video ref="videoRefs" :src="`${url}media/${video}.mp4`" class="w-full h-auto rounded-lg" @play="onPlay(index)"
+          @pause="onPause(index)" controls></video>
+        <div class="absolute inset-0 flex items-center justify-center" v-if="!isPlaying[index]">
+          <button class="bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
+            @click="togglePlay(index)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.752 11.168l-5.197-3.074A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.074a1 1 0 000-1.664z" />
             </svg>
           </button>
         </div>

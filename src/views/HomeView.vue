@@ -61,8 +61,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    class="fixed w-full z-100 h-screen bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]"
-  >
+    class="fixed w-full z-100 h-screen bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
     <div class="text-3xl font-bold mt-[120px] w-full mx-auto max-w-[1320px]"></div>
     <Title />
     <MyDastur />

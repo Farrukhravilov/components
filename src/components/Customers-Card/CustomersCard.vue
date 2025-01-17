@@ -1,17 +1,9 @@
 <template>
   <div class="mt-[60px]">
     <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[20px]">
-      <div
-        v-for="card in cards"
-        :key="card.id"
-        :style="{ transition: 'all 1s ease-in-out' }"
-        class="relative bg-white rounded-lg shadow-lg overflow-hidden"
-      >
-        <img
-          :src="`${url}${card.image}`"
-          :alt="card.title"
-          class="w-full h-[100%] object-cover"
-        />
+      <div v-for="card in cards" :key="card.id" :style="{ transition: 'all 1s ease-in-out' }"
+        class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+        <img :src="`${url}${card.image}`" :alt="card.title" class="w-full h-[100%] object-cover" />
         <div class="p-4 text-center">
           <h3 class="text-lg font-bold text-gray-900">{{ card.title }}</h3>
           <p class="text-sm text-gray-600">{{ card.description }}</p>
@@ -93,7 +85,7 @@ const shuffleCards = () => {
 };
 
 onMounted(() => {
-  shuffleCards(); 
+  shuffleCards();
   setInterval(() => {
     shuffleCards();
   }, 4000);

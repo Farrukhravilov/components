@@ -1,35 +1,39 @@
 <template>
-    <div class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
-        <!-- <Header/> -->
-        <div class="relative mx-auto w-full max-w-[1320px] mt-[60px]">
-            <div class="flex items-center gap-[10px]">
-                <i class="fa-solid fa-slash text-white"></i>
-                <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory1">{{specificCategory1.text}}</h2>
-            </div>
-            <Video />
-        </div>
-        <div class="mx-auto w-full max-w-[1320px] relative mt-[120px]">
-            <div class="flex items-center gap-[10px]">
-                <i class="fa-solid fa-slash text-white"></i>
-                <h2 class="text-white text-[22px] tracking-[3px] uppercase  " v-if="specificCategory2" >{{specificCategory2.text}}</h2>
-            </div>
-            <SmallVideo />
-        </div>
-        <div class="mx-auto w-full max-w-[1320px] relative mt-[100px]">
-            <div class="flex items-center gap-[10px]">
-                <i class="fa-solid fa-slash text-white"></i>
-                <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory3" >{{specificCategory3.text}}</h2>
-            </div>
-            <CustomersCard />
-        </div>
-        <div class="relative mx-auto max-w-[1320px] mt-[35px] pb-[30px]">
-            <div class="flex items-center gap-[10px]">
-                <i class="fa-solid fa-slash text-white"></i>
-                <h2 class="text-white text-[22px] tracking-[3px] uppercase">BIZ BILAN BOG'LANISH</h2>
-            </div>
-            <Footer />
-        </div>
+  <div
+    class="relative w-full z-100 h-[100%] bg-cover bg-center bg-fixed bg-[url('../assets/images/png/back-img-26055c57.png')]">
+    <!-- <Header/> -->
+    <div class="relative mx-auto w-full max-w-[1320px] mt-[60px]">
+      <div class="flex items-center gap-[10px]">
+        <i class="fa-solid fa-slash text-white"></i>
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory1">{{ specificCategory1.text }}
+        </h2>
+      </div>
+      <Video />
     </div>
+    <div class="mx-auto w-full max-w-[1320px] relative mt-[120px]">
+      <div class="flex items-center gap-[10px]">
+        <i class="fa-solid fa-slash text-white"></i>
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase  " v-if="specificCategory2">
+          {{ specificCategory2.text }}</h2>
+      </div>
+      <SmallVideo />
+    </div>
+    <div class="mx-auto w-full max-w-[1320px] relative mt-[100px]">
+      <div class="flex items-center gap-[10px]">
+        <i class="fa-solid fa-slash text-white"></i>
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase" v-if="specificCategory3">{{ specificCategory3.text }}
+        </h2>
+      </div>
+      <CustomersCard />
+    </div>
+    <div class="relative mx-auto max-w-[1320px] mt-[35px] pb-[30px]">
+      <div class="flex items-center gap-[10px]">
+        <i class="fa-solid fa-slash text-white"></i>
+        <h2 class="text-white text-[22px] tracking-[3px] uppercase">BIZ BILAN BOG'LANISH</h2>
+      </div>
+      <Footer />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

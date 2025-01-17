@@ -1,15 +1,11 @@
 <template>
-<div class="relative mx-auto w-full max-w-[1320px]">
-      <h2
-        class="text-white text-[51px] font-normal pt-[180px] uppercase text-center tracking-[5px]"
-      >
-        <span class="text-blue"
-          >QURILISH DAVLAT <br />
-          OBYEKTLARI</span
-        >
-        UCHUN DASTUR
-      </h2>
-</div>
+  <div class="relative mx-auto w-full max-w-[1320px]">
+    <h2 class="text-white text-[51px] font-normal pt-[180px] uppercase text-center tracking-[5px]">
+      <span class="text-blue">QURILISH DAVLAT <br />
+        OBYEKTLARI</span>
+      UCHUN DASTUR
+    </h2>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -60,6 +56,4 @@ onMounted(() => {
 });
 </script>
 
-<style>
-
-</style>
+<style></style>
