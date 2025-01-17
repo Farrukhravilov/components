@@ -4,33 +4,23 @@
     <div class="flex items-center justify-between bg-white p-4 rounded shadow">
       <div class="flex items-center gap-[20px] w-full">
         <div class="flex w-full max-w-[450px]">
-          <div
-            class="border flex items-center bg-gray-300 justify-center border-gray-300 rounded h-[40px] w-[50px]"
-          >
+          <div class="border flex items-center bg-gray-300 justify-center border-gray-300 rounded h-[40px] w-[50px]">
             <span class="text-[#000]">0</span>
           </div>
-          <div
-            class="bg-gray-300 w-[50px] h-[40px] border-l rounded border-gray-200"
-          ></div>
+          <div class="bg-gray-300 w-[50px] h-[40px] border-l rounded border-gray-200"></div>
           <select class="border border-gray-300 rounded p-2 w-full">
             <option>50</option>
             <option>20</option>
             <option>100</option>
           </select>
-          <div
-            class="bg-gray-300 w-[80px] flex items-center justify-center h-[40px]"
-          >
+          <div class="bg-gray-300 w-[80px] flex items-center justify-center h-[40px]">
             <span class="text-[#000]">Ta</span>
           </div>
         </div>
-        <!-- pagination -->
         <Pagination />
       </div>
 
-      <button
-        class="bg-blue-600 text-white rounded-full p-3 flex items-center justify-center"
-        @click="showModal"
-      >
+      <button class="bg-blue-600 text-white rounded-full p-3 flex items-center justify-center" @click="showModal">
         <i class="fas fa-filter"></i>
       </button>
     </div>

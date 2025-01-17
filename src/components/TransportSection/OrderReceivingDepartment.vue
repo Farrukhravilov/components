@@ -20,6 +20,6 @@ import DepartamentHeader from "../TransportSection/DepartamentHeader.vue";
 import DepartamentForm from "../TransportSection/DepartamentForm.vue";
 </script>
 
-<style>
+<style scoped>
 /* Добавьте стили, если нужно */
 </style>

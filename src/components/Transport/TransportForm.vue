@@ -36,19 +36,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr>
-          <td>1</td>
-          <td>Azamat</td>
-          <td>5000 so`m</td>
-          <td>
-            <button class="btn btn-warning btn-sm mr-2 hover:bg-yellow-400">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-error btn-sm hover:bg-red-600">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </td>
-        </tr> -->
       </tbody>
     </table>
   </div>

@@ -85,37 +85,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  //   name: "FilterModal",
-  //   props: {
-  //     isVisible: {
-  //       type: Boolean,
-  //       required: true,
-  //     },
-  //   },
-  //   data() {
-  //     return {
-  //       formData: {
-  //         ism: "",
-  //         izoh: "",
-  //         startDate: "",
-  //         endDate: "",
-  //         xodim: "",
-  //       },
-  //     };
-  //   },
-  //   methods: {
-  //     closeModal() {
-  //       this.$emit("close");
-  //     },
-  //     applyFilters() {
-  //       // Передаем данные обратно родителю
-  //       this.$emit("apply-filters", this.formData);
-  //       this.closeModal();
-  //     },
-  //   },
-};
+<script setup lang="ts"> 
 </script>
 
 <style scoped>

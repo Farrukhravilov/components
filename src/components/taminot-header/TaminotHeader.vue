@@ -13,11 +13,6 @@
         placeholder="Qidiruv"
         class="border border-[#015812] relative rounded-[6px] h-[40px] py-[7px] pr-[7px] pl-[38px]"
       />
-      <!-- <img
-        class="absolute bottom-[9px] left-[11px] w-[20px] h-[20px]"
-        src="@/assets/images/svg/search.svg"
-        alt=""
-      /> -->
     </div>
   </div>
 </template>

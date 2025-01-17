@@ -8,7 +8,6 @@
     </div>
   </div>
   <ShelvesTable />
-  <!--  -->
   <div class="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-[20px] mt-[40px] pl-[15px] pr-[15px] p-1">
     <ShelvesInfoCard v-for="item in 6" />
   </div>

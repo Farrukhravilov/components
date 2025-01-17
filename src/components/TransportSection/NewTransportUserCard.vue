@@ -11,7 +11,6 @@
           <i class="fa-solid fa-truck"></i>
           <p class="text-gray-800 font-bold">{{ branchName }}</p>
         </div>
-        <!-- <p class="text-red-500">{{ daysRemaining }} kun</p> -->
       </div>
     </div>
     <div class="flex flex-col justify-center pb-[15px]">

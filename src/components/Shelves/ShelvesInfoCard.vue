@@ -4,7 +4,6 @@
             <span class="text-[#000] font-normal text-[20px] border-b border-gray-300 w-full pb-[20px] text-center">kirgili</span>
             <p class="text-green-500">1 dona</p>
         </div>
-        <!-- describtion info -->
     </div>
 </template>
 

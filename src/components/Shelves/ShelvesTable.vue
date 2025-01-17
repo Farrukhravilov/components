@@ -14,6 +14,16 @@
           <td>Azizbek</td>
           <td>1 ta</td>
         </tr>
+        <tr>
+          <td>173</td>
+          <td>Azizbek</td>
+          <td>1 ta</td>
+        </tr>
+        <tr>
+          <td>173</td>
+          <td>Azizbek</td>
+          <td>1 ta</td>
+        </tr>
       </tbody>
     </table>
   </div>

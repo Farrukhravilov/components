@@ -22,6 +22,7 @@
   </div>
 </template>
 
-<style></style>
 
-<script></script>
+<script setup lang="ts"></script>
+
+<style></style>
