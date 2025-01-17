@@ -56,3 +56,6 @@ const asideLgCloseClick = (event) => {
     </div>
   </aside>
 </template>
+
+
+<style scoped ></style>

@@ -86,3 +86,6 @@ const menuClick = (event) => {
     />
   </li>
 </template>
+
+
+<style  scoped></style>

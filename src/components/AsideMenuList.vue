@@ -27,3 +27,6 @@ const menuClick = (event, item) => {
     />
   </ul>
 </template>
+
+
+<style scoped ></style>

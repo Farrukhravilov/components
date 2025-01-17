@@ -40,4 +40,4 @@ import TransportUserCard from "../TransportSection/TransportUserCard.vue";
 import NewTransportUserCard from "../TransportSection/NewTransportUserCard.vue";
 </script>
 
-<style></style>
+<style scoped></style>

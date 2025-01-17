@@ -64,7 +64,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import Cancellation from "../Delivery/Cancellation.vue";
-// Данные карточки
 const kv = ref(394);
 const branchName = ref("TEST FILIAL ADMIN");
 const daysRemaining = ref(-425);
@@ -72,17 +71,13 @@ const userName = ref("Humoyun");
 const phoneNumber = ref("+998915887474");
 const amount = ref("27 000");
 
-// Логика подтверждения
 
-// Локальное состояние для модального окна
 const isModalVisible = ref(false);
 
-// Функция для открытия/закрытия модального окна
 function toggleModal() {
   isModalVisible.value = !isModalVisible.value;
 }
 
-// Обработка подтверждения
 function handleConfirm(value: string) {
   console.log("Подтверждено с введенным значением:", value);
   toggleModal();
